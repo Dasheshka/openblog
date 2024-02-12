@@ -41,9 +41,15 @@ const articleDate = pubDate.toISOString()
 				</h1>
 			</div>
 
-			<div class='flex flex-wrap justify-center items-center gap-2 gap-y-4 md:gap-5'>
-				{tags.map((tag) => <Tag tag={tag} />)}
-			</div>
+			{
+				tags && (
+					<div class='flex flex-wrap justify-center items-center gap-2 gap-y-4 md:gap-5'>
+						{tags.map((tag) => (
+							<Tag tag={tag} />
+						))}
+					</div>
+				)
+			}
 		</header>
 
 		<>

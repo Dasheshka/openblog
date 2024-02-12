@@ -22,11 +22,19 @@ type Props = CollectionEntry<'blog'>
 const post = Astro.props
 const MAX_POSTS = 3
 const getRelatedPosts = (post: Props) => {
-	const lowercaseTags = post.data.tags.map((tag) => tag.toLowerCase())
-	const relatedPosts = posts.filter(
-		(p) => p.slug !== post.slug && p.data.tags.some((t) => lowercaseTags.includes(t.toLowerCase()))
-	)
-	return relatedPosts.slice(0, MAX_POSTS)
+	if (post.data.tags) {
+		const lowercaseTags = post.data.tags.map((tag) => tag.toLowerCase())
+		const relatedPosts = posts.filter(
+			(p) =>
+				p.slug !== post.slug &&
+				p.data.tags &&
+				p.data.tags.some((t) => lowercaseTags.includes(t.toLowerCase()))
+		)
+
+		return relatedPosts.slice(0, MAX_POSTS)
+	}
+
+	return null
 }
 
 const relatedPosts = getRelatedPosts(post)
@@ -58,7 +66,7 @@ const { Content, headings, remarkPluginFrontmatter } = await post.render()
 			<!-- related posts -->
 			<footer>
 				<h2 class='font-bold text-lg dark:text-white mb-6'>Artículos Relacionados</h2>
-				<ListRelatedPosts posts={relatedPosts} />
+				{relatedPosts && <ListRelatedPosts posts={relatedPosts} />}
 			</footer>
 		</article>
 	</div>
