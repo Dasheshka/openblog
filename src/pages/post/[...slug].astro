@@ -1,14 +1,12 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content'
-import BlogPost from '@/layouts/BlogPost'
-import Code from '@/components/mdx/Code'
 import ListRelatedPosts from '@/components/ListRelatedPosts'
 import Share from '@/components/Share'
 import TableOfContents from '@/components/TableOfContents'
-import { getPosts } from '@/utils'
+import Code from '@/components/mdx/Code'
 import SButton from '@/components/mdx/SButton'
-import Disqus from '@/components/Disqus'
-import { disqusConfig } from '@/data/disqus.config'
+import BlogPost from '@/layouts/BlogPost'
+import { getPosts } from '@/utils'
+import { getCollection, type CollectionEntry } from 'astro:content'
 
 const posts = await getCollection('blog')
 export async function getStaticPaths() {
@@ -34,8 +32,6 @@ const getRelatedPosts = (post: Props) => {
 const relatedPosts = getRelatedPosts(post)
 
 const { Content, headings, remarkPluginFrontmatter } = await post.render()
-
-const disqusEnabled = disqusConfig.enabled
 ---
 
 <BlogPost
@@ -66,6 +62,4 @@ const disqusEnabled = disqusConfig.enabled
 			</footer>
 		</article>
 	</div>
-
-	{disqusEnabled && <Disqus />}
 </BlogPost>
