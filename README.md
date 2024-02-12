@@ -1,18 +1,18 @@
 ## 📌 Table Of Contents
 
-2. [CMS](#-Tina-CMS)
-3. [Stack](#-Stack)
-4. [Running locally](#-Running-Locally)
-5. [Configure](#-Configure)
-6. [Categories](#-Adding-a-category)
-7. [Posts](#-Adding-a-post)
-8. [Draft](#-Activating-draft-mode)
-9. [FrontMatter](#-Frontmatter)
-10. [CLI](#-Commands)
+1. [CMS](#-Tina-CMS)
+2. [Stack](#-Stack)
+3. [Running locally](#-Running-Locally)
+4. [Configure](#-Configure)
+5. [Categories](#-Adding-a-category)
+6. [Posts](#-Adding-a-post-from-the-code)
+7. [Draft](#-Activating-draft-mode-from-the-code)
+8. [Frontmatter](#-Frontmatter)
+9. [CLI](#-Commands)
 
 ## 🦙 Tina CMS
 
-The project uses [Tina CMS](https://tina.io/).
+This project uses [Tina CMS](https://tina.io/).
 
 ## ⚙️ Stack
 
