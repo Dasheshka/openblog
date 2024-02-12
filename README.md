@@ -1,13 +1,13 @@
 ## 📌 Table Of Contents
 
 1. [CMS](#-tina-CMS)
-2. [Stack](#-stack)
+2. [Stack](#%EF%B8%8F-stack)
 3. [Running locally](#-running-Locally)
 4. [Configure](#-configure)
-5. [Categories](#-adding-a-category)
+5. [Categories](#%EF%B8%8F-adding-a-category)
 6. [Posts](#-adding-a-post-from-the-code)
 7. [Draft](#-activating-draft-mode-from-the-code)
-8. [Frontmatter](#-frontmatter)
+8. [Frontmatter](#%EF%B8%8F-frontmatter)
 9. [CLI](#-commands)
 
 ## 🦙 Tina CMS
