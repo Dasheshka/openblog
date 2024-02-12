@@ -54,13 +54,13 @@ pnpm dev
 
 ## 📐 Configure
 
-- Edit the configuration file **src/data/site.config.ts** for the basic blog metadata.
-- Update the **astro.config.mjs** file at the root of the project with your own domain.
+- Edit the configuration file **src/data/site.config.ts** for the basic blog metadata
+- Update the **astro.config.mjs** file at the root of the project with your own domain
 - Modify the files in the **/public** folder:
   - favicon
   - robots.txt -> update the Sitemap url to your own domain
-  - open-graph -> the open-graph is the image that will be displayed when sharing the blog link. For posts, the preview image is the post cover.
-- Edit the social networks in the Header component - **src/components/Header.astro**, change the URL to your social network.
+  - open-graph -> the open-graph is the image that will be displayed when sharing the blog link. For posts, the preview image is the post cover
+- Edit the social networks in the Header component - **src/components/Header.astro**, change the URL to your social network
 
 ## 🗂️ Adding a category
 
@@ -76,13 +76,13 @@ export  const  CATEGORIES  =  [
 ]  as  const
 ```
 
-> 🚨 Zod checks whether the category is not correctly written or does not exist in the properties of the markdown document. **It will throw an error when building the application.** 🚨
+> 🚨 Zod checks whether the category is not correctly written or does not exist in the properties of the markdown document. **It will throw an error when building the application** 🚨
 
 ## 📄 Adding a post from the code
 
 Adding a post is as simple as adding a .md or .mdx file to the blog folder at the path **src/content/blog**. The filename will be used to create the slug/URL of the page.
 
-For example, if you have a file named **my-new-post.md**, it will be transformed into: **http://yourdomain.com/post/my-new-post/**
+For example, if you have a file named **my-new-post.md**, it will be transformed into: **https://your.domain/post/my-new-post/**
 
 ## 📝 Activating draft mode from the code
 
@@ -116,7 +116,7 @@ draft: true <---
 - tags
 
 > The schema for posts is located at src/content/config.ts. You can modify any parameter, for example, by adding a maximum of 80 characters for titles: title: z.string().max(80).
-> For more information, refer to the Zod documentation.
+> For more information, refer to the [Zod documentation](https://zod.dev/).
 
 ## 🧞 Commands
 
