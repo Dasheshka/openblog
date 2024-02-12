@@ -76,13 +76,13 @@ export  const  CATEGORIES  =  [
 ]  as  const
 ```
 
-> 🚨 Zod checks whether the category is not correctly written or does not exist in the properties of the markdown document. **It will throw an error when building the application** 🚨
+> 🚨 Zod checks whether the category is not correctly written or does not exist in the properties of the markdown document. **It will throw an error when building the application**.
 
 ## 📄 Adding a post from the code
 
 Adding a post is as simple as adding a .md or .mdx file to the blog folder at the path **src/content/blog**. The filename will be used to create the slug/URL of the page.
 
-For example, if you have a file named **my-new-post.md**, it will be transformed into: **https://your.domain/post/my-new-post/**
+For example, if you have a file named **my-new-post.md**, it will be transformed into: `https://your.domain/post/my-new-post/`
 
 ## 📝 Activating draft mode from the code
 
