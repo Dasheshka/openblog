@@ -1,15 +1,15 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout'
-import ListPosts from '@/components/ListPosts'
-import TitlePage from '@/components/TitlePage'
-import { getTags, getPostByTag } from '@/utils'
+import ListPosts from '@/components/ListPosts.astro'
+import TitlePage from '@/components/TitlePage.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { getPostByTag, getTags } from '@/utils'
 
 export async function getStaticPaths() {
 	const tags = await getTags()
 
 	return tags.map((tag) => ({
-		params: { tag },
-		props: { tag }
+		params: { tag: tag as string },
+		props: { tag: tag as string }
 	}))
 }
 
