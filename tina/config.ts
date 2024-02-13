@@ -8,7 +8,6 @@ export default defineConfig({
 	branch,
 	clientId: null, // Get this from tina.io
 	token: null, // Get this from tina.io
-
 	build: {
 		outputFolder: 'admin',
 		publicFolder: 'public'
@@ -22,83 +21,70 @@ export default defineConfig({
 	schema: {
 		collections: [
 			{
-				name: 'post',
-				label: 'Blog Post',
 				path: 'src/content/blog',
 				format: 'mdx',
+				name: 'post',
+				label: 'Blog Posts',
+				defaultItem: () => {
+					return {
+						pubDate: new Date()
+					}
+				},
 				fields: [
 					{
+						type: 'string',
+						required: true,
+						isTitle: true,
+						name: 'title',
+						label: 'Title'
+					},
+					{
+						type: 'string',
+						required: true,
+						name: 'description',
+						label: 'Description',
+						description: 'A short description of the post or an excerpt'
+					},
+					{
 						type: 'image',
-						label: 'Cover Image',
 						required: true,
 						name: 'heroImage',
-						description: 'The image used for the cover of the post'
+						label: 'Cover Image'
 					},
-
 					{
 						type: 'string',
 						required: true,
 						name: 'category',
 						label: 'Category',
-						description: 'Select an category for this post',
 						options: [...CATEGORIES]
 					},
 					{
 						type: 'string',
-						label: 'description',
-						required: true,
-						name: 'description',
-						description: 'A short description of the post'
-					},
-					{
-						type: 'datetime',
-						name: 'pubDate',
-						label: 'Publication Date',
-						required: true
-					},
-					{
-						name: 'draft',
-						label: 'Draft',
-						type: 'boolean',
-						description: 'If this is checked the post will not be published'
-					},
-					{
-						type: 'string',
+						list: true,
 						name: 'tags',
 						label: 'Tags',
-						description: 'Tags for this post',
-						list: true,
 						ui: {
 							component: 'tags'
 						}
 					},
 					{
-						type: 'string',
-						name: 'title',
-						label: 'Title',
-						isTitle: true,
-						required: true
+						type: 'datetime',
+						required: true,
+						name: 'pubDate',
+						label: 'Publication Date'
+					},
+					{
+						type: 'boolean',
+						name: 'draft',
+						label: 'Draft',
+						description:
+							'The post will not be published and will not be visible on the website, if this is checked'
 					},
 					{
 						type: 'rich-text',
-						label: 'Body',
-						name: 'SButton',
 						isBody: true,
-						templates: [
-							// Custom Components
-							{
-								label: 'SButton',
-								name: 'SButton',
-								fields: [
-									{
-										type: 'rich-text',
-										label: 'SButton',
-										name: 'children',
-										isBody: true
-									}
-								]
-							}
-						]
+						name: 'body',
+						label: 'Body'
 					}
 				]
 			}
