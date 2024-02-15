@@ -10,7 +10,7 @@
 		"url": "https://github.com/blueambr/openblog/issues"
 	},
 	"scripts": {
-		"dev": "npx tinacms dev -c \"astro dev\"",
+		"dev": "pnpm dlx tinacms dev -c \"astro dev\"",
 		"start": "astro dev",
 		"build": "astro build",
 		"sync": "astro sync",
