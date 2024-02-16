@@ -1,9 +1,21 @@
+import { CATEGORIES } from "@/data/categories";
 import { getCollection } from "astro:content";
 
 export const getCategories = async () => {
   const posts = await getCollection("blog");
-  const categories = new Set(posts.map((post) => post.data.category));
-  return Array.from(categories);
+  const categoriesValues = new Set(posts.map((post) => post.data.category));
+  const categoriesValuesArray = Array.from(categoriesValues);
+  let categoriesLabelsArray: { label: string; value: string }[] = [];
+
+  categoriesValuesArray.forEach((val) => {
+    CATEGORIES.forEach((category) => {
+      if (category.value === val) {
+        categoriesLabelsArray.push(category);
+      }
+    });
+  });
+
+  return categoriesLabelsArray;
 };
 
 export const getPosts = async (max?: number) => {
@@ -35,7 +47,7 @@ export const getPostByTag = async (tag: string) => {
   });
 };
 
-export const filterPostsByCategory = async (category: string) => {
+export const filterPostsByCategory = async (category: { label: string; value: string }) => {
   const posts = await getPosts();
-  return posts.filter((post) => post.data.category.toLowerCase() === category);
+  return posts.filter((post) => post.data.category === category.value);
 };

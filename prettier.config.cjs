@@ -14,6 +14,12 @@ module.exports = {
       options: {
         parser: "astro"
       }
+    },
+    {
+      files: "*.mdoc",
+      options: {
+        parser: "mdx"
+      }
     }
   ]
 };
