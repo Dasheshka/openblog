@@ -10,8 +10,8 @@
 		"url": "https://github.com/blueambr/openblog/issues"
 	},
 	"scripts": {
-		"dev": "astro dev",
-		"start": "astro dev",
+		"dev": "astro dev --host 127.0.0.1",
+		"start": "astro dev --host 127.0.0.1",
 		"build": "astro build",
 		"sync": "astro sync",
 		"preview": "astro preview",
@@ -23,9 +23,17 @@
 		"prepare": "husky install"
 	},
 	"dependencies": {
+		"@astrojs/markdoc": "^0.9.0",
+		"@astrojs/react": "^3.0.10",
 		"@astrojs/rss": "4.0.1",
+		"@keystatic/astro": "^3.0.2",
+		"@keystatic/core": "^0.3.19",
+		"@types/react": "^18.2.55",
+		"@types/react-dom": "^18.2.19",
 		"astro": "4.0.8",
-		"astro-font": "^0.0.72"
+		"astro-font": "^0.0.72",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0"
 	},
 	"devDependencies": {
 		"@astrojs/mdx": "2.0.3",
