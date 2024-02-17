@@ -10,7 +10,6 @@ const blog = defineCollection({
       heroImage: image(),
       category: z.enum(CATEGORIESENUM),
       tags: z.array(z.string()).optional(),
-      // Transform string to Date object
       pubDate: z
         .string()
         .or(z.date())
