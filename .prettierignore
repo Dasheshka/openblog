@@ -1,6 +1,7 @@
-test/fixtures/**/*.md
-test/fixtures/**/*.astro
-**/dist
-pnpm-lock.yaml
-.github
-.changeset
+.astro
+.husky
+*-lock.*
+build
+dist
+node_modules
+test/fixtures

@@ -16,8 +16,8 @@
     "sync": "astro sync",
     "preview": "astro preview",
     "postbuild": "pagefind --site dist",
-    "format:check": "prettier --plugin-search-dir=. --check .",
-    "format": "prettier --plugin-search-dir=. --write .",
+    "format:check": "prettier --check ./**/*.{css,astro,js,jsx,ts,tsx,cjs,mjs,md,mdx,mdoc,json,yaml}",
+    "format": "prettier --write ./**/*.{css,astro,js,jsx,ts,tsx,cjs,mjs,md,mdx,mdoc,json,yaml}",
     "lint": "eslint .",
     "pre-commit": "lint-staged",
     "prepare": "husky install"
@@ -60,8 +60,8 @@
     "typescript": "^5.2.2"
   },
   "lint-staged": {
-    "*.{astro,js,jsx,ts,tsx,md,mdoc,mdx,json}": [
-      "prettier --write --plugin-search-dir=."
+    "./**/*.{css,astro,js,jsx,ts,tsx,cjs,mjs,md,mdx,mdoc,json,yaml}": [
+      "prettier --write"
     ]
   }
 }
