@@ -27,20 +27,20 @@ export async function getStaticPaths({ paginate }: any) {
       params: {
         category: category.value
       },
+      props: { category: category },
       pageSize: siteConfig.paginationSize
     });
   });
 }
 
-const params = Astro.params;
-const { page } = Astro.props;
+const { page, category } = Astro.props;
 
 const posts = page.data;
 ---
 
-<BaseLayout title={params.category.label}>
-  <TitlePage title={params.category.label} />
-  <ListCategories activeCategory={params.category.value} />
+<BaseLayout title={category.label}>
+  <TitlePage title={category.label} />
+  <ListCategories activeCategory={category.value} />
   <ListPosts posts={posts} />
   <Pagination page={page} />
 </BaseLayout>

@@ -8,17 +8,17 @@ export async function getStaticPaths() {
   const tags = await getTags();
 
   return tags.map((tag) => ({
-    params: { tag: tag as string },
-    props: { tag: tag as string }
+    params: { tag: tag.value },
+    props: { tag: tag }
   }));
 }
 
 const { tag } = Astro.props;
 
-const posts = await getPostByTag(tag);
+const posts = await getPostByTag(tag.value);
 ---
 
-<BaseLayout title={tag}>
-  <TitlePage title={tag} />
+<BaseLayout title={tag.label}>
+  <TitlePage title={tag.label} />
   <ListPosts posts={posts} />
 </BaseLayout>

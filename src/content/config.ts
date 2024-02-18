@@ -1,14 +1,12 @@
-import { CATEGORIESENUM } from "@/data/categories";
 import { defineCollection, z } from "astro:content";
 
 const blog = defineCollection({
-  // Type-check frontmatter using a schema
   schema: ({ image }) =>
     z.object({
       title: z.string().max(80),
       description: z.string(),
       heroImage: image(),
-      category: z.enum(CATEGORIESENUM),
+      category: z.string(),
       tags: z.array(z.string()).optional(),
       pubDate: z
         .string()

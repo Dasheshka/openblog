@@ -1,5 +1,4 @@
-import { CATEGORIES } from "@/data/categories";
-import { TAGS } from "@/data/tags";
+import { CATEGORIES, TAGS } from "@/data/sets";
 import { collection, config, fields } from "@keystatic/core";
 
 export default config({

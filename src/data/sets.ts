@@ -6,4 +6,10 @@ export const CATEGORIES = [
   { label: "Category 5", value: "category-5" }
 ];
 
-export const CATEGORIESENUM = ["category-1", "category-2", "category-3", "category-4", "category-5"] as const;
+export const TAGS = [
+  { label: "Tag 1", value: "tag-1" },
+  { label: "Tag 2", value: "tag-2" },
+  { label: "Tag 3", value: "tag-3" },
+  { label: "Tag 4", value: "tag-4" },
+  { label: "Tag 5", value: "tag-5" }
+];
