@@ -6,11 +6,12 @@
     "verbatimModuleSyntax": true,
     "paths": {
       "@/components/*": ["src/components/*"],
-      "@/layouts/*": ["src/layouts/*"],
-      "@/utils": ["src/utils/index.ts"],
       "@/data/*": ["src/data/*"],
+      "@/layouts/*": ["src/layouts/*"],
+      "@/lib/*": ["src/lib/*"],
       "@/site-config": ["src/data/site.config.ts"],
-      "@/styles": ["src/styles/"]
+      "@/styles": ["src/styles/"],
+      "@/utils": ["src/utils/index.ts"]
     }
   },
   "exclude": ["node_modules", "**/node_modules/*", ".vscode", "dist"]

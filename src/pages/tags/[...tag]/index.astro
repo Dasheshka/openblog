@@ -2,7 +2,7 @@
 import ListPosts from "@/components/ListPosts.astro";
 import TitlePage from "@/components/TitlePage.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { getPostByTag, getTags } from "@/utils";
+import { getPostByTag, getTags } from "@/lib/content";
 
 export async function getStaticPaths() {
   const tags = await getTags();
@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 
 const { tag } = Astro.props;
 
-const posts = await getPostByTag(tag.value);
+const posts = await getPostByTag(tag);
 ---
 
 <BaseLayout title={tag.label}>

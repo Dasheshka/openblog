@@ -3,7 +3,8 @@ import ListRelatedPosts from "@/components/ListRelatedPosts.astro";
 import Share from "@/components/Share.astro";
 import TableOfContents from "@/components/TableOfContents.astro";
 import BlogPost from "@/layouts/BlogPost.astro";
-import { getPosts, readingTime } from "@/utils";
+import { getPosts } from "@/lib/content";
+import { readingTime } from "@/utils";
 import { getCollection, type CollectionEntry } from "astro:content";
 
 const posts = await getCollection("blog");
