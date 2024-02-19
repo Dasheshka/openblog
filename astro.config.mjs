@@ -8,5 +8,5 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
   site: "https://your.domain/", // Write here your website url
   integrations: [keystatic(), markdoc(), react(), sitemap(), tailwind()],
-  output: "hybrid"
+  output: "hybrid",
 });

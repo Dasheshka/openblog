@@ -9,7 +9,7 @@ export async function getStaticPaths() {
 
   return tags.map((tag) => ({
     params: { tag: tag.value },
-    props: { tag: tag }
+    props: { tag: tag },
   }));
 }
 

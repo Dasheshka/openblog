@@ -6,7 +6,11 @@ import SearchIcon from "@/components/icons/SearchIcon.astro";
 ---
 
 <site-search id="search" class="ms-auto">
-  <button data-open-modal disabled class="flex items-center justify-center rounded-md gap-1">
+  <button
+    data-open-modal
+    disabled
+    class="flex items-center justify-center rounded-md gap-1"
+  >
     <SearchIcon />
     <!-- <span class='md:hidden text-2xl'> Search</span> -->
   </button>
@@ -43,14 +47,22 @@ import SearchIcon from "@/components/icons/SearchIcon.astro";
   class SiteSearch extends HTMLElement {
     constructor() {
       super();
-      const openBtn = this.querySelector<HTMLButtonElement>("button[data-open-modal]")!;
-      const closeBtn = this.querySelector<HTMLButtonElement>("button[data-close-modal]")!;
+      const openBtn = this.querySelector<HTMLButtonElement>(
+        "button[data-open-modal]",
+      )!;
+      const closeBtn = this.querySelector<HTMLButtonElement>(
+        "button[data-close-modal]",
+      )!;
       const dialog = this.querySelector("dialog")!;
       const dialogFrame = this.querySelector(".dialog-frame")!;
 
       const onWindowClick = (event: MouseEvent) => {
         // make sure the click is outside the of the dialog
-        if (document.body.contains(event.target as Node) && !dialogFrame.contains(event.target as Node)) closeModal();
+        if (
+          document.body.contains(event.target as Node) &&
+          !dialogFrame.contains(event.target as Node)
+        )
+          closeModal();
       };
 
       const openModal = (event?: MouseEvent) => {
@@ -59,10 +71,13 @@ import SearchIcon from "@/components/icons/SearchIcon.astro";
         animate(
           "dialog",
           {
-            clipPath: ["polygon(0 0, 100% 0, 100% -200%, -200% -200%)", "polygon(0 0, 100% 0, 100% 100%, 0% 100%)"],
-            opacity: [0, 1]
+            clipPath: [
+              "polygon(0 0, 100% 0, 100% -200%, -200% -200%)",
+              "polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
+            ],
+            opacity: [0, 1],
           },
-          { duration: 0.2 }
+          { duration: 0.2 },
         );
         document.body.classList.add("overflow-hidden");
         this.querySelector("input")?.focus();
@@ -91,15 +106,17 @@ import SearchIcon from "@/components/icons/SearchIcon.astro";
 
       window.addEventListener("DOMContentLoaded", () => {
         if (import.meta.env.DEV) return;
-        const onIdle = window.requestIdleCallback || ((cb) => setTimeout(cb, 1));
+        const onIdle =
+          window.requestIdleCallback || ((cb) => setTimeout(cb, 1));
         onIdle(async () => {
           // @ts-ignore
           const { PagefindUI } = await import("@pagefind/default-ui");
           new PagefindUI({
             element: "#pagefind__search",
             baseUrl: import.meta.env.BASE_URL,
-            bundlePath: import.meta.env.BASE_URL.replace(/\/$/, "") + "/pagefind/",
-            showImages: false
+            bundlePath:
+              import.meta.env.BASE_URL.replace(/\/$/, "") + "/pagefind/",
+            showImages: false,
           });
         });
       });

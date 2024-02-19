@@ -12,23 +12,25 @@ export async function getStaticPaths({ paginate }: any) {
   const allPosts = await getPosts();
 
   return categories.flatMap((category) => {
-    const filteredPosts = allPosts.filter((post) => post.data.category === category.value);
+    const filteredPosts = allPosts.filter(
+      (post) => post.data.category === category.value,
+    );
 
     console.log(
       paginate(filteredPosts, {
         params: {
-          category: category.value
+          category: category.value,
         },
-        pageSize: siteConfig.paginationSize
-      })
+        pageSize: siteConfig.paginationSize,
+      }),
     );
 
     return paginate(filteredPosts, {
       params: {
-        category: category.value
+        category: category.value,
       },
       props: { category: category },
-      pageSize: siteConfig.paginationSize
+      pageSize: siteConfig.paginationSize,
     });
   });
 }

@@ -10,9 +10,16 @@ const { activeCategory } = Astro.props;
   <Category />
   {
     categories.map((category) => (
-      <Category name={category.label} value={category.value} activeCategory={activeCategory} />
+      <Category
+        name={category.label}
+        value={category.value}
+        activeCategory={activeCategory}
+      />
     ))
   }
 
-  <div class="hidden sm:block absolute w-full bottom-0 border-b-2 -z-40 dark:border-gray-600"></div>
+  <div
+    class="hidden sm:block absolute w-full bottom-0 border-b-2 -z-40 dark:border-gray-600"
+  >
+  </div>
 </div>

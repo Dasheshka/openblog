@@ -5,13 +5,13 @@ export default defineMarkdocConfig({
   extends: [
     shiki({
       theme: "material-theme-ocean",
-      wrap: true
-    })
+      wrap: true,
+    }),
   ],
   nodes: {
     document: {
       ...nodes.document,
-      render: null
-    }
-  }
+      render: null,
+    },
+  },
 });

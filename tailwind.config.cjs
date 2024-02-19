@@ -7,15 +7,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        white: "#f8f9fa"
+        white: "#f8f9fa",
       },
       fontFamily: {
-        body: ["Manrope", ...defaultTheme.fontFamily.sans]
+        body: ["Manrope", ...defaultTheme.fontFamily.sans],
       },
       gridTemplateColumns: {
-        list: "repeat(auto-fill, minmax(400px, max-content))"
-      }
-    }
+        list: "repeat(auto-fill, minmax(400px, max-content))",
+      },
+    },
   },
-  plugins: [require("@tailwindcss/typography")]
+  plugins: [require("@tailwindcss/typography")],
 };
