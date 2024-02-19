@@ -1,6 +1,6 @@
 ---
 import { siteConfig } from "@/site-config";
-import "../styles/global.css";
+import "@/styles/global.css";
 import { ViewTransitions } from "astro:transitions";
 
 export interface Props {
@@ -24,8 +24,8 @@ const titleSeparator = "•";
 
 const siteTitle = `${title} ${titleSeparator} ${siteConfig.title}`;
 
-import { join } from "path";
 import { AstroFont } from "astro-font";
+import { join } from "path";
 ---
 
 <!-- ViewTransitions  -->

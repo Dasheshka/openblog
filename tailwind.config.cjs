@@ -6,14 +6,8 @@ module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,ts,tsx,md,mdoc,mdx}"],
   theme: {
     extend: {
-      colors: {
-        white: "#f8f9fa",
-      },
       fontFamily: {
         body: ["Manrope", ...defaultTheme.fontFamily.sans],
-      },
-      gridTemplateColumns: {
-        list: "repeat(auto-fill, minmax(400px, max-content))",
       },
     },
   },
