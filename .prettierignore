@@ -1,7 +1,5 @@
 .astro
 .husky
 *-lock.*
-build
 dist
 node_modules
-test/fixtures

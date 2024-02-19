@@ -1,9 +1,7 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "strictNullChecks": true,
-    "baseUrl": ".",
-    "verbatimModuleSyntax": true,
+    "baseUrl": "./",
     "paths": {
       "@/components/*": ["src/components/*"],
       "@/data/*": ["src/data/*"],
@@ -14,5 +12,5 @@
       "@/utils": ["src/utils/index.ts"]
     }
   },
-  "exclude": ["node_modules", "**/node_modules/*", ".vscode", "dist"]
+  "exclude": [".vscode", "dist", "node_modules"]
 }

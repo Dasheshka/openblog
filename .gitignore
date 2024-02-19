@@ -17,6 +17,3 @@ node_modules
 
 # macOS-specific files
 .DS_Store
-
-# misc
-tina-lock.json
