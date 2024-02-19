@@ -4,11 +4,10 @@ import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
 import ProviderAnimations from "@/components/ProviderAnimations.astro";
 import ProviderTheme from "@/components/ProviderTheme.astro";
-import TwSizeIndicator from "@/components/TwSizeIndicator.astro";
 const { title, description, image, articleDate } = Astro.props;
 ---
 
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth antialiased">
   <head>
     <BaseHead
       title={title}
@@ -19,20 +18,17 @@ const { title, description, image, articleDate } = Astro.props;
     <ProviderTheme />
     <ProviderAnimations />
   </head>
-
-  <body class="bg-white text-stone-950 dark:bg-[#0a0910] dark:text-white">
-    <main
-      class="px-5 sm:mx-auto sm:max-w-2xl sm:px-8 lg:px-0 antialiased md:max-w-6xl grid gap-12 mt-4 overflow-hidden md:overflow-visible"
+  <body
+    class="bg-slate-50 text-slate-950 dark:bg-slate-950 dark:text-slate-50 font-body"
+  >
+    <div
+      class="px-4 pt-2 lg:px-8 lg:pt-4 mx-auto min-h-screen flex flex-col gap-8 lg:gap-12 container overflow-hidden"
     >
       <Header />
-      <slot />
+      <main class="grid gap-8 lg:gap-12">
+        <slot />
+      </main>
       <Footer />
-    </main>
-    <TwSizeIndicator />
-    <style>
-      body {
-        margin-left: calc(100vw - 100%); /* prevent layout shift */
-      }
-    </style>
+    </div>
   </body>
 </html>
