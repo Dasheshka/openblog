@@ -1,7 +1,8 @@
 ---
-const { name, class: className } = Astro.props;
+import { cn } from "@/utils";
+const { name, size = "sm", class: className } = Astro.props;
 ---
 
-<svg class={className}>
+<svg class={cn(size === "sm" && "h-6 w-6 ", className)}>
   <use href=`/sprite.svg#${name}`></use>
 </svg>
