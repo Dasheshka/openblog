@@ -19,16 +19,12 @@ const { title, description, image, articleDate } = Astro.props;
     <ProviderAnimations />
   </head>
   <body
-    class="bg-slate-50 text-slate-950 dark:bg-slate-950 dark:text-slate-50 font-body"
+    class="bg-slate-50 text-slate-950 dark:bg-slate-950 dark:text-slate-50 font-body px-4 pt-2 lg:px-8 lg:pt-4 mx-auto min-h-screen flex flex-col gap-8 lg:gap-12 container overflow-x-hidden"
   >
-    <div
-      class="px-4 pt-2 lg:px-8 lg:pt-4 mx-auto min-h-screen flex flex-col gap-8 lg:gap-12 container overflow-hidden"
-    >
-      <Header />
-      <main class="grid gap-8 lg:gap-12">
-        <slot />
-      </main>
-      <Footer />
-    </div>
+    <Header />
+    <main class="grid gap-8 lg:gap-12">
+      <slot />
+    </main>
+    <Footer />
   </body>
 </html>

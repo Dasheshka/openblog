@@ -1,0 +1,7 @@
+---
+const { name, class: className } = Astro.props;
+---
+
+<svg class={className}>
+  <use href=`/sprite.svg#${name}`></use>
+</svg>

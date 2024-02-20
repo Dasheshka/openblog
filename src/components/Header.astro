@@ -1,7 +1,7 @@
 ---
+import Icon from "@/components/Icon.astro";
 import Search from "@/components/Search.astro";
 import ToggleTheme from "./ToggleTheme.astro";
-import TagIcon from "./icons/TagIcon.astro";
 ---
 
 <header
@@ -12,7 +12,7 @@ import TagIcon from "./icons/TagIcon.astro";
   <div class="flex items-center gap-6">
     <nav>
       <a href="/tags">
-        <TagIcon />
+        <Icon name="tags" class="w-8 h-8" />
       </a>
     </nav>
     <Search />
