@@ -2,7 +2,11 @@
 import Icon from "@/components/Icon.astro";
 ---
 
-<button id="themeToggle">
+<button
+  id="themeToggle"
+  class="ghost"
+  aria-label="Toggle between the light and the dark theme for the website"
+>
   <Icon name="sun" class="hidden dark:block" />
   <Icon name="moon" class="dark:hidden" />
 </button>

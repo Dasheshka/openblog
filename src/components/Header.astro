@@ -5,16 +5,18 @@ import ThemeToggle from "./ThemeToggle.astro";
 ---
 
 <header
-  class="flex items-center justify-between font-semibold"
+  class="flex items-center justify-between gap-6 pt-4 lg:pt-8"
   transition:persist
 >
-  <a class="text-lg" href="/">Home</a>
+  <nav class="flex items-center gap-6">
+    <a class="ghost" href="/" aria-label="Go to the Home page">
+      <Icon name="home" />
+    </a>
+    <a class="ghost" href="/tags" aria-label="Go to the Tags page">
+      <Icon name="tags" />
+    </a>
+  </nav>
   <div class="flex items-center gap-6">
-    <nav>
-      <a href="/tags">
-        <Icon name="tags" />
-      </a>
-    </nav>
     <Search />
     <ThemeToggle />
   </div>
