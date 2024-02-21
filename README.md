@@ -55,4 +55,5 @@ pnpm dev
 
 - slate-50
 - slate-950
+- violet-500
 - violet-900

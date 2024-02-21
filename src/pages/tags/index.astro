@@ -1,11 +1,11 @@
 ---
 import TitlePage from "@/components/TitlePage.astro";
-import BaseLayout from "@/layouts/BaseLayout.astro";
+import Common from "@/layouts/Common.astro";
 import { getTags } from "@/lib/content";
 const tags = await getTags();
 ---
 
-<BaseLayout title="Tags">
+<Common title="Tags">
   <TitlePage title="Tags" />
   <div class="flex flex-wrap justify-center gap-4">
     {
@@ -19,4 +19,4 @@ const tags = await getTags();
       ))
     }
   </div>
-</BaseLayout>
+</Common>

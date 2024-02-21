@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import FormattedDate from "@/components/FormattedDate.astro";
-import BaseLayout from "@/layouts/BaseLayout.astro";
+import Common from "@/layouts/Common.astro";
 import Tag from "@/components/Tag.astro";
 import type { MarkdownHeading } from "astro";
 import { Image } from "astro:assets";
@@ -19,7 +19,7 @@ const { title, description, pubDate, heroImage, tags } = data;
 const articleDate = pubDate.toISOString();
 ---
 
-<BaseLayout
+<Common
   title={title}
   description={description}
   image={heroImage?.src}
@@ -78,7 +78,7 @@ const articleDate = pubDate.toISOString();
       <slot />
     </div>
   </article>
-</BaseLayout>
+</Common>
 
 <script>
   const fnObserver = () => {

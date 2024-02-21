@@ -4,7 +4,7 @@ import ListPosts from "@/components/ListPosts.astro";
 import Pagination from "@/components/Pagination.astro";
 import TitlePage from "@/components/TitlePage.astro";
 import { siteConfig } from "@/data/site.config";
-import BaseLayout from "@/layouts/BaseLayout.astro";
+import Common from "@/layouts/Common.astro";
 import { getCategories, getPosts } from "@/lib/content";
 
 export async function getStaticPaths({ paginate }: any) {
@@ -40,9 +40,9 @@ const { page, category } = Astro.props;
 const posts = page.data;
 ---
 
-<BaseLayout title={category.label}>
+<Common title={category.label}>
   <TitlePage title={category.label} />
   <ListCategories activeCategory={category.value} />
   <ListPosts posts={posts} />
   <Pagination page={page} />
-</BaseLayout>
+</Common>
