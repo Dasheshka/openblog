@@ -1,6 +1,7 @@
 ---
 import Icon from "@/components/Icon.astro";
 import Search from "@/components/Search.astro";
+import { t } from "@/utils";
 import ThemeToggle from "./ThemeToggle.astro";
 ---
 
@@ -9,10 +10,10 @@ import ThemeToggle from "./ThemeToggle.astro";
   transition:persist
 >
   <nav class="flex items-center gap-6">
-    <a class="ghost" href="/" aria-label="Go to the Home page">
+    <a class="ghost" href="/" aria-label={t("header.home")}>
       <Icon name="home" />
     </a>
-    <a class="ghost" href="/tags" aria-label="Go to the Tags page">
+    <a class="ghost" href="/tags" aria-label={t("header.tags")}>
       <Icon name="tags" />
     </a>
   </nav>

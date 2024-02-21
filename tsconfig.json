@@ -9,6 +9,7 @@
       "@/lib/*": ["src/lib/*"],
       "@/styles/*": ["src/styles/*"],
       "@/site-config": ["src/data/site.config.ts"],
+      "@/t/*": ["src/i18n/*"],
       "@/utils": ["src/utils/index.ts"]
     }
   },

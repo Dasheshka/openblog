@@ -1,10 +1,15 @@
 ---
 import Icon from "@/components/Icon.astro";
 import "@pagefind/default-ui/css/ui.css";
+import { t } from "@/utils";
 ---
 
 <div class="flex">
-  <button id="searchDialogTrigger" class="ghost" aria-label="Show Search">
+  <button
+    id="searchDialogTrigger"
+    class="ghost"
+    aria-label={t("search.trigger")}
+  >
     <Icon name="search" />
   </button>
   <dialog
