@@ -39,7 +39,6 @@ import Icon from "@/components/Icon.astro";
     .getElementById("themeToggle")
     .addEventListener("click", handleToggleClick);
 
-  // https://docs.astro.build/en/guides/view-transitions/#astroafter-swap
   document.addEventListener("astro:after-swap", () => {
     if (localStorage.getItem("theme") === "dark") {
       document.documentElement.classList.add("dark");

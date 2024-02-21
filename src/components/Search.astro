@@ -1,37 +1,83 @@
 ---
 import Icon from "@/components/Icon.astro";
-// import "@pagefind/default-ui/css/ui.css";
+import "@pagefind/default-ui/css/ui.css";
 ---
 
-<button>
-  <Icon name="search" />
-  <!-- <div id="search"></div> -->
-</button>
+<div class="flex">
+  <button id="searchDialogTrigger">
+    <Icon name="search" />
+  </button>
+  <dialog
+    id="searchDialog"
+    class="w-2/3 rounded-lg border-0 bg-slate-50 p-4 backdrop:bg-slate-950/75 dark:bg-slate-950"
+  >
+    {
+      import.meta.env.DEV ? (
+        <div class="mx-auto text-center dark:text-slate-50">
+          <p>
+            Search is only available in production builds. <br />
+            Run `pnpm preview` to test it out locally.
+          </p>
+        </div>
+      ) : (
+        <div id="search" />
+      )
+    }
+  </dialog>
+</div>
 
-<!-- <script>
+<script>
+  const dialog = document.getElementById("searchDialog") as HTMLDialogElement;
+  const dialogTrigger = document.getElementById("searchDialogTrigger");
+
+  const showModal = (e: Event) => {
+    e.preventDefault();
+    dialog.showModal();
+  };
+
+  dialog.addEventListener("click", (e) => {
+    if (e.target === dialog) {
+      dialog.close();
+    }
+  });
+
+  document.addEventListener("astro:before-swap", () => {
+    dialog.close();
+  });
+
+  dialogTrigger?.addEventListener("click", showModal);
+
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "/" && !dialog.open) {
+      showModal(e);
+    }
+  });
+
+  const initPagefind = async () => {
+    // @ts-ignore
+    const { PagefindUI } = await import("@pagefind/default-ui");
+
+    new PagefindUI({
+      element: "#search",
+      showImages: false,
+    });
+  };
+
   window.addEventListener("DOMContentLoaded", () => {
     if (import.meta.env.DEV) return;
 
-    const onIdle = window.requestIdleCallback || ((cb) => setTimeout(cb, 1));
-
-    onIdle(async () => {
-      // @ts-ignore
-      const { PagefindUI } = await import("@pagefind/default-ui");
-
-      new PagefindUI({
-        element: "#search",
-        showImages: false,
-      });
-    });
+    initPagefind();
   });
-</script> -->
+</script>
 
-<!-- <style is:global>
-  .dark {
-    --pagefind-ui-primary: #eeeeee;
-    --pagefind-ui-text: #eeeeee;
-    --pagefind-ui-background: #152028;
-    --pagefind-ui-border: #152028;
-    --pagefind-ui-tag: #152028;
+<style is:global>
+  html.dark {
+    --pagefind-ui-scale: 1;
+    --pagefind-ui-primary: #f8fafc;
+    --pagefind-ui-text: #f8fafc;
+    --pagefind-ui-background: #4c1d95;
+    --pagefind-ui-border: #4c1d95;
+    --pagefind-ui-tag: #4c1d95;
+    --pagefind-ui-font: "Manrope", sans-serif;
   }
-</style> -->
+</style>
