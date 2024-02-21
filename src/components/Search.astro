@@ -41,9 +41,7 @@ import "@pagefind/default-ui/css/ui.css";
     }
   });
 
-  document.addEventListener("astro:before-swap", () => {
-    dialog.close();
-  });
+  document.addEventListener("astro:before-swap", () => dialog.close());
 
   dialogTrigger?.addEventListener("click", showModal);
 
@@ -54,6 +52,8 @@ import "@pagefind/default-ui/css/ui.css";
   });
 
   const initPagefind = async () => {
+    if (import.meta.env.DEV) return;
+
     // @ts-ignore
     const { PagefindUI } = await import("@pagefind/default-ui");
 
@@ -63,11 +63,7 @@ import "@pagefind/default-ui/css/ui.css";
     });
   };
 
-  window.addEventListener("DOMContentLoaded", () => {
-    if (import.meta.env.DEV) return;
-
-    initPagefind();
-  });
+  initPagefind();
 </script>
 
 <style is:global>
