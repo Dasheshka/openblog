@@ -21,7 +21,7 @@ export async function getStaticPaths({ paginate }: any) {
         params: {
           category: category.value,
         },
-        pageSize: siteConfig.paginationSize,
+        pageSize: siteConfig.postsPerPage,
       }),
     );
 
@@ -30,7 +30,7 @@ export async function getStaticPaths({ paginate }: any) {
         category: category.value,
       },
       props: { category: category },
-      pageSize: siteConfig.paginationSize,
+      pageSize: siteConfig.postsPerPage,
     });
   });
 }

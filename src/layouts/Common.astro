@@ -1,18 +1,22 @@
 ---
-import Backgrounds from "@/components/Backgrounds.astro";
-import BaseHead from "@/components/BaseHead.astro";
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
-const { title, description, image, articleDate } = Astro.props;
+import { siteConfig } from "@/site-config";
+import Backgrounds from "./partials/Backgrounds.astro";
+import Head from "./partials/Head.astro";
+
+const { title, description, image, articleAuthor, articlePubDate } =
+  Astro.props;
 ---
 
-<html lang="en" class="scroll-smooth antialiased">
+<html lang={siteConfig.lang} class="scroll-smooth antialiased">
   <head>
-    <BaseHead
+    <Head
       title={title}
       description={description}
       ogImage={image}
-      articleDate={articleDate}
+      articleAuthor={articleAuthor}
+      articlePubDate={articlePubDate}
     />
   </head>
   <body

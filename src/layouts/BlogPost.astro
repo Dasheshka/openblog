@@ -16,14 +16,14 @@ type Props = {
 const { data, readTime, headings, id } = Astro.props;
 const { title, description, pubDate, heroImage, tags } = data;
 
-const articleDate = pubDate.toISOString();
+const articlePubDate = pubDate.toISOString();
 ---
 
 <Common
   title={title}
   description={description}
   image={heroImage?.src}
-  articleDate={articleDate}
+  articlePubDate={articlePubDate}
 >
   <article
     class="min-w-full sm:max-w-none md:max-w-none md:py-4"

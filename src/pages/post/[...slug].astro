@@ -1,6 +1,5 @@
 ---
 import ListRelatedPosts from "@/components/ListRelatedPosts.astro";
-import Share from "@/components/Share.astro";
 import TableOfContents from "@/components/TableOfContents.astro";
 import BlogPost from "@/layouts/BlogPost.astro";
 import { getPosts } from "@/lib/content";
@@ -47,7 +46,6 @@ const readTime = readingTime(post.body);
   <div class="mt-8 grid grid-cols-1 gap-10 md:grid-cols-[20%_auto]">
     <!-- aside  -->
     <aside class="hidden flex-col gap-8 md:flex">
-      <Share />
       <div
         class="sticky top-24 hidden self-start transition-all duration-200 md:block"
       >
