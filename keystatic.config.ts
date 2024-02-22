@@ -58,7 +58,9 @@ export default config({
         body: fields.document({
           label: "Body",
           dividers: true,
-          formatting: true,
+          formatting: {
+            headingLevels: [2, 3, 4, 5, 6],
+          },
           images: true,
           links: true,
           tables: true,

@@ -1,10 +1,10 @@
 ---
-import type { CollectionEntry } from "astro:content";
-import Common from "@/layouts/Common.astro";
 import Tags from "@/components/Tags.astro";
+import Common from "@/layouts/Common.astro";
 import { siteConfig } from "@/site-config";
-import { Image } from "astro:assets";
 import { cn, t } from "@/utils";
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
 
 const { data, readingTime } = Astro.props;
 const {
@@ -25,12 +25,7 @@ const isCoverImageLarge =
   coverImage.height > siteConfig.postPageCoverImageMaxWidth;
 ---
 
-<Common
-  title={title}
-  description={description}
-  coverImageSrc={coverImage.src}
-  articlePubDate={articlePubDate}
->
+<Common {title} {description} coverImageSrc={coverImage.src} {articlePubDate}>
   <article data-pagefind-body>
     <div class="mb-12">
       <div class="mb-12 flex flex-col items-center text-center">
@@ -48,7 +43,7 @@ const isCoverImageLarge =
         <h1 class="mb-10 text-4xl font-bold lg:text-6xl">
           {title}
         </h1>
-        {tags && <Tags tags={tags} />}
+        {tags && <Tags {tags} />}
       </div>
       <Image
         class={cn(
@@ -72,57 +67,3 @@ const isCoverImageLarge =
     </div>
   </article>
 </Common>
-
-<script>
-  // Table of contents observer
-  const initTocObserver = () => {
-    const headings = document.querySelectorAll(
-      "#postBody h1, #postBody h2, #postBody h3, #postBody h4, #postBody h5, #postBody h6",
-    );
-
-    if (headings.length === 0) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const index = document.querySelector(
-            `#tableOfContents a[href="#${entry.target.id}"]`,
-          );
-
-          if (entry.isIntersecting) {
-            index?.classList.remove("bg-slate-200", "dark:bg-slate-800"); // remove bg
-            index?.classList.add(
-              "bg-indigo-600",
-              "dark:bg-indigo-700",
-              "text-white",
-              "font-bold",
-              "transition-colors",
-              "duration-200",
-            );
-          } else {
-            index?.classList.add("bg-slate-200", "dark:bg-slate-800"); // add bg
-            index?.classList.remove(
-              "bg-indigo-600",
-              "dark:bg-indigo-700",
-              "text-white",
-              "font-bold",
-              "transition-colors",
-              "duration-200",
-            );
-          }
-        });
-      },
-      {
-        threshold: 1,
-      },
-    );
-
-    headings.forEach((heading) => {
-      observer.observe(heading);
-    });
-  };
-
-  initTocObserver();
-
-  document.addEventListener("astro:after-swap", initTocObserver);
-</script>

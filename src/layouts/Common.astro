@@ -12,11 +12,11 @@ const { title, description, coverImageSrc, articleAuthor, articlePubDate } =
 <html lang={siteConfig.lang} class="scroll-smooth antialiased">
   <head>
     <Head
-      title={title}
-      description={description}
+      {title}
+      {description}
       ogImageSrc={coverImageSrc}
-      articleAuthor={articleAuthor}
-      articlePubDate={articlePubDate}
+      {articleAuthor}
+      {articlePubDate}
     />
   </head>
   <body

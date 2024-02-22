@@ -42,13 +42,10 @@ const { Content, headings } = await post.render();
 const readingTime = getReadingTime(post.body);
 ---
 
-<Post data={post.data} headings={headings} readingTime={readingTime}>
-  <!-- aside  -->
-  <aside class="hidden flex-col gap-8 lg:flex lg:w-1/6">
-    <div
-      class="sticky top-24 hidden self-start transition-all duration-200 md:block"
-    >
-      {headings && headings.length > 0 && <TableOfContents {headings} />}
+<Post data={post.data} {headings} readingTime={readingTime}>
+  <aside class="hidden w-1/6 lg:block">
+    <div class="sticky top-8">
+      {headings?.length > 0 && <TableOfContents {headings} />}
     </div>
   </aside>
 
