@@ -1,7 +1,7 @@
 ---
 import ListRelatedPosts from "@/components/ListRelatedPosts.astro";
 import TableOfContents from "@/components/TableOfContents.astro";
-import BlogPost from "@/layouts/BlogPost.astro";
+import Post from "@/layouts/Post.astro";
 import { getPosts } from "@/lib/content";
 import { readingTime } from "@/utils";
 import { getCollection, type CollectionEntry } from "astro:content";
@@ -42,7 +42,7 @@ const { Content, headings } = await post.render();
 const readTime = readingTime(post.body);
 ---
 
-<BlogPost id={post.id} data={post.data} headings={headings} readTime={readTime}>
+<Post id={post.id} data={post.data} headings={headings} readTime={readTime}>
   <div class="mt-8 grid grid-cols-1 gap-10 md:grid-cols-[20%_auto]">
     <!-- aside  -->
     <aside class="hidden flex-col gap-8 md:flex">
@@ -54,8 +54,9 @@ const readTime = readingTime(post.body);
     </aside>
 
     <!-- post -->
-    <article class="w-full max-w-full">
+    <div class="w-full max-w-full">
       <div
+        id="postBody"
         class="prose prose-lg mb-12 min-w-full dark:prose-invert md:prose-xl"
       >
         <Content />
@@ -63,11 +64,9 @@ const readTime = readingTime(post.body);
 
       <!-- related posts -->
       <footer>
-        <h2 class="mb-6 text-lg font-bold dark:text-white">
-          Artículos Relacionados
-        </h2>
+        <h2 class="mb-6 text-lg font-bold dark:text-white">Related Articles</h2>
         {relatedPosts && <ListRelatedPosts posts={relatedPosts} />}
       </footer>
-    </article>
+    </div>
   </div>
-</BlogPost>
+</Post>
