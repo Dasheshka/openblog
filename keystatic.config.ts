@@ -6,9 +6,9 @@ export default config({
     kind: "local",
   },
   collections: {
-    blog: collection({
-      label: "Blog Posts",
-      path: "src/content/blog/*/",
+    posts: collection({
+      label: "Posts",
+      path: "src/content/posts/*/",
       slugField: "title",
       format: { contentField: "body" },
       schema: {
@@ -24,7 +24,7 @@ export default config({
           description: "A short description of the post or an excerpt",
           validation: { length: { min: 3 } },
         }),
-        heroImage: fields.image({
+        coverImage: fields.image({
           label: "Cover Image",
           directory: "src/assets/images",
           publicPath: "/src/assets/images/",

@@ -1,42 +1,51 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import FormattedDate from "@/components/FormattedDate.astro";
 import Common from "@/layouts/Common.astro";
 import Tag from "@/components/Tag.astro";
-import type { MarkdownHeading } from "astro";
+import { siteConfig } from "@/site-config";
 import { Image } from "astro:assets";
+import { cn } from "@/utils";
 
-type Props = {
-  id: CollectionEntry<"blog">["id"];
-  data: CollectionEntry<"blog">["data"];
-  headings: MarkdownHeading[];
-  readTime: string;
-};
-
-const { data, readTime, headings, id } = Astro.props;
-const { title, description, pubDate, heroImage, tags } = data;
-
+const { data, readingTime } = Astro.props;
+const {
+  title,
+  description,
+  coverImage,
+  tags,
+  pubDate,
+}: CollectionEntry<"posts">["data"] = data;
 const articlePubDate = pubDate.toISOString();
+const formattedDate = pubDate.toLocaleDateString(siteConfig.lang, {
+  day: "numeric",
+  month: "short",
+  year: "numeric",
+});
+const isCoverImageLarge =
+  coverImage.width > siteConfig.postPageCoverImageMaxWidth ||
+  coverImage.height > siteConfig.postPageCoverImageMaxWidth;
 ---
 
 <Common
   title={title}
   description={description}
-  image={heroImage?.src}
+  coverImageSrc={coverImage.src}
   articlePubDate={articlePubDate}
 >
-  <article
-    class="min-w-full sm:max-w-none md:max-w-none md:py-4"
-    data-pagefind-body
-  >
+  <article data-pagefind-body>
     <header class="mb-3 flex flex-col items-center justify-center gap-6">
       <div class="flex flex-col gap-2">
         <div class="flex items-center justify-center gap-x-1">
           <p class="text-center text-sm text-opacity-50">
-            Published <FormattedDate date={pubDate} />
+            <span>Published</span>
+            <time
+              class="text-sm font-bold text-opacity-60"
+              datetime={articlePubDate}
+            >
+              {formattedDate}
+            </time>
           </p>
           <p class="text-center text-sm font-bold text-opacity-50">
-            - {readTime}
+            - {readingTime}
           </p>
         </div>
         <h1 class="text-center text-4xl font-semibold md:pb-2.5 md:text-6xl">
@@ -54,24 +63,23 @@ const articlePubDate = pubDate.toISOString();
         )
       }
     </header>
-
-    <>
-      {
-        heroImage && (
-          <Image
-            src={heroImage}
-            width={1000}
-            height={500}
-            quality={100}
-            format="jpg"
-            loading="eager"
-            class="my-8 max-h-[300px] w-full  rounded-md object-cover md:max-h-[500px]"
-            alt={`img of ${title}`}
-          />
-        )
-      }
-    </>
-    <div>
+    <Image
+      class={cn(
+        "my-8 aspect-[2/1] mx-auto rounded-lg object-cover shadow-default",
+        siteConfig.postPageCoverImageAspectRatio,
+      )}
+      src={coverImage}
+      alt=""
+      width={isCoverImageLarge
+        ? siteConfig.postPageCoverImageMaxWidth
+        : undefined}
+      height={isCoverImageLarge
+        ? siteConfig.postPageCoverImageMaxHeight
+        : undefined}
+      quality={siteConfig.postPageCoverImageQuality}
+      loading="eager"
+    />
+    <div class="flex flex-col gap-8 lg:flex-row">
       <slot />
     </div>
   </article>
@@ -94,8 +102,8 @@ const articlePubDate = pubDate.toISOString();
           );
 
           if (entry.isIntersecting) {
-            index.classList.remove("bg-slate-200", "dark:bg-slate-800"); // remove bg
-            index.classList.add(
+            index?.classList.remove("bg-slate-200", "dark:bg-slate-800"); // remove bg
+            index?.classList.add(
               "bg-indigo-600",
               "dark:bg-indigo-700",
               "text-white",
@@ -104,8 +112,8 @@ const articlePubDate = pubDate.toISOString();
               "duration-200",
             );
           } else {
-            index.classList.add("bg-slate-200", "dark:bg-slate-800"); // add bg
-            index.classList.remove(
+            index?.classList.add("bg-slate-200", "dark:bg-slate-800"); // add bg
+            index?.classList.remove(
               "bg-indigo-600",
               "dark:bg-indigo-700",
               "text-white",

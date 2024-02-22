@@ -2,13 +2,13 @@ import { CATEGORIES, TAGS } from "@/data/sets";
 import { getCollection } from "astro:content";
 
 export const getPosts = async (max?: number) =>
-  (await getCollection("blog"))
+  (await getCollection("posts"))
     .filter((post) => !post.data.draft)
     .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
     .slice(0, max);
 
 export const getCategories = async () => {
-  const posts = await getCollection("blog");
+  const posts = await getCollection("posts");
   const categories: Set<{ label: string; value: string }> = new Set();
   const categoriesValues = posts.map((post) => post.data.category);
 
@@ -24,7 +24,7 @@ export const getCategories = async () => {
 };
 
 export const getTags = async () => {
-  const posts = await getCollection("blog");
+  const posts = await getCollection("posts");
   const tags: Set<{ label: string; value: string }> = new Set();
 
   posts.forEach((post) => {
@@ -42,7 +42,10 @@ export const getTags = async () => {
   return Array.from(tags);
 };
 
-export const filterPostsByCategory = async (category: { label: string; value: string }) => {
+export const filterPostsByCategory = async (category: {
+  label: string;
+  value: string;
+}) => {
   const posts = await getPosts();
 
   return posts.filter((post) => post.data.category === category.value);
@@ -52,6 +55,8 @@ export const getPostByTag = async (tag: { label: string; value: string }) => {
   const posts = await getPosts();
 
   return posts.filter((post) => {
-    return post.data.tags && post.data.tags.some((postTag) => postTag === tag.value);
+    return (
+      post.data.tags && post.data.tags.some((postTag) => postTag === tag.value)
+    );
   });
 };

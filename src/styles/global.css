@@ -2,8 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .shadow-default {
+    @apply shadow-lg shadow-slate-950/50;
+  }
+}
+
 @layer utilities {
-  .ghost {
+  .ghost-icon {
     @apply relative after:absolute after:left-1/2 after:top-1/2 after:h-12 after:w-12 after:-translate-x-1/2 after:-translate-y-1/2;
   }
 }

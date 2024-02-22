@@ -1,14 +1,19 @@
 ---
+import { siteConfig } from "@/site-config";
 import { Image } from "astro:assets";
-import FormattedDate from "@/components/FormattedDate.astro";
 import ArrowUp from "@/components/ArrowUp.astro";
 
 const {
-  id,
-  data: { title, description, pubDate, heroImage, category },
-  readTime,
+  data: { title, description, pubDate, coverImage, category },
+  readingTime,
   slug,
 } = Astro.props;
+const articlePubDate = pubDate.toISOString();
+const formattedDate = pubDate.toLocaleDateString(siteConfig.lang, {
+  day: "numeric",
+  month: "short",
+  year: "numeric",
+});
 ---
 
 <article
@@ -16,7 +21,7 @@ const {
 >
   <a class="relative overflow-hidden" href={`/post/${slug}/`}>
     <Image
-      src={heroImage}
+      src={coverImage}
       width={600}
       height={200}
       format="webp"
@@ -31,8 +36,13 @@ const {
         class="flex items-center justify-between gap-x-1 px-6 py-4 text-white"
       >
         <div class="flex flex-col items-center justify-center gap-1">
-          <FormattedDate date={pubDate} />
-          <span class="text-sm"> {readTime}</span>
+          <time
+            class="text-sm font-bold text-opacity-60"
+            datetime={articlePubDate}
+          >
+            {formattedDate}
+          </time>
+          <span class="text-sm">{readingTime}</span>
         </div>
 
         <span class="pb-4">{category.label}</span>

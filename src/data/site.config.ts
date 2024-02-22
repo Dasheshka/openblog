@@ -5,6 +5,10 @@ export const siteConfig = {
     "A blog template website, built with Astro, Keystatic and Tailwind CSS",
   author: "Blue Amber",
   favicon: "/favicon.svg", // Must be SVG!
-  ogImage: "/open-graph.png",
+  ogImageSrc: "/open-graph.png",
   postsPerPage: 6,
+  postPageCoverImageAspectRatio: "aspect-[2/1]",
+  postPageCoverImageMaxWidth: 1000,
+  postPageCoverImageMaxHeight: 500,
+  postPageCoverImageQuality: 100,
 };

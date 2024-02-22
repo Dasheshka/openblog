@@ -3,14 +3,14 @@ import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 
 export async function get() {
-  const posts = await getCollection("blog");
+  const posts = await getCollection("posts");
   return rss({
     title: siteConfig.title,
     description: siteConfig.description,
     site: import.meta.env.SITE,
     items: posts.map((post) => ({
       ...post.data,
-      link: `post/${post.slug}/`
-    }))
+      link: `post/${post.slug}/`,
+    })),
   });
 }

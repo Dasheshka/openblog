@@ -3,10 +3,10 @@ import ListRelatedPosts from "@/components/ListRelatedPosts.astro";
 import TableOfContents from "@/components/TableOfContents.astro";
 import Post from "@/layouts/Post.astro";
 import { getPosts } from "@/lib/content";
-import { readingTime } from "@/utils";
+import { getReadingTime } from "@/utils";
 import { getCollection, type CollectionEntry } from "astro:content";
 
-const posts = await getCollection("blog");
+const posts = await getCollection("posts");
 export async function getStaticPaths() {
   const posts = await getPosts();
 
@@ -15,7 +15,7 @@ export async function getStaticPaths() {
     props: post,
   }));
 }
-type Props = CollectionEntry<"blog">;
+type Props = CollectionEntry<"posts">;
 
 const post = Astro.props;
 const MAX_POSTS = 3;
@@ -39,34 +39,32 @@ const relatedPosts = getRelatedPosts(post);
 
 const { Content, headings } = await post.render();
 
-const readTime = readingTime(post.body);
+const readingTime = getReadingTime(post.body);
 ---
 
-<Post id={post.id} data={post.data} headings={headings} readTime={readTime}>
-  <div class="mt-8 grid grid-cols-1 gap-10 md:grid-cols-[20%_auto]">
-    <!-- aside  -->
-    <aside class="hidden flex-col gap-8 md:flex">
-      <div
-        class="sticky top-24 hidden self-start transition-all duration-200 md:block"
-      >
-        {headings && headings.length > 0 && <TableOfContents {headings} />}
-      </div>
-    </aside>
-
-    <!-- post -->
-    <div class="w-full max-w-full">
-      <div
-        id="postBody"
-        class="prose prose-lg mb-12 min-w-full dark:prose-invert md:prose-xl"
-      >
-        <Content />
-      </div>
-
-      <!-- related posts -->
-      <footer>
-        <h2 class="mb-6 text-lg font-bold dark:text-white">Related Articles</h2>
-        {relatedPosts && <ListRelatedPosts posts={relatedPosts} />}
-      </footer>
+<Post data={post.data} headings={headings} readingTime={readingTime}>
+  <!-- aside  -->
+  <aside class="hidden flex-col gap-8 lg:flex lg:w-1/6">
+    <div
+      class="sticky top-24 hidden self-start transition-all duration-200 md:block"
+    >
+      {headings && headings.length > 0 && <TableOfContents {headings} />}
     </div>
+  </aside>
+
+  <!-- post -->
+  <div class="lg:w-4/6">
+    <div
+      id="postBody"
+      class="prose prose-lg mb-12 min-w-full dark:prose-invert md:prose-xl"
+    >
+      <Content />
+    </div>
+
+    <!-- related posts -->
+    <footer>
+      <h2 class="mb-6 text-lg font-bold dark:text-white">Related Articles</h2>
+      {relatedPosts && <ListRelatedPosts posts={relatedPosts} />}
+    </footer>
   </div>
 </Post>
