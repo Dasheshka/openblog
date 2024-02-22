@@ -10,7 +10,7 @@ export const unsluglify = (text: string) => text.replace(/-/g, " ");
 
 export const getReadingTime = (body: string) => {
   const words = body.match(/\w+/g);
-  return words ? `${Math.ceil(words.length / 150)} min read` : "";
+  return words ? `${Math.ceil(words.length / 150)}` : "";
 };
 
 export const t = (key: keyof typeof ui) => {

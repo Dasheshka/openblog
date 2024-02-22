@@ -2,6 +2,7 @@
 import { siteConfig } from "@/site-config";
 import { Image } from "astro:assets";
 import ArrowUp from "@/components/ArrowUp.astro";
+import { t } from "@/utils";
 
 const {
   data: { title, description, pubDate, coverImage, category },
@@ -42,7 +43,7 @@ const formattedDate = pubDate.toLocaleDateString(siteConfig.lang, {
           >
             {formattedDate}
           </time>
-          <span class="text-sm">{readingTime}</span>
+          <span class="text-sm">{readingTime} {t("reading-time")}</span>
         </div>
 
         <span class="pb-4">{category.label}</span>

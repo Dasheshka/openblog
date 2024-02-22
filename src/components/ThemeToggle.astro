@@ -3,7 +3,11 @@ import Icon from "@/components/Icon.astro";
 import { t } from "@/utils";
 ---
 
-<button id="themeToggle" class="ghost-icon" aria-label={t("theme.toggle")}>
+<button
+  id="themeToggle"
+  class="ghost-icon hover:text-pink-500 focus:text-pink-500"
+  aria-label={t("theme.toggle")}
+>
   <Icon name="sun" class="hidden dark:block" />
   <Icon name="moon" class="dark:hidden" />
 </button>

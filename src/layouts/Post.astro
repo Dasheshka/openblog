@@ -1,10 +1,10 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import Common from "@/layouts/Common.astro";
-import Tag from "@/components/Tag.astro";
+import Tags from "@/components/Tags.astro";
 import { siteConfig } from "@/site-config";
 import { Image } from "astro:assets";
-import { cn } from "@/utils";
+import { cn, t } from "@/utils";
 
 const { data, readingTime } = Astro.props;
 const {
@@ -32,53 +32,41 @@ const isCoverImageLarge =
   articlePubDate={articlePubDate}
 >
   <article data-pagefind-body>
-    <header class="mb-3 flex flex-col items-center justify-center gap-6">
-      <div class="flex flex-col gap-2">
-        <div class="flex items-center justify-center gap-x-1">
-          <p class="text-center text-sm text-opacity-50">
-            <span>Published</span>
-            <time
-              class="text-sm font-bold text-opacity-60"
-              datetime={articlePubDate}
-            >
+    <div class="mb-12">
+      <div class="mb-12 flex flex-col items-center text-center">
+        <div class="mb-6">
+          <p class="font-bold">
+            <time datetime={articlePubDate}>
               {formattedDate}
             </time>
           </p>
-          <p class="text-center text-sm font-bold text-opacity-50">
-            - {readingTime}
+          <p class="text-sm">
+            {readingTime}
+            {t("reading-time")}
           </p>
         </div>
-        <h1 class="text-center text-4xl font-semibold md:pb-2.5 md:text-6xl">
+        <h1 class="mb-10 text-4xl font-bold lg:text-6xl">
           {title}
         </h1>
+        {tags && <Tags tags={tags} />}
       </div>
-
-      {
-        tags && (
-          <div class="flex flex-wrap items-center justify-center gap-2 gap-y-4 md:gap-5">
-            {tags.map((tag) => (
-              <Tag tag={tag} />
-            ))}
-          </div>
-        )
-      }
-    </header>
-    <Image
-      class={cn(
-        "my-8 aspect-[2/1] mx-auto rounded-lg object-cover shadow-default",
-        siteConfig.postPageCoverImageAspectRatio,
-      )}
-      src={coverImage}
-      alt=""
-      width={isCoverImageLarge
-        ? siteConfig.postPageCoverImageMaxWidth
-        : undefined}
-      height={isCoverImageLarge
-        ? siteConfig.postPageCoverImageMaxHeight
-        : undefined}
-      quality={siteConfig.postPageCoverImageQuality}
-      loading="eager"
-    />
+      <Image
+        class={cn(
+          "aspect-[2/1] mx-auto rounded-lg object-cover shadow-default",
+          siteConfig.postPageCoverImageAspectRatio,
+        )}
+        src={coverImage}
+        alt=""
+        width={isCoverImageLarge
+          ? siteConfig.postPageCoverImageMaxWidth
+          : undefined}
+        height={isCoverImageLarge
+          ? siteConfig.postPageCoverImageMaxHeight
+          : undefined}
+        quality={siteConfig.postPageCoverImageQuality}
+        loading="eager"
+      />
+    </div>
     <div class="flex flex-col gap-8 lg:flex-row">
       <slot />
     </div>

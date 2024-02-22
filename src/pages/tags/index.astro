@@ -1,4 +1,5 @@
 ---
+import Tags from "@/components/Tags.astro";
 import TitlePage from "@/components/TitlePage.astro";
 import Common from "@/layouts/Common.astro";
 import { getTags } from "@/lib/content";
@@ -8,15 +9,6 @@ const tags = await getTags();
 <Common title="Tags">
   <TitlePage title="Tags" />
   <div class="flex flex-wrap justify-center gap-4">
-    {
-      tags.map((tag) => (
-        <a
-          href={`/tags/${tag.value}`}
-          class="mb-2 mr-2  inline-block rounded-full bg-gray-200 px-3 py-1 text-sm font-semibold text-gray-700"
-        >
-          #{tag.label}
-        </a>
-      ))
-    }
+    <Tags tags={tags} />
   </div>
 </Common>

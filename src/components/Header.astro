@@ -10,10 +10,18 @@ import ThemeToggle from "./ThemeToggle.astro";
   transition:persist
 >
   <nav class="flex items-center gap-6">
-    <a class="ghost-icon" href="/" aria-label={t("header.home")}>
+    <a
+      class="ghost-icon hover:text-pink-500 focus:text-pink-500"
+      href="/"
+      aria-label={t("header.home")}
+    >
       <Icon name="home" />
     </a>
-    <a class="ghost-icon" href="/tags" aria-label={t("header.tags")}>
+    <a
+      class="ghost-icon hover:text-pink-500 focus:text-pink-500"
+      href="/tags"
+      aria-label={t("header.tags")}
+    >
       <Icon name="tags" />
     </a>
   </nav>
