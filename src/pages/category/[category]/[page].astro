@@ -16,15 +16,6 @@ export async function getStaticPaths({ paginate }: any) {
       (post) => post.data.category === category.value,
     );
 
-    console.log(
-      paginate(filteredPosts, {
-        params: {
-          category: category.value,
-        },
-        pageSize: siteConfig.postsPerPage,
-      }),
-    );
-
     return paginate(filteredPosts, {
       params: {
         category: category.value,

@@ -1,67 +1,102 @@
 ---
-import ListRelatedPosts from "@/components/ListRelatedPosts.astro";
+import RelatedPosts from "@/components/RelatedPosts.astro";
 import TableOfContents from "@/components/TableOfContents.astro";
-import Post from "@/layouts/Post.astro";
-import { getPosts } from "@/lib/content";
-import { getReadingTime } from "@/utils";
-import { getCollection, type CollectionEntry } from "astro:content";
+import Tags from "@/components/Tags.astro";
+import Common from "@/layouts/Common.astro";
+import { getPosts, getRelatedPosts } from "@/lib/content";
+import { siteConfig } from "@/site-config";
+import { cn, getReadingTime, t } from "@/utils";
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
 
-const posts = await getCollection("posts");
-export async function getStaticPaths() {
+const post = Astro.props;
+
+const {
+  title,
+  description,
+  coverImage,
+  tags,
+  pubDate,
+}: CollectionEntry<"posts">["data"] = post.data;
+const articlePubDate = pubDate.toISOString();
+const formattedDate = pubDate.toLocaleDateString(siteConfig.lang, {
+  day: "numeric",
+  month: "short",
+  year: "numeric",
+});
+const isCoverImageLarge =
+  coverImage.width > siteConfig.postPageCoverImageMaxWidth ||
+  coverImage.height > siteConfig.postPageCoverImageMaxWidth;
+const relatedPosts = post.data.tags
+  ? await getRelatedPosts(post.slug, post.data.tags)
+  : null;
+const { Content, headings } = await post.render();
+const readingTime = getReadingTime(post.body);
+
+export const getStaticPaths = async () => {
   const posts = await getPosts();
 
   return posts.map((post) => ({
     params: { slug: post.slug },
     props: post,
   }));
-}
-type Props = CollectionEntry<"posts">;
-
-const post = Astro.props;
-const MAX_POSTS = 3;
-const getRelatedPosts = (post: Props) => {
-  if (post.data.tags) {
-    const lowercaseTags = post.data.tags.map((tag) => tag.toLowerCase());
-    const relatedPosts = posts.filter(
-      (p) =>
-        p.slug !== post.slug &&
-        p.data.tags &&
-        p.data.tags.some((t) => lowercaseTags.includes(t.toLowerCase())),
-    );
-
-    return relatedPosts.slice(0, MAX_POSTS);
-  }
-
-  return null;
 };
-
-const relatedPosts = getRelatedPosts(post);
-
-const { Content, headings } = await post.render();
-
-const readingTime = getReadingTime(post.body);
 ---
 
-<Post data={post.data} {headings} readingTime={readingTime}>
-  <aside class="hidden w-1/6 lg:block">
-    <div class="sticky top-8">
-      {headings?.length > 0 && <TableOfContents {headings} />}
+<Common {title} {description} coverImageSrc={coverImage.src} {articlePubDate}>
+  <article data-pagefind-body>
+    <div class="mb-12">
+      <div class="mb-12 flex flex-col items-center text-center">
+        <div class="mb-6">
+          <p class="font-bold">
+            <time datetime={articlePubDate}>
+              {formattedDate}
+            </time>
+          </p>
+          <p class="text-sm">
+            {readingTime}
+            {t("reading-time")}
+          </p>
+        </div>
+        <h1 class="mb-10 text-4xl font-bold lg:text-6xl">
+          {title}
+        </h1>
+        {tags && <Tags {tags} />}
+      </div>
+      <Image
+        class={cn(
+          "aspect-[2/1] mx-auto rounded-lg object-cover shadow-default",
+          siteConfig.postPageCoverImageAspectRatio,
+        )}
+        src={coverImage}
+        alt=""
+        width={isCoverImageLarge
+          ? siteConfig.postPageCoverImageMaxWidth
+          : undefined}
+        height={isCoverImageLarge
+          ? siteConfig.postPageCoverImageMaxHeight
+          : undefined}
+        quality={siteConfig.postPageCoverImageQuality}
+        loading="eager"
+      />
     </div>
-  </aside>
-
-  <!-- post -->
-  <div class="lg:w-4/6">
-    <div
-      id="postBody"
-      class="prose prose-lg mb-12 min-w-full dark:prose-invert md:prose-xl"
-    >
-      <Content />
+    <div class="mb-12 flex flex-col gap-8 lg:flex-row">
+      <aside class="hidden w-1/6 lg:block">
+        <div class="sticky top-8">
+          {headings?.length > 0 && <TableOfContents {headings} />}
+        </div>
+      </aside>
+      <div class="mb-12 lg:w-4/6">
+        <div
+          class="prose prose-lg prose-slate max-w-none dark:prose-invert lg:prose-xl prose-img:rounded-lg"
+        >
+          <Content />
+        </div>
+      </div>
     </div>
-
-    <!-- related posts -->
-    <footer>
-      <h2 class="mb-6 text-lg font-bold dark:text-white">Related Articles</h2>
-      {relatedPosts && <ListRelatedPosts posts={relatedPosts} />}
-    </footer>
-  </div>
-</Post>
+    <div class="lg:mx-auto lg:w-4/6 lg:pl-8">
+      <h2 class="mb-6 text-lg font-bold">{t("related-articles")}</h2>
+      {relatedPosts && <RelatedPosts posts={relatedPosts} />}
+    </div>
+  </article>
+</Common>

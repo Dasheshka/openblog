@@ -60,3 +60,20 @@ export const getPostByTag = async (tag: { label: string; value: string }) => {
     );
   });
 };
+
+export const getRelatedPosts = async (
+  slug: string,
+  tags: string[],
+  number: number = 3,
+) => {
+  const posts = await getPosts();
+
+  const relatedPosts = posts.filter(
+    (post) =>
+      post.slug !== slug &&
+      post.data.tags &&
+      post.data.tags.some((t) => tags.includes(t)),
+  );
+
+  return relatedPosts.slice(0, number);
+};
