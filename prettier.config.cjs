@@ -14,8 +14,5 @@ module.exports = {
       },
     },
   ],
-  plugins: [
-    require.resolve("prettier-plugin-tailwindcss"),
-    require.resolve("prettier-plugin-astro"),
-  ],
+  plugins: ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
 };

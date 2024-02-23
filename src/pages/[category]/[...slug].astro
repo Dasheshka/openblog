@@ -1,5 +1,5 @@
 ---
-import RelatedPosts from "@/components/RelatedPosts.astro";
+import Posts from "@/components/Posts.astro";
 import TableOfContents from "@/components/TableOfContents.astro";
 import Tags from "@/components/Tags.astro";
 import Common from "@/layouts/Common.astro";
@@ -27,7 +27,7 @@ const formattedDate = pubDate.toLocaleDateString(siteConfig.lang, {
 const isCoverImageLarge =
   coverImage.width > siteConfig.postPageCoverImageMaxWidth ||
   coverImage.height > siteConfig.postPageCoverImageMaxWidth;
-const relatedPosts = post.data.tags
+const relatedPosts = post.data.tags.length
   ? await getRelatedPosts(post.slug, post.data.tags)
   : null;
 const { Content, headings } = await post.render();
@@ -37,7 +37,7 @@ export const getStaticPaths = async () => {
   const posts = await getPosts();
 
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { category: post.data.category, slug: post.slug },
     props: post,
   }));
 };
@@ -58,10 +58,16 @@ export const getStaticPaths = async () => {
             {t("reading-time")}
           </p>
         </div>
-        <h1 class="mb-10 text-4xl font-bold lg:text-6xl">
+        <h1 class="text-4xl font-bold lg:text-6xl">
           {title}
         </h1>
-        {tags && <Tags {tags} />}
+        {
+          !!tags.length && (
+            <div class="mt-10">
+              <Tags {tags} />
+            </div>
+          )
+        }
       </div>
       <Image
         class={cn(
@@ -80,13 +86,13 @@ export const getStaticPaths = async () => {
         loading="eager"
       />
     </div>
-    <div class="mb-12 flex flex-col gap-8 lg:flex-row">
+    <div class="flex flex-col gap-8 lg:flex-row">
       <aside class="hidden w-1/6 lg:block">
         <div class="sticky top-8">
           {headings?.length > 0 && <TableOfContents {headings} />}
         </div>
       </aside>
-      <div class="mb-12 lg:w-4/6">
+      <div class="lg:w-4/6">
         <div
           class="prose prose-lg prose-slate max-w-none dark:prose-invert lg:prose-xl prose-img:rounded-lg"
         >
@@ -94,9 +100,13 @@ export const getStaticPaths = async () => {
         </div>
       </div>
     </div>
-    <div class="lg:mx-auto lg:w-4/6 lg:pl-8">
-      <h2 class="mb-6 text-lg font-bold">{t("related-articles")}</h2>
-      {relatedPosts && <RelatedPosts posts={relatedPosts} />}
-    </div>
+    {
+      relatedPosts && (
+        <div class="mt-12 lg:mx-auto lg:w-4/6 lg:pl-8">
+          <h2 class="mb-6 text-lg font-bold">{t("related-articles")}</h2>
+          <Posts posts={relatedPosts} />
+        </div>
+      )
+    }
   </article>
 </Common>

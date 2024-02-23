@@ -1,7 +1,7 @@
 ---
 import ListCategories from "@/components/ListCategories.astro";
-import ListPosts from "@/components/ListPosts.astro";
 import Pagination from "@/components/Pagination.astro";
+import Posts from "@/components/Posts.astro";
 import TitlePage from "@/components/TitlePage.astro";
 import { siteConfig } from "@/data/site.config";
 import Common from "@/layouts/Common.astro";
@@ -34,6 +34,6 @@ const posts = page.data;
 <Common title={category.label}>
   <TitlePage title={category.label} />
   <ListCategories activeCategory={category.value} />
-  <ListPosts posts={posts} />
+  <Posts posts={posts} />
   <Pagination page={page} />
 </Common>
