@@ -59,7 +59,12 @@ export default config({
           label: "Body",
           dividers: true,
           formatting: {
+            alignment: true,
+            blockTypes: true,
             headingLevels: [2, 3, 4, 5, 6],
+            inlineMarks: true,
+            listTypes: true,
+            softBreaks: true,
           },
           images: true,
           links: true,
