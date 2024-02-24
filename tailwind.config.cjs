@@ -21,13 +21,6 @@ module.exports = {
         "@font-face": [
           {
             fontFamily: "Manrope",
-            fontWeight: 200,
-            fontDisplay: "swap",
-            fontStyle: "normal",
-            src: 'url("/fonts/Manrope-ExtraLight.woff2") format("woff2")',
-          },
-          {
-            fontFamily: "Manrope",
             fontWeight: 300,
             fontDisplay: "swap",
             fontStyle: "normal",
