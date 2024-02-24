@@ -42,31 +42,10 @@ module.exports = {
           },
           {
             fontFamily: "Manrope",
-            fontWeight: 500,
-            fontDisplay: "swap",
-            fontStyle: "normal",
-            src: 'url("/fonts/Manrope-Medium.woff2") format("woff2")',
-          },
-          {
-            fontFamily: "Manrope",
-            fontWeight: 600,
-            fontDisplay: "swap",
-            fontStyle: "normal",
-            src: 'url("/fonts/Manrope-SemiBold.woff2") format("woff2")',
-          },
-          {
-            fontFamily: "Manrope",
             fontWeight: 700,
             fontDisplay: "swap",
             fontStyle: "normal",
             src: 'url("/fonts/Manrope-Bold.woff2") format("woff2")',
-          },
-          {
-            fontFamily: "Manrope",
-            fontWeight: 800,
-            fontDisplay: "swap",
-            fontStyle: "normal",
-            src: 'url("/fonts/Manrope-ExtraBold.woff2") format("woff2")',
           },
         ],
       });

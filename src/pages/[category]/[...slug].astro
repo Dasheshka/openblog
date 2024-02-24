@@ -7,17 +7,13 @@ import { getPosts, getRelatedPosts } from "@/lib/content";
 import { siteConfig } from "@/site-config";
 import { cn, getReadingTime, t } from "@/utils";
 import { Image } from "astro:assets";
-import type { CollectionEntry } from "astro:content";
 
 const post = Astro.props;
-
 const {
-  title,
-  description,
-  coverImage,
-  tags,
-  pubDate,
-}: CollectionEntry<"posts">["data"] = post.data;
+  body,
+  data: { title, description, coverImage, category, tags, pubDate },
+  slug,
+} = post;
 const articlePubDate = pubDate.toISOString();
 const formattedDate = pubDate.toLocaleDateString(siteConfig.lang, {
   day: "numeric",
@@ -25,13 +21,10 @@ const formattedDate = pubDate.toLocaleDateString(siteConfig.lang, {
   year: "numeric",
 });
 const isCoverImageLarge =
-  coverImage.width > siteConfig.postPageCoverImageMaxWidth ||
-  coverImage.height > siteConfig.postPageCoverImageMaxWidth;
-const relatedPosts = post.data.tags.length
-  ? await getRelatedPosts(post.slug, post.data.tags)
-  : null;
+  coverImage.width > siteConfig.postPageCoverImageWidth ||
+  coverImage.height > siteConfig.postPageCoverImageWidth;
+const relatedPosts = tags.length ? await getRelatedPosts(slug, tags) : null;
 const { Content, headings } = await post.render();
-const readingTime = getReadingTime(post.body);
 
 export const getStaticPaths = async () => {
   const posts = await getPosts();
@@ -54,7 +47,7 @@ export const getStaticPaths = async () => {
             </time>
           </p>
           <p class="text-sm">
-            {readingTime}
+            {getReadingTime(body)}
             {t("reading-time")}
           </p>
         </div>
@@ -71,17 +64,18 @@ export const getStaticPaths = async () => {
       </div>
       <Image
         class={cn(
-          "aspect-[2/1] mx-auto rounded-lg object-cover shadow-default",
+          "mx-auto rounded-lg object-cover shadow-default",
           siteConfig.postPageCoverImageAspectRatio,
         )}
         src={coverImage}
         alt=""
         width={isCoverImageLarge
-          ? siteConfig.postPageCoverImageMaxWidth
+          ? siteConfig.postPageCoverImageWidth
           : undefined}
         height={isCoverImageLarge
-          ? siteConfig.postPageCoverImageMaxHeight
+          ? siteConfig.postPageCoverImageHeight
           : undefined}
+        format="webp"
         quality={siteConfig.postPageCoverImageQuality}
         loading="eager"
       />

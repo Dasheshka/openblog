@@ -1,4 +1,5 @@
 export const siteConfig = {
+  // Essential
   lang: "en",
   title: "Openblog",
   description:
@@ -6,9 +7,15 @@ export const siteConfig = {
   author: "Blue Amber",
   favicon: "/favicon.svg", // Must be SVG!
   ogImageSrc: "/open-graph.png",
+
+  // Customization
   postsPerPage: 6,
+  postsGridCoverImageAspectRatio: "aspect-video",
+  postsGridCoverImageWidth: 700,
+  postsGridCoverImageHeight: 394,
+  postsGridCoverImageQuality: 100,
   postPageCoverImageAspectRatio: "aspect-[2/1]",
-  postPageCoverImageMaxWidth: 1000,
-  postPageCoverImageMaxHeight: 500,
+  postPageCoverImageWidth: 1000,
+  postPageCoverImageHeight: 500,
   postPageCoverImageQuality: 100,
 };

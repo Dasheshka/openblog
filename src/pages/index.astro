@@ -5,11 +5,11 @@ import TitlePage from "@/components/TitlePage.astro";
 import Common from "@/layouts/Common.astro";
 import { getPosts } from "@/lib/content";
 
-const posts = await getPosts(5);
+const posts = await getPosts(6);
 ---
 
 <Common title="Home">
   <TitlePage title="Blog Title" />
   <ListCategories />
-  <Posts FirstBig={true} posts={posts} />
+  <Posts posts={posts} />
 </Common>

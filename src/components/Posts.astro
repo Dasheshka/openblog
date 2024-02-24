@@ -1,29 +1,61 @@
 ---
-import PostCard from "@/components/PostCard.astro";
-import { cn, getReadingTime } from "@/utils";
+import { siteConfig } from "@/site-config";
+import { cn, getCategoryLabel, getReadingTime, t } from "@/utils";
+import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 
-type Props = {
+interface Props {
   posts: CollectionEntry<"posts">[];
-  FirstBig?: boolean;
-};
+}
 
-const { posts, FirstBig = false } = Astro.props;
+const { posts } = Astro.props;
 ---
 
-<section
-  class={cn(
-    `grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-3`,
-    FirstBig && `md:[&>*:first-child]:col-span-2`,
-  )}
->
+<div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
   {
     posts.map(async (post) => {
-      const readingTime = getReadingTime(post.body);
+      const {
+        body,
+        data: { title, description, pubDate, coverImage, category },
+        slug,
+      } = post;
+      const articlePubDate = pubDate.toISOString();
+      const formattedDate = pubDate.toLocaleDateString(siteConfig.lang, {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+      });
 
       return (
-        <PostCard data={post.data} slug={post.slug} readingTime={readingTime} />
+        <article>
+          <a class="block" href={`/${category}/${slug}/`}>
+            <Image
+              class={cn(
+                "shadow-default mb-4 rounded-lg object-cover",
+                siteConfig.postsGridCoverImageAspectRatio,
+              )}
+              src={coverImage}
+              alt=""
+              width={siteConfig.postsGridCoverImageWidth}
+              height={siteConfig.postsGridCoverImageHeight}
+              format="webp"
+              quality={siteConfig.postsGridCoverImageQuality}
+            />
+            <div class="flex flex-col gap-1">
+              <div class="flex justify-between gap-2 text-sm font-light">
+                <span>{getCategoryLabel(category)}</span>
+                <time datetime={articlePubDate}>{formattedDate}</time>
+              </div>
+              <div class="text-2xl font-bold">{title}</div>
+              <p>{description}</p>
+              <p class="text-sm font-light">
+                {getReadingTime(body)}
+                {t("reading-time")}
+              </p>
+            </div>
+          </a>
+        </article>
       );
     })
   }
-</section>
+</div>

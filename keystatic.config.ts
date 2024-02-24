@@ -22,7 +22,7 @@ export default config({
         description: fields.text({
           label: "Description",
           description: "A short description of the post or an excerpt",
-          validation: { length: { min: 3 } },
+          validation: { length: { min: 3, max: 255 } },
         }),
         coverImage: fields.image({
           label: "Cover Image",
