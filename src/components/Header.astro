@@ -1,8 +1,12 @@
 ---
 import Icon from "@/components/Icon.astro";
 import Search from "@/components/Search.astro";
+import Tags from "@/components/Tags.astro";
+import { getTags } from "@/lib/content";
 import { t } from "@/utils";
 import ThemeToggle from "./ThemeToggle.astro";
+
+const tags = await getTags();
 ---
 
 <header
@@ -11,22 +15,35 @@ import ThemeToggle from "./ThemeToggle.astro";
 >
   <nav class="flex items-center gap-6">
     <a
-      class="ghost-icon hover:text-pink-500 focus:text-pink-500"
+      class="ghost-icon block hover:text-pink-500 focus:text-pink-500"
       href="/"
       aria-label={t("header.home")}
     >
       <Icon name="home" />
     </a>
-    <a
-      class="ghost-icon hover:text-pink-500 focus:text-pink-500"
-      href="/tags"
-      aria-label={t("header.tags")}
-    >
-      <Icon name="tags" />
-    </a>
+    <div class="flex">
+      <button
+        id="tagsDialogTrigger"
+        class="ghost-icon hover:text-pink-500 focus:text-pink-500"
+        aria-label={t("header.tags")}
+      >
+        <Icon name="tags" />
+      </button>
+      <dialog id="tagsDialog" class="dialog" autofocus>
+        <div class="flex min-h-[25vh] items-center justify-center">
+          <Tags tags={tags} />
+        </div>
+      </dialog>
+    </div>
   </nav>
   <div class="flex items-center gap-6">
     <Search />
     <ThemeToggle />
   </div>
 </header>
+
+<script>
+  import { useDialog } from "@/utils";
+
+  useDialog("tagsDialog", "tagsDialogTrigger");
+</script>

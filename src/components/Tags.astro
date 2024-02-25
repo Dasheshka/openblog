@@ -3,7 +3,7 @@ import { TAGS } from "@/data/sets";
 const { tags } = Astro.props;
 ---
 
-<div class="flex flex-wrap items-center gap-4">
+<div class="flex flex-wrap items-center justify-center gap-4">
   {
     tags.map((tag: { label: string; value: string } | string) => {
       const label =
@@ -15,7 +15,7 @@ const { tags } = Astro.props;
       return (
         <a
           class="shadow-default gradient-state block rounded-lg bg-gradient-to-r from-pink-500 to-violet-500 px-4 py-2 text-sm font-bold text-slate-50 before:bg-gradient-to-t before:from-violet-900 before:to-violet-500 hover:before:opacity-100 focus:before:opacity-100"
-          href={`/tags/${value}`}
+          href={`/${value}`}
         >
           {label}
         </a>

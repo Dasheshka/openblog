@@ -12,10 +12,7 @@ import { t } from "@/utils";
   >
     <Icon name="search" />
   </button>
-  <dialog
-    id="searchDialog"
-    class="w-2/3 rounded-lg border-0 bg-slate-50 p-4 backdrop:bg-slate-950/75 dark:bg-slate-950"
-  >
+  <dialog id="searchDialog" class="dialog">
     {
       import.meta.env.DEV ? (
         <div class="mx-auto text-center dark:text-slate-50">
@@ -32,27 +29,14 @@ import { t } from "@/utils";
 </div>
 
 <script>
-  const dialog = document.getElementById("searchDialog") as HTMLDialogElement;
-  const dialogTrigger = document.getElementById("searchDialogTrigger");
+  import { useDialog } from "@/utils";
 
-  const showModal = (e: Event) => {
-    e.preventDefault();
-    dialog.showModal();
-  };
-
-  dialog.addEventListener("click", (e) => {
-    if (e.target === dialog) {
-      dialog.close();
-    }
-  });
-
-  document.addEventListener("astro:before-swap", () => dialog.close());
-
-  dialogTrigger?.addEventListener("click", showModal);
+  const dialog = useDialog("searchDialog", "searchDialogTrigger");
 
   window.addEventListener("keydown", (e) => {
     if (e.key === "/" && !dialog.open) {
-      showModal(e);
+      e.preventDefault();
+      dialog.showModal();
     }
   });
 
@@ -72,13 +56,20 @@ import { t } from "@/utils";
 </script>
 
 <style is:global>
-  html.dark {
+  :root {
     --pagefind-ui-scale: 1;
+    --pagefind-ui-font: "Manrope", sans-serif;
+    --pagefind-ui-background: transparent;
+    --pagefind-ui-border: transparent;
+
+    --pagefind-ui-primary: #020617;
+    --pagefind-ui-text: #020617;
+    --pagefind-ui-tag: #020617;
+  }
+
+  html.dark {
     --pagefind-ui-primary: #f8fafc;
     --pagefind-ui-text: #f8fafc;
-    --pagefind-ui-background: #4c1d95;
-    --pagefind-ui-border: #4c1d95;
-    --pagefind-ui-tag: #4c1d95;
-    --pagefind-ui-font: "Manrope", sans-serif;
+    --pagefind-ui-tag: #f8fafc;
   }
 </style>

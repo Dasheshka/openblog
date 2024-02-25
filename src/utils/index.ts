@@ -21,3 +21,23 @@ export const getReadingTime = (body: string) => {
 export const t = (key: keyof typeof ui) => {
   return ui[key];
 };
+
+export const useDialog = (dialogId: string, triggerId: string) => {
+  const dialog = document.getElementById(dialogId) as HTMLDialogElement;
+  const dialogTrigger = document.getElementById(triggerId);
+
+  dialog.addEventListener("click", (e) => {
+    if (e.target === dialog) {
+      dialog.close();
+    }
+  });
+
+  document.addEventListener("astro:before-swap", () => dialog.close());
+
+  dialogTrigger?.addEventListener("click", (e) => {
+    e.preventDefault();
+    dialog.showModal();
+  });
+
+  return dialog;
+};

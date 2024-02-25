@@ -16,6 +16,10 @@
   .gradient-state {
     @apply relative z-[1] overflow-hidden before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:-z-[1] before:opacity-0 before:transition;
   }
+
+  .dialog {
+    @apply shadow-default max-h-[70vh] w-2/3 overflow-auto rounded-lg border-0 bg-slate-50 p-4 backdrop:bg-slate-950/75 dark:bg-slate-950;
+  }
 }
 
 @layer utilities {
