@@ -11,7 +11,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        body: ["Manrope", ...defaultTheme.fontFamily.sans],
+        body: ["Lato", ...defaultTheme.fontFamily.sans],
       },
     },
   },
@@ -20,25 +20,18 @@ module.exports = {
       addBase({
         "@font-face": [
           {
-            fontFamily: "Manrope",
-            fontWeight: 300,
-            fontDisplay: "swap",
-            fontStyle: "normal",
-            src: 'url("/fonts/Manrope-Light.woff2") format("woff2")',
-          },
-          {
-            fontFamily: "Manrope",
+            fontFamily: "Lato",
             fontWeight: 400,
             fontDisplay: "swap",
             fontStyle: "normal",
-            src: 'url("/fonts/Manrope-Regular.woff2") format("woff2")',
+            src: 'url("/fonts/Lato-Regular.woff2") format("woff2")',
           },
           {
-            fontFamily: "Manrope",
+            fontFamily: "Lato",
             fontWeight: 700,
             fontDisplay: "swap",
             fontStyle: "normal",
-            src: 'url("/fonts/Manrope-Bold.woff2") format("woff2")',
+            src: 'url("/fonts/Lato-Bold.woff2") format("woff2")',
           },
         ],
       });

@@ -20,6 +20,10 @@
   .dialog {
     @apply shadow-default max-h-[70vh] w-2/3 overflow-auto rounded-lg border-0 bg-slate-50 p-4 backdrop:bg-slate-950/75 dark:bg-slate-950;
   }
+
+  .title {
+    @apply text-4xl font-bold lg:text-5xl;
+  }
 }
 
 @layer utilities {

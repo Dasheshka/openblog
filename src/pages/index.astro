@@ -1,15 +1,17 @@
 ---
 import ListCategories from "@/components/ListCategories.astro";
 import Posts from "@/components/Posts.astro";
-import TitlePage from "@/components/TitlePage.astro";
 import Common from "@/layouts/Common.astro";
 import { getPosts } from "@/lib/content";
+import { siteConfig } from "@/site-config";
 
 const posts = await getPosts(6);
 ---
 
 <Common title="Home">
-  <TitlePage title="Blog Title" />
+  <h1 class="title">
+    {siteConfig.title}
+  </h1>
   <ListCategories />
   <Posts posts={posts} />
 </Common>

@@ -1,6 +1,5 @@
 ---
 import Posts from "@/components/Posts.astro";
-import TitlePage from "@/components/TitlePage.astro";
 import Common from "@/layouts/Common.astro";
 import { getPostByTag, getTags } from "@/lib/content";
 
@@ -19,6 +18,8 @@ const posts = await getPostByTag(tag);
 ---
 
 <Common title={tag.label}>
-  <TitlePage title={tag.label} />
+  <h1 class="title">
+    {tag.label}
+  </h1>
   <Posts posts={posts} />
 </Common>
