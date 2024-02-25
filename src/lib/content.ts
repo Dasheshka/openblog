@@ -51,7 +51,7 @@ export const filterPostsByCategory = async (category: {
   return posts.filter((post) => post.data.category === category.value);
 };
 
-export const getPostByTag = async (tag: { label: string; value: string }) => {
+export const getPostsByTag = async (tag: { label: string; value: string }) => {
   const posts = await getPosts();
 
   return posts.filter((post) => {

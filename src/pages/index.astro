@@ -1,5 +1,4 @@
 ---
-import ListCategories from "@/components/ListCategories.astro";
 import Posts from "@/components/Posts.astro";
 import Common from "@/layouts/Common.astro";
 import { getPosts } from "@/lib/content";
@@ -12,6 +11,5 @@ const posts = await getPosts(6);
   <h1 class="title">
     {siteConfig.title}
   </h1>
-  <ListCategories />
   <Posts posts={posts} />
 </Common>

@@ -1,0 +1,19 @@
+---
+const { categories } = Astro.props;
+---
+
+<!-- TODO: Create a collection for Categories and rebuild this view using images from the new collection -->
+<div class="flex flex-wrap items-center justify-center gap-6">
+  {
+    categories.map(({ label, value }: { label: string; value: string }) => {
+      return (
+        <a
+          class="shadow-default gradient-state block rounded-lg bg-gradient-to-r from-pink-500 to-violet-500 px-8 py-6 text-2xl font-bold text-slate-50 before:bg-gradient-to-t before:from-violet-900 before:to-violet-500 hover:before:opacity-100 focus:before:opacity-100"
+          href={`/${value}/1`}
+        >
+          {label}
+        </a>
+      );
+    })
+  }
+</div>

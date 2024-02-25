@@ -1,7 +1,4 @@
 ---
-import ArrowLeft from "./ArrowLeft.astro";
-import ArrowRight from "./ArrowRight.astro";
-
 const { page } = Astro.props;
 ---
 
@@ -13,7 +10,7 @@ const { page } = Astro.props;
         href={page.url.prev}
         class="flex h-10 items-center justify-center rounded-lg border border-gray-300 bg-white px-8 text-base text-black hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-transparent dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:px-4"
       >
-        <ArrowLeft />
+        Left
       </a>
     )
   }
@@ -26,7 +23,7 @@ const { page } = Astro.props;
         href={page.url.next}
         class="ml-3 flex h-10 items-center justify-center rounded-lg border border-gray-300 bg-white px-8 text-base text-black hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-transparent dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:px-4"
       >
-        <ArrowRight />
+        Right
       </a>
     )
   }

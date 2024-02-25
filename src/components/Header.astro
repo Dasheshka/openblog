@@ -1,11 +1,13 @@
 ---
+import Categories from "@/components/Categories.astro";
 import Icon from "@/components/Icon.astro";
 import Search from "@/components/Search.astro";
 import Tags from "@/components/Tags.astro";
-import { getTags } from "@/lib/content";
+import { getCategories, getTags } from "@/lib/content";
 import { t } from "@/utils";
 import ThemeToggle from "./ThemeToggle.astro";
 
+const categories = await getCategories();
 const tags = await getTags();
 ---
 
@@ -23,6 +25,21 @@ const tags = await getTags();
     </a>
     <div class="flex">
       <button
+        id="categoriesDialogTrigger"
+        class="ghost-icon hover:text-pink-500 focus:text-pink-500"
+        aria-label={t("header.categories")}
+      >
+        <Icon name="category" />
+      </button>
+      <dialog id="categoriesDialog" class="dialog" autofocus>
+        <div class="dialog-bg"></div>
+        <div class="flex min-h-[25vh] items-center justify-center">
+          <Categories {categories} />
+        </div>
+      </dialog>
+    </div>
+    <div class="flex">
+      <button
         id="tagsDialogTrigger"
         class="ghost-icon hover:text-pink-500 focus:text-pink-500"
         aria-label={t("header.tags")}
@@ -30,8 +47,9 @@ const tags = await getTags();
         <Icon name="tags" />
       </button>
       <dialog id="tagsDialog" class="dialog" autofocus>
+        <div class="dialog-bg"></div>
         <div class="flex min-h-[25vh] items-center justify-center">
-          <Tags tags={tags} />
+          <Tags {tags} />
         </div>
       </dialog>
     </div>
@@ -46,4 +64,5 @@ const tags = await getTags();
   import { useDialog } from "@/utils";
 
   useDialog("tagsDialog", "tagsDialogTrigger");
+  useDialog("categoriesDialog", "categoriesDialogTrigger");
 </script>

@@ -13,6 +13,7 @@ import { t } from "@/utils";
     <Icon name="search" />
   </button>
   <dialog id="searchDialog" class="dialog">
+    <div class="dialog-bg"></div>
     {
       import.meta.env.DEV ? (
         <div class="mx-auto text-center dark:text-slate-50">
@@ -59,17 +60,19 @@ import { t } from "@/utils";
   :root {
     --pagefind-ui-scale: 1;
     --pagefind-ui-font: "Manrope", sans-serif;
-    --pagefind-ui-background: transparent;
-    --pagefind-ui-border: transparent;
 
     --pagefind-ui-primary: #020617;
     --pagefind-ui-text: #020617;
     --pagefind-ui-tag: #020617;
+    --pagefind-ui-background: #f8fafc;
+    --pagefind-ui-border: #02061715;
   }
 
   html.dark {
     --pagefind-ui-primary: #f8fafc;
     --pagefind-ui-text: #f8fafc;
     --pagefind-ui-tag: #f8fafc;
+    --pagefind-ui-background: #020617;
+    --pagefind-ui-border: #f8fafc15;
   }
 </style>

@@ -1,7 +1,11 @@
 ---
 import Posts from "@/components/Posts.astro";
 import Common from "@/layouts/Common.astro";
-import { getPostByTag, getTags } from "@/lib/content";
+import { getPostsByTag, getTags } from "@/lib/content";
+
+const { tag } = Astro.props;
+
+const posts = await getPostsByTag(tag);
 
 export async function getStaticPaths() {
   const tags = await getTags();
@@ -11,10 +15,6 @@ export async function getStaticPaths() {
     props: { tag: tag },
   }));
 }
-
-const { tag } = Astro.props;
-
-const posts = await getPostByTag(tag);
 ---
 
 <Common title={tag.label}>
