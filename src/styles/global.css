@@ -18,15 +18,19 @@
   }
 
   .dialog {
-    @apply shadow-default max-h-[70vh] w-2/3 overflow-auto rounded-lg border-0 bg-slate-50 p-4 backdrop:bg-slate-950/75 dark:bg-slate-950;
+    @apply shadow-default max-h-[70vh] w-2/3 overflow-auto rounded-lg border-0 bg-slate-50 p-8 backdrop:bg-slate-950/75 dark:bg-slate-950;
   }
 
   .dialog-bg {
-    @apply absolute left-0 top-0 -z-10 h-full w-full bg-slate-50 bg-[radial-gradient(#02061720_1px,#f8fafc_1px)] bg-[size:70px_70px] dark:bg-slate-950 dark:bg-[radial-gradient(#f8fafc15_1px,#020617_1px)];
+    @apply absolute left-0 top-0 -z-10 h-full w-full bg-slate-50 bg-[radial-gradient(#02061720_1px,#f8fafc_1px)] bg-[size:60px_60px] dark:bg-slate-950 dark:bg-[radial-gradient(#f8fafc15_1px,#020617_1px)];
   }
 
   .title {
     @apply text-4xl font-bold lg:text-5xl;
+  }
+
+  .title-dialog {
+    @apply mb-8 text-center text-4xl font-bold text-slate-950 dark:text-slate-50;
   }
 }
 

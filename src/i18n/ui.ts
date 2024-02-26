@@ -7,4 +7,6 @@ export const ui = {
   footer: "Made with ❤️",
   "reading-time": "min read",
   "related-articles": "Related Articles",
+  categories: "Categories",
+  tags: "Tags",
 } as const;

@@ -33,9 +33,7 @@ const tags = await getTags();
       </button>
       <dialog id="categoriesDialog" class="dialog" autofocus>
         <div class="dialog-bg"></div>
-        <div class="flex min-h-[25vh] items-center justify-center">
-          <Categories {categories} />
-        </div>
+        <Categories {categories} />
       </dialog>
     </div>
     <div class="flex">
@@ -48,9 +46,7 @@ const tags = await getTags();
       </button>
       <dialog id="tagsDialog" class="dialog" autofocus>
         <div class="dialog-bg"></div>
-        <div class="flex min-h-[25vh] items-center justify-center">
-          <Tags {tags} />
-        </div>
+        <Tags {tags} />
       </dialog>
     </div>
   </nav>
