@@ -42,25 +42,6 @@ export const getTags = async () => {
   return Array.from(tags);
 };
 
-export const filterPostsByCategory = async (category: {
-  label: string;
-  value: string;
-}) => {
-  const posts = await getPosts();
-
-  return posts.filter((post) => post.data.category === category.value);
-};
-
-export const getPostsByTag = async (tag: { label: string; value: string }) => {
-  const posts = await getPosts();
-
-  return posts.filter((post) => {
-    return (
-      post.data.tags && post.data.tags.some((postTag) => postTag === tag.value)
-    );
-  });
-};
-
 export const getRelatedPosts = async (
   slug: string,
   tags: string[],

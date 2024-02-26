@@ -4,7 +4,7 @@ import { t } from "@/utils";
 const { tags } = Astro.props;
 ---
 
-<div class="title-dialog">{t("tags")}</div>
+<div class="title-dialog">{t("title.tags")}</div>
 <div class="flex flex-wrap items-center justify-center gap-4">
   {
     tags.map((tag: { label: string; value: string } | string) => {
@@ -16,8 +16,8 @@ const { tags } = Astro.props;
 
       return (
         <a
-          class="shadow-default gradient-state block rounded-lg bg-gradient-to-r from-pink-500 to-violet-500 px-4 py-2 font-bold text-slate-50 before:bg-gradient-to-t before:from-violet-900 before:to-violet-500 hover:before:opacity-100 focus:before:opacity-100"
-          href={`/${value}`}
+          class="shadow-default button-state block bg-gradient-to-r from-pink-500 to-violet-500 px-4 py-2 font-bold text-slate-50"
+          href={`/${value}/page-1`}
         >
           {label}
         </a>

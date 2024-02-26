@@ -1,0 +1,29 @@
+---
+import Pagination from "@/components/Pagination.astro";
+import Posts from "@/components/Posts.astro";
+import Common from "@/layouts/Common.astro";
+import { getPosts } from "@/lib/content";
+import { siteConfig } from "@/site-config";
+import { t } from "@/utils";
+
+const { page } = Astro.props;
+const posts = page.data;
+
+export async function getStaticPaths({ paginate }: any) {
+  const posts = await getPosts();
+
+  return posts.flatMap(() => {
+    return paginate(posts, {
+      pageSize: siteConfig.postsPerPage,
+    });
+  });
+}
+---
+
+<Common title={`${t("title.posts")}${t("title.page")} ${page.currentPage}`}>
+  <h1 class="title">
+    {siteConfig.title}
+  </h1>
+  <Posts {posts} />
+  <Pagination {page} />
+</Common>

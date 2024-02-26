@@ -17,6 +17,10 @@
     @apply relative z-[1] overflow-hidden before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:-z-[1] before:opacity-0 before:transition;
   }
 
+  .button-state {
+    @apply gradient-state rounded-lg before:bg-gradient-to-t before:from-violet-900 before:to-violet-500 hover:text-slate-50 hover:before:opacity-100 focus:before:opacity-100;
+  }
+
   .dialog {
     @apply shadow-default max-h-[70vh] w-2/3 overflow-auto rounded-lg border-0 bg-slate-50 p-8 backdrop:bg-slate-950/75 dark:bg-slate-950;
   }

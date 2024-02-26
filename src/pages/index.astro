@@ -3,13 +3,25 @@ import Posts from "@/components/Posts.astro";
 import Common from "@/layouts/Common.astro";
 import { getPosts } from "@/lib/content";
 import { siteConfig } from "@/site-config";
+import { t } from "@/utils";
 
-const posts = await getPosts(6);
+const posts = await getPosts(siteConfig.postsPerPage);
+const postsPlusOne = await getPosts(siteConfig.postsPerPage + 1);
+const { length } = postsPlusOne;
 ---
 
-<Common title="Home">
+<Common title={t("title.home")}>
   <h1 class="title">
     {siteConfig.title}
   </h1>
-  <Posts posts={posts} />
+  <Posts {posts} />
+  {
+    length > siteConfig.postsPerPage && (
+      <div class="mx-auto">
+        <a class="button-state block px-4 py-2 text-lg" href="/page-2">
+          {t("pagination.show-more")}
+        </a>
+      </div>
+    )
+  }
 </Common>

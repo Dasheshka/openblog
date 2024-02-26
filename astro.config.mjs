@@ -7,6 +7,6 @@ import { defineConfig } from "astro/config";
 
 export default defineConfig({
   site: "https://your.domain/",
-  integrations: [keystatic(), markdoc(), react(), sitemap(), tailwind()],
   output: "hybrid",
+  integrations: [keystatic(), markdoc(), react(), sitemap(), tailwind()],
 });

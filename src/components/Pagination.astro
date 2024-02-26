@@ -1,30 +1,53 @@
 ---
+import Icon from "@/components/Icon.astro";
+import { t } from "@/utils";
 const { page } = Astro.props;
+const { currentPage, lastPage, url } = page;
+const buttonStyles =
+  "button-state flex h-8 w-8 cursor-pointer items-center justify-center";
 ---
 
-<div class="flex justify-around gap-5 md:justify-end md:gap-1">
-  <!-- Previous Button -->
+<nav class="flex items-center justify-center gap-1" role="navigation">
+  <a
+    class={buttonStyles}
+    href={url.current.replace(/.$/, 1)}
+    aria-label={t("pagination.first-page")}
+  >
+    <Icon name="chevron-left-pipe" size="xs" />
+  </a>
   {
-    page.start > 0 && (
+    currentPage !== 1 && (
       <a
-        href={page.url.prev}
-        class="flex h-10 items-center justify-center rounded-lg border border-gray-300 bg-white px-8 text-base text-black hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-transparent dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:px-4"
+        class={buttonStyles}
+        href={url.prev}
+        aria-label={`${t("pagination.go-to-page")} ${currentPage - 1}`}
       >
-        Left
+        {currentPage - 1}
       </a>
     )
   }
-
-  <!-- Next Button -->
-
+  <div
+    class="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-950 dark:border-slate-50"
+    aria-current="true"
+  >
+    {currentPage}
+  </div>
   {
-    page.currentPage < page.lastPage && (
+    currentPage !== lastPage && (
       <a
-        href={page.url.next}
-        class="ml-3 flex h-10 items-center justify-center rounded-lg border border-gray-300 bg-white px-8 text-base text-black hover:bg-gray-100 hover:text-gray-700 dark:border-gray-700 dark:bg-transparent dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white md:px-4"
+        class={buttonStyles}
+        href={url.next}
+        aria-label={`${t("pagination.go-to-page")} ${currentPage + 1}`}
       >
-        Right
+        {currentPage + 1}
       </a>
     )
   }
-</div>
+  <a
+    class={buttonStyles}
+    href={url.current.replace(/.$/, lastPage)}
+    aria-label={t("pagination.last-page")}
+  >
+    <Icon name="chevron-right-pipe" size="xs" />
+  </a>
+</nav>

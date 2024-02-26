@@ -1,35 +1,37 @@
 ---
 import Pagination from "@/components/Pagination.astro";
 import Posts from "@/components/Posts.astro";
-import { siteConfig } from "@/data/site.config";
 import Common from "@/layouts/Common.astro";
-import { getCategories, getPosts } from "@/lib/content";
+import { getPosts, getTags } from "@/lib/content";
+import { siteConfig } from "@/site-config";
 import { t } from "@/utils";
 
-const { page, category } = Astro.props;
+const { page, tag } = Astro.props;
 const posts = page.data;
 
 export async function getStaticPaths({ paginate }: any) {
-  const categories = await getCategories();
+  const tags = await getTags();
   const allPosts = await getPosts();
 
-  return categories.flatMap((category) => {
+  return tags.flatMap((tag) => {
     const filteredPosts = allPosts.filter(
-      (post) => post.data.category === category.value,
+      (post) =>
+        post.data.tags &&
+        post.data.tags.some((postTag) => postTag === tag.value),
     );
 
     return paginate(filteredPosts, {
-      params: { category: category.value },
-      props: { category },
+      params: { tag: tag.value },
+      props: { tag },
       pageSize: siteConfig.postsPerPage,
     });
   });
 }
 ---
 
-<Common title={`${category.label}${t("title.page")} ${page.currentPage}`}>
+<Common title={`${tag.label}${t("title.page")} ${page.currentPage}`}>
   <h1 class="title">
-    {category.label}
+    {tag.label}
   </h1>
   <Posts {posts} />
   <Pagination {page} />
