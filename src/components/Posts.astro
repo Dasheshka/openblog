@@ -1,6 +1,7 @@
 ---
+import { getCategories } from "@/lib/content";
 import { siteConfig } from "@/site-config";
-import { cn, getCategoryLabel, getReadingTime, t } from "@/utils";
+import { cn, getReadingTime, t } from "@/utils";
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 
@@ -8,6 +9,7 @@ interface Props {
   posts: CollectionEntry<"posts">[];
 }
 
+const categories = await getCategories();
 const { posts } = Astro.props;
 ---
 
@@ -43,7 +45,13 @@ const { posts } = Astro.props;
             />
             <div class="flex flex-col gap-1">
               <div class="flex justify-between gap-2 text-sm">
-                <span>{getCategoryLabel(category)}</span>
+                <span>
+                  {
+                    categories.find(
+                      (cat) => cat.id.replace(/\/index$/, "") === category,
+                    )?.data.title
+                  }
+                </span>
                 <time datetime={articlePubDate}>{formattedDate}</time>
               </div>
               <div class="text-2xl font-bold">{title}</div>

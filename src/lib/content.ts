@@ -1,4 +1,4 @@
-import { CATEGORIES, TAGS } from "@/data/sets";
+import { TAGS } from "@/data/sets";
 import { getCollection } from "astro:content";
 
 export const getPosts = async (max?: number) =>
@@ -7,21 +7,10 @@ export const getPosts = async (max?: number) =>
     .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
     .slice(0, max);
 
-export const getCategories = async () => {
-  const posts = await getCollection("posts");
-  const categories: Set<{ label: string; value: string }> = new Set();
-  const categoriesValues = posts.map((post) => post.data.category);
-
-  categoriesValues.forEach((value) => {
-    CATEGORIES.forEach((category) => {
-      if (category.value === value) {
-        categories.add(category);
-      }
-    });
-  });
-
-  return Array.from(categories);
-};
+export const getCategories = async () =>
+  (await getCollection("categories"))
+    .sort((a, b) => a.data.title.localeCompare(b.data.title))
+    .slice(0);
 
 export const getTags = async () => {
   const posts = await getCollection("posts");

@@ -1,5 +1,11 @@
 ---
 import { t } from "@/utils";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  categories: CollectionEntry<"categories">[];
+}
+
 const { categories } = Astro.props;
 ---
 
@@ -12,13 +18,13 @@ const { categories } = Astro.props;
 <div class="title-dialog">{t("title.categories")}</div>
 <div class="flex flex-wrap items-center justify-center gap-6">
   {
-    categories.map(({ label, value }: { label: string; value: string }) => {
+    categories.map(({ id, data }) => {
       return (
         <a
           class="shadow-default button-state block bg-gradient-to-r from-pink-500 to-violet-500 px-8 py-6 text-2xl font-bold text-slate-50"
-          href={`/${value}/page-1`}
+          href={`/${id.replace(/\/index$/, "")}/page-1`}
         >
-          {label}
+          {data.title}
         </a>
       );
     })
