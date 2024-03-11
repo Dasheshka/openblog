@@ -62,3 +62,4 @@ pnpm dev
 ## TODO
 
 - Put data/site.config.ts into CMS as a singleton Settings page
+- Handle, if there is no Content and/or empty Categories/Tags

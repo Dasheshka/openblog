@@ -1,5 +1,6 @@
 ---
-import { getCategories } from "@/lib/content";
+import Details from "@/components/Details.astro";
+import { getCategories, getTags } from "@/lib/content";
 import { siteConfig } from "@/site-config";
 import { cn, getReadingTime, t } from "@/utils";
 import { Image } from "astro:assets";
@@ -7,12 +8,30 @@ import type { CollectionEntry } from "astro:content";
 
 interface Props {
   posts: CollectionEntry<"posts">[];
+  noDetails?: boolean;
 }
 
-const { posts } = Astro.props;
-const categories = await getCategories();
+const { posts, noDetails } = Astro.props;
+const categories = !noDetails ? await getCategories() : [];
+const tags = !noDetails ? await getTags() : [];
 ---
 
+{
+  !noDetails && (
+    <ul class="flex items-center gap-6">
+      <li>
+        <Details
+          summary={t("header.categories")}
+          icon="category"
+          list={categories}
+        />
+      </li>
+      <li>
+        <Details summary={t("header.tags")} icon="tags" list={tags} />
+      </li>
+    </ul>
+  )
+}
 <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
   {
     posts.map(async (post) => {

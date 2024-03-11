@@ -1,15 +1,13 @@
 ---
 import { getTags } from "@/lib/content";
-import { t } from "@/utils";
 
-const { isDialog, values } = Astro.props;
+const { values } = Astro.props;
 const tags = await getTags();
-const filteredTags = values
-  ? tags.filter((tag) => values.includes(tag.id.replace(/\/index$/, "")))
-  : tags;
+const filteredTags = tags.filter((tag) =>
+  values.includes(tag.id.replace(/\/index$/, "")),
+);
 ---
 
-{isDialog && <div class="title-dialog">{t("title.tags")}</div>}
 <div class="flex flex-wrap items-center justify-center gap-4">
   {
     filteredTags.map(({ id, data }) => {

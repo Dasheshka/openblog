@@ -1,13 +1,8 @@
 ---
-import Categories from "@/components/Categories.astro";
 import Icon from "@/components/Icon.astro";
 import Search from "@/components/Search.astro";
-import Tags from "@/components/Tags.astro";
-import { getCategories } from "@/lib/content";
 import { t } from "@/utils";
 import ThemeToggle from "./ThemeToggle.astro";
-
-const categories = await getCategories();
 ---
 
 <header
@@ -18,46 +13,14 @@ const categories = await getCategories();
     <a
       class="ghost-icon block hover:text-pink-500 focus:text-pink-500"
       href="/"
+      title={t("header.home")}
       aria-label={t("header.home")}
     >
       <Icon name="home" />
     </a>
-    <div class="flex">
-      <button
-        id="categoriesDialogTrigger"
-        class="ghost-icon hover:text-pink-500 focus:text-pink-500"
-        aria-label={t("header.categories")}
-      >
-        <Icon name="category" />
-      </button>
-      <dialog id="categoriesDialog" class="dialog" autofocus>
-        <div class="dialog-bg"></div>
-        <Categories {categories} />
-      </dialog>
-    </div>
-    <div class="flex">
-      <button
-        id="tagsDialogTrigger"
-        class="ghost-icon hover:text-pink-500 focus:text-pink-500"
-        aria-label={t("header.tags")}
-      >
-        <Icon name="tags" />
-      </button>
-      <dialog id="tagsDialog" class="dialog" autofocus>
-        <div class="dialog-bg"></div>
-        <Tags isDialog />
-      </dialog>
-    </div>
   </nav>
   <div class="flex items-center gap-6">
     <Search />
     <ThemeToggle />
   </div>
 </header>
-
-<script>
-  import { useDialog } from "@/utils";
-
-  useDialog("tagsDialog", "tagsDialogTrigger");
-  useDialog("categoriesDialog", "categoriesDialogTrigger");
-</script>
