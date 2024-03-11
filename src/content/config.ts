@@ -24,4 +24,12 @@ const posts = defineCollection({
     }),
 });
 
-export const collections = { categories, posts };
+const tags = defineCollection({
+  type: "data",
+  schema: () =>
+    z.object({
+      title: z.string(),
+    }),
+});
+
+export const collections = { categories, posts, tags };

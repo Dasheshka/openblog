@@ -3,12 +3,11 @@ import Categories from "@/components/Categories.astro";
 import Icon from "@/components/Icon.astro";
 import Search from "@/components/Search.astro";
 import Tags from "@/components/Tags.astro";
-import { getCategories, getTags } from "@/lib/content";
+import { getCategories } from "@/lib/content";
 import { t } from "@/utils";
 import ThemeToggle from "./ThemeToggle.astro";
 
 const categories = await getCategories();
-const tags = await getTags();
 ---
 
 <header
@@ -46,7 +45,7 @@ const tags = await getTags();
       </button>
       <dialog id="tagsDialog" class="dialog" autofocus>
         <div class="dialog-bg"></div>
-        <Tags {tags} />
+        <Tags isDialog />
       </dialog>
     </div>
   </nav>

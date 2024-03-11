@@ -17,11 +17,13 @@ export async function getStaticPaths({ paginate }: any) {
     const filteredPosts = allPosts.filter(
       (post) =>
         post.data.tags &&
-        post.data.tags.some((postTag) => postTag === tag.value),
+        post.data.tags.some(
+          (postTag) => postTag === tag.id.replace(/\/index$/, ""),
+        ),
     );
 
     return paginate(filteredPosts, {
-      params: { tag: tag.value },
+      params: { tag: tag.id.replace(/\/index$/, "") },
       props: { tag },
       pageSize: siteConfig.postsPerPage,
     });
@@ -29,9 +31,9 @@ export async function getStaticPaths({ paginate }: any) {
 }
 ---
 
-<Common title={`${tag.label}${t("title.page")} ${page.currentPage}`}>
+<Common title={`${tag.data.title}${t("title.page")} ${page.currentPage}`}>
   <h1 class="title">
-    {tag.label}
+    {tag.data.title}
   </h1>
   <Posts {posts} />
   <Pagination {page} />

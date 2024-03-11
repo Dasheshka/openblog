@@ -8,13 +8,13 @@ export const sluglify = (text: string) => text.replace(/\s+/g, "-");
 
 export const unsluglify = (text: string) => text.replace(/-/g, " ");
 
+export const t = (key: keyof typeof ui) => {
+  return ui[key];
+};
+
 export const getReadingTime = (body: string) => {
   const words = body.match(/\w+/g);
   return words ? `${Math.ceil(words.length / 150)}` : "1";
-};
-
-export const t = (key: keyof typeof ui) => {
-  return ui[key];
 };
 
 export const useDialog = (dialogId: string, triggerId: string) => {

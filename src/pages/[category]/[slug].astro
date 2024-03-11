@@ -57,7 +57,7 @@ export const getStaticPaths = async () => {
         {
           !!tags.length && (
             <div class="mt-10">
-              <Tags {tags} />
+              <Tags values={tags} />
             </div>
           )
         }

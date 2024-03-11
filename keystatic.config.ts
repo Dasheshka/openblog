@@ -1,11 +1,16 @@
-import { TAGS } from "@/data/sets";
-import { getCategories } from "@/lib/content";
+import { getCategories, getTags } from "@/lib/content";
 import { collection, config, fields } from "@keystatic/core";
 
 const categories = await getCategories();
 const CATEGORIES = categories.map((category) => ({
   label: category.data.title,
   value: category.id.replace(/\/index$/, ""),
+}));
+
+const tags = await getTags();
+const TAGS = tags.map((tag) => ({
+  label: tag.data.title,
+  value: tag.id.replace(/\/index$/, ""),
 }));
 
 export default config({
@@ -96,6 +101,23 @@ export default config({
           images: true,
           links: true,
           tables: true,
+        }),
+      },
+    }),
+    tags: collection({
+      label: "Tags",
+      path: "src/content/tags/*/",
+      slugField: "title",
+      schema: {
+        title: fields.slug({
+          name: {
+            label: "Title",
+            validation: { length: { min: 3, max: 255 } },
+          },
+          slug: {
+            label: "SEO-friendly slug",
+            description: "This will define the file/folder name for this entry",
+          },
         }),
       },
     }),
