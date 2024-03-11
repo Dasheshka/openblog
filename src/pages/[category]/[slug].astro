@@ -98,7 +98,7 @@ export const getStaticPaths = async () => {
       relatedPosts && (
         <div class="mt-12 lg:mx-auto lg:w-4/6 lg:pl-8">
           <h2 class="mb-6 text-lg font-bold">{t("related-articles")}</h2>
-          <Posts posts={relatedPosts} noDetails />
+          <Posts posts={relatedPosts} />
         </div>
       )
     }

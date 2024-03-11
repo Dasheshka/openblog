@@ -1,6 +1,4 @@
 ---
-import Details from "@/components/Details.astro";
-import { getCategories, getTags } from "@/lib/content";
 import { siteConfig } from "@/site-config";
 import { cn, getReadingTime, t } from "@/utils";
 import { Image } from "astro:assets";
@@ -8,30 +6,11 @@ import type { CollectionEntry } from "astro:content";
 
 interface Props {
   posts: CollectionEntry<"posts">[];
-  noDetails?: boolean;
 }
 
-const { posts, noDetails } = Astro.props;
-const categories = !noDetails ? await getCategories() : [];
-const tags = !noDetails ? await getTags() : [];
+const { posts } = Astro.props;
 ---
 
-{
-  !noDetails && (
-    <ul class="flex items-center gap-6">
-      <li>
-        <Details
-          summary={t("header.categories")}
-          icon="category"
-          list={categories}
-        />
-      </li>
-      <li>
-        <Details summary={t("header.tags")} icon="tags" list={tags} />
-      </li>
-    </ul>
-  )
-}
 <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
   {
     posts.map(async (post) => {
@@ -64,21 +43,14 @@ const tags = !noDetails ? await getTags() : [];
             />
             <div class="flex flex-col gap-1">
               <div class="flex justify-between gap-2 text-sm">
-                <span>
-                  {
-                    categories.find(
-                      (cat) => cat.id.replace(/\/index$/, "") === category,
-                    )?.data.title
-                  }
-                </span>
                 <time datetime={articlePubDate}>{formattedDate}</time>
+                <span class="text-sm">
+                  {getReadingTime(body)}
+                  {t("reading-time")}
+                </span>
               </div>
               <div class="text-2xl font-bold">{title}</div>
               <p>{description}</p>
-              <p class="text-sm">
-                {getReadingTime(body)}
-                {t("reading-time")}
-              </p>
             </div>
           </a>
         </article>

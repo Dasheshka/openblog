@@ -1,8 +1,13 @@
 ---
+import Details from "@/components/Details.astro";
 import Icon from "@/components/Icon.astro";
 import Search from "@/components/Search.astro";
+import { getCategories, getTags } from "@/lib/content";
 import { t } from "@/utils";
 import ThemeToggle from "./ThemeToggle.astro";
+
+const categories = await getCategories();
+const tags = await getTags();
 ---
 
 <header
@@ -18,6 +23,18 @@ import ThemeToggle from "./ThemeToggle.astro";
     >
       <Icon name="home" />
     </a>
+    <ul class="flex items-center gap-6">
+      <li>
+        <Details
+          summary={t("header.categories")}
+          icon="category"
+          list={categories}
+        />
+      </li>
+      <li>
+        <Details summary={t("header.tags")} icon="tags" list={tags} />
+      </li>
+    </ul>
   </nav>
   <div class="flex items-center gap-6">
     <Search />

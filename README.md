@@ -63,3 +63,4 @@ pnpm dev
 
 - Put data/site.config.ts into CMS as a singleton Settings page
 - Handle, if there is no Content and/or empty Categories/Tags
+- Rename Categories into Authors, update Posts with Author (on top of the image) and add it to the Post page
