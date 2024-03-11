@@ -17,16 +17,6 @@ export const getReadingTime = (body: string) => {
   return words ? `${Math.ceil(words.length / 150)}` : "1";
 };
 
-export const useDetails = (details: HTMLDetailsElement | null) => {
-  document.addEventListener("click", (e) => {
-    if (details && e.target !== details && details.open) {
-      details.open = false;
-    }
-  });
-
-  return details;
-};
-
 export const useDialog = (dialogId: string, triggerId: string) => {
   const dialog = document.getElementById(dialogId) as HTMLDialogElement;
   const dialogTrigger = document.getElementById(triggerId);

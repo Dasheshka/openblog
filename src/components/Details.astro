@@ -44,12 +44,17 @@ const { summary, icon, list } = Astro.props;
 </astro-details>
 
 <script>
-  import { useDetails } from "@/utils";
-
   class AstroDetails extends HTMLElement {
     constructor() {
       super();
-      useDetails(this.querySelector("details"));
+
+      const details = this.querySelector("details");
+
+      document.addEventListener("click", (e) => {
+        if (details && e.target !== details && details.open) {
+          details.open = false;
+        }
+      });
     }
   }
 
