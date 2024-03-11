@@ -58,3 +58,7 @@ pnpm dev
 - pink-500
 - violet-500
 - violet-900
+
+## TODO
+
+- Put data/site.config.ts into CMS as a singleton Settings page
