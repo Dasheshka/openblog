@@ -61,6 +61,5 @@ pnpm dev
 
 ## TODO
 
-- Put data/site.config.ts into CMS as a singleton Settings page
-- Store images outside the website
 - Configure the look of the Keystatic Admin panel (names of the entries, etc.)
+- Put data/site.config.ts into CMS as a singleton Settings page

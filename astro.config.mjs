@@ -8,5 +8,8 @@ import { defineConfig } from "astro/config";
 export default defineConfig({
   site: "https://your.domain/",
   output: "hybrid",
+  image: {
+    remotePatterns: [{ protocol: "https" }],
+  },
   integrations: [keystatic(), markdoc(), react(), sitemap(), tailwind()],
 });

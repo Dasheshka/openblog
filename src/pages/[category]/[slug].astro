@@ -20,9 +20,6 @@ const formattedDate = pubDate.toLocaleDateString(siteConfig.lang, {
   month: "short",
   year: "numeric",
 });
-const isCoverImageLarge =
-  coverImage.width > siteConfig.postPageCoverImageWidth ||
-  coverImage.height > siteConfig.postPageCoverImageWidth;
 const relatedPosts =
   tags && tags.length ? await getRelatedPosts(slug, tags) : null;
 const { Content, headings } = await post.render();
@@ -37,7 +34,7 @@ export const getStaticPaths = async () => {
 };
 ---
 
-<Common {title} {description} coverImageSrc={coverImage.src} {articlePubDate}>
+<Common {title} {description} coverImage={coverImage} {articlePubDate}>
   <article data-pagefind-body>
     <div class="mb-12">
       <div class="mb-12 flex flex-col items-center text-center">
@@ -64,12 +61,8 @@ export const getStaticPaths = async () => {
         )}
         src={coverImage}
         alt=""
-        width={isCoverImageLarge
-          ? siteConfig.postPageCoverImageWidth
-          : undefined}
-        height={isCoverImageLarge
-          ? siteConfig.postPageCoverImageHeight
-          : undefined}
+        width={siteConfig.postPageCoverImageWidth}
+        height={siteConfig.postPageCoverImageHeight}
         format="webp"
         quality={siteConfig.postPageCoverImageQuality}
         loading="eager"

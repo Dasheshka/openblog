@@ -61,10 +61,10 @@ export default config({
           description: "A short description of the post or an excerpt",
           validation: { length: { min: 3, max: 255 } },
         }),
-        coverImage: fields.image({
+        coverImage: fields.url({
           label: "Cover Image",
-          directory: "src/assets/images",
-          publicPath: "/src/assets/images/",
+          description:
+            "Use an image hosting service like ImgBB or Imgur and paste the URL here",
           validation: {
             isRequired: true,
           },
