@@ -3,9 +3,7 @@ import { getTags } from "@/lib/content";
 
 const { values } = Astro.props;
 const tags = await getTags();
-const filteredTags = tags.filter((tag) =>
-  values.includes(tag.id.replace(/\/index$/, "")),
-);
+const filteredTags = tags.filter((tag) => values.includes(tag.id));
 ---
 
 <div class="flex flex-wrap items-center justify-center gap-4">
@@ -14,7 +12,7 @@ const filteredTags = tags.filter((tag) =>
       return (
         <a
           class="shadow-default button-state block bg-gradient-to-r from-pink-500 to-violet-500 px-4 py-2 font-bold text-slate-50"
-          href={`/${id.replace(/\/index$/, "")}/page-1`}
+          href={`/${id}/page-1`}
         >
           {data.title}
         </a>

@@ -4,13 +4,13 @@ import { collection, config, fields } from "@keystatic/core";
 const categories = await getCategories();
 const CATEGORIES = categories.map((category) => ({
   label: category.data.title,
-  value: category.id.replace(/\/index$/, ""),
+  value: category.id,
 }));
 
 const tags = await getTags();
 const TAGS = tags.map((tag) => ({
   label: tag.data.title,
-  value: tag.id.replace(/\/index$/, ""),
+  value: tag.id,
 }));
 
 export default config({
@@ -20,7 +20,7 @@ export default config({
   collections: {
     categories: collection({
       label: "Categories",
-      path: "src/content/categories/*/",
+      path: "src/content/categories/*",
       slugField: "title",
       schema: {
         title: fields.slug({
@@ -37,7 +37,7 @@ export default config({
     }),
     posts: collection({
       label: "Posts",
-      path: "src/content/posts/*/",
+      path: "src/content/posts/*",
       slugField: "title",
       format: { contentField: "body" },
       schema: {
@@ -106,7 +106,7 @@ export default config({
     }),
     tags: collection({
       label: "Tags",
-      path: "src/content/tags/*/",
+      path: "src/content/tags/*",
       slugField: "title",
       schema: {
         title: fields.slug({

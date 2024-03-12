@@ -6,8 +6,11 @@ export const getCategories = async () =>
     .slice(0);
 
 export const getPosts = async (max?: number) =>
-  (await getCollection("posts"))
-    .filter((post) => !post.data.draft)
+  (
+    await getCollection("posts", ({ data }) => {
+      return !data.draft;
+    })
+  )
     .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
     .slice(0, max);
 

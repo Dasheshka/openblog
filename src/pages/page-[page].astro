@@ -25,5 +25,5 @@ export async function getStaticPaths({ paginate }: any) {
     {siteConfig.title}
   </h1>
   <Posts {posts} />
-  <Pagination {page} />
+  {posts.length + 1 > siteConfig.postsPerPage && <Pagination {page} />}
 </Common>

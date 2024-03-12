@@ -3,6 +3,7 @@ export const ui = {
   "header.categories": "Show Categories",
   "header.home": "Go to the Home page",
   "header.tags": "Show Tags",
+  "no-posts": "No posts found",
   "pagination.first-page": "Go to the first page",
   "pagination.go-to-page": "Go to the page",
   "pagination.last-page": "Go to the last page",

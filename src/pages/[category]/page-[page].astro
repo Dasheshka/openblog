@@ -15,11 +15,11 @@ export async function getStaticPaths({ paginate }: any) {
 
   return categories.flatMap((category) => {
     const filteredPosts = allPosts.filter(
-      (post) => post.data.category === category.id.replace(/\/index$/, ""),
+      (post) => post.data.category === category.id,
     );
 
     return paginate(filteredPosts, {
-      params: { category: category.id.replace(/\/index$/, "") },
+      params: { category: category.id },
       props: { category },
       pageSize: siteConfig.postsPerPage,
     });
@@ -32,5 +32,5 @@ export async function getStaticPaths({ paginate }: any) {
     {category.data.title}
   </h1>
   <Posts {posts} />
-  <Pagination {page} />
+  {posts.length + 1 > siteConfig.postsPerPage && <Pagination {page} />}
 </Common>
