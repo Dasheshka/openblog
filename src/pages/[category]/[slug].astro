@@ -23,7 +23,8 @@ const formattedDate = pubDate.toLocaleDateString(siteConfig.lang, {
 const isCoverImageLarge =
   coverImage.width > siteConfig.postPageCoverImageWidth ||
   coverImage.height > siteConfig.postPageCoverImageWidth;
-const relatedPosts = tags.length ? await getRelatedPosts(slug, tags) : null;
+const relatedPosts =
+  tags && tags.length ? await getRelatedPosts(slug, tags) : null;
 const { Content, headings } = await post.render();
 
 export const getStaticPaths = async () => {
@@ -54,13 +55,7 @@ export const getStaticPaths = async () => {
         <h1 class="text-4xl font-bold lg:text-6xl">
           {title}
         </h1>
-        {
-          !!tags.length && (
-            <div class="mt-10">
-              <Tags values={tags} />
-            </div>
-          )
-        }
+        {tags && !!tags.length && <Tags values={tags} />}
       </div>
       <Image
         class={cn(

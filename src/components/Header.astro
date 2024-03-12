@@ -23,18 +23,26 @@ const tags = await getTags();
     >
       <Icon name="home" />
     </a>
-    <ul class="flex items-center gap-6">
-      <li>
-        <Details
-          summary={t("header.categories")}
-          icon="category"
-          list={categories}
-        />
-      </li>
-      <li>
-        <Details summary={t("header.tags")} icon="tags" list={tags} />
-      </li>
-    </ul>
+    {
+      (!!categories.length || (tags && !!tags.length)) && (
+        <ul class="flex items-center gap-6">
+          {!!categories.length && (
+            <li>
+              <Details
+                summary={t("header.categories")}
+                icon="category"
+                list={categories}
+              />
+            </li>
+          )}
+          {tags && !!tags.length && (
+            <li>
+              <Details summary={t("header.tags")} icon="tags" list={tags} />
+            </li>
+          )}
+        </ul>
+      )
+    }
   </nav>
   <div class="flex items-center gap-6">
     <Search />

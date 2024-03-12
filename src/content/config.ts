@@ -9,13 +9,14 @@ const categories = defineCollection({
 });
 
 const posts = defineCollection({
+  type: "content",
   schema: ({ image }) =>
     z.object({
       title: z.string(),
       description: z.string(),
       coverImage: image(),
       category: z.string(),
-      tags: z.array(z.string()),
+      tags: z.array(z.string()).optional(),
       pubDate: z
         .string()
         .or(z.date())

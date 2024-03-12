@@ -1,17 +1,22 @@
 import { getCategories, getTags } from "@/lib/content";
+import { t } from "@/utils";
 import { collection, config, fields } from "@keystatic/core";
 
 const categories = await getCategories();
-const CATEGORIES = categories.map((category) => ({
-  label: category.data.title,
-  value: category.id,
-}));
+const CATEGORIES = categories.length
+  ? categories.map((category) => ({
+      label: category.data.title,
+      value: category.id,
+    }))
+  : [];
 
 const tags = await getTags();
-const TAGS = tags.map((tag) => ({
-  label: tag.data.title,
-  value: tag.id,
-}));
+const TAGS = tags.length
+  ? tags.map((tag) => ({
+      label: tag.data.title,
+      value: tag.id,
+    }))
+  : null;
 
 export default config({
   storage: {
@@ -66,13 +71,15 @@ export default config({
         }),
         category: fields.select({
           label: "Category",
-          options: CATEGORIES,
-          defaultValue: CATEGORIES[0].value,
+          options: [{ label: t("no-category"), value: "p" }, ...CATEGORIES],
+          defaultValue: "p",
         }),
-        tags: fields.multiselect({
-          label: "Tags",
-          options: TAGS,
-        }),
+        tags: TAGS
+          ? fields.multiselect({
+              label: "Tags",
+              options: TAGS,
+            })
+          : fields.empty(),
         pubDate: fields.date({
           label: "Publication Date",
           defaultValue: {
