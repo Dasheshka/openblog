@@ -1,7 +1,7 @@
 {
   "postsPerPage": 6,
-  "postsGridCoverImageAspectRatio": "aspect-video",
-  "postsGridCoverImageWidth": 700,
-  "postsGridCoverImageHeight": 369,
-  "postsGridCoverImageQuality": 100
+  "coverImageAspect": "aspect-video",
+  "coverImageWidth": 700,
+  "coverImageHeight": 369,
+  "coverImageQuality": 100
 }

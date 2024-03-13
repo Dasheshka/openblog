@@ -8,6 +8,7 @@
       "@/data/*": ["src/data/*"],
       "@/layouts/*": ["src/layouts/*"],
       "@/lib/*": ["src/lib/*"],
+      "@/schemas": ["src/schemas/index.ts"],
       "@/styles/*": ["src/styles/*"],
       "@/t/*": ["src/i18n/*"],
       "@/utils": ["src/utils/index.ts"]

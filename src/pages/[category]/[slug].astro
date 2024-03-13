@@ -59,14 +59,14 @@ export const getStaticPaths = async () => {
       <Image
         class={cn(
           "mx-auto rounded-lg object-cover shadow-default",
-          configs.postPage.postPageCoverImageAspectRatio,
+          configs.postPage.coverImageAspect,
         )}
         src={coverImage}
         alt=""
-        width={configs.postPage.postPageCoverImageWidth}
-        height={configs.postPage.postPageCoverImageHeight}
+        width={configs.postPage.coverImageWidth}
+        height={configs.postPage.coverImageHeight}
         format="webp"
-        quality={configs.postPage.postPageCoverImageQuality}
+        quality={configs.postPage.coverImageQuality}
         loading="eager"
       />
     </div>
