@@ -2,8 +2,7 @@
 import Posts from "@/components/Posts.astro";
 import TableOfContents from "@/components/TableOfContents.astro";
 import Tags from "@/components/Tags.astro";
-import postPageConfig from "@/config/postPage.config.json";
-import websiteConfig from "@/config/website.config.json";
+import { configs } from "@/configs";
 import Common from "@/layouts/Common.astro";
 import { getPosts, getRelatedPosts } from "@/lib/content";
 import { cn, getReadingTime, t } from "@/utils";
@@ -16,14 +15,14 @@ const {
   slug,
 } = post;
 const articlePubDate = pubDate.toISOString();
-const formattedDate = pubDate.toLocaleDateString(websiteConfig.lang, {
+const formattedDate = pubDate.toLocaleDateString(configs.website.lang, {
   day: "numeric",
   month: "short",
   year: "numeric",
 });
 const relatedPosts =
   tags && tags.length
-    ? await getRelatedPosts(slug, tags, postPageConfig.relatedPosts)
+    ? await getRelatedPosts(slug, tags, configs.postPage.relatedPosts)
     : null;
 const { Content, headings } = await post.render();
 
@@ -60,14 +59,14 @@ export const getStaticPaths = async () => {
       <Image
         class={cn(
           "mx-auto rounded-lg object-cover shadow-default",
-          postPageConfig.postPageCoverImageAspectRatio,
+          configs.postPage.postPageCoverImageAspectRatio,
         )}
         src={coverImage}
         alt=""
-        width={postPageConfig.postPageCoverImageWidth}
-        height={postPageConfig.postPageCoverImageHeight}
+        width={configs.postPage.postPageCoverImageWidth}
+        height={configs.postPage.postPageCoverImageHeight}
         format="webp"
-        quality={postPageConfig.postPageCoverImageQuality}
+        quality={configs.postPage.postPageCoverImageQuality}
         loading="eager"
       />
     </div>

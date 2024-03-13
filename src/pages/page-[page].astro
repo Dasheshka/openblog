@@ -1,8 +1,7 @@
 ---
 import Pagination from "@/components/Pagination.astro";
 import Posts from "@/components/Posts.astro";
-import postsGridConfig from "@/config/postsGrid.config.json";
-import websiteConfig from "@/config/website.config.json";
+import { configs } from "@/configs";
 import Common from "@/layouts/Common.astro";
 import { getPosts } from "@/lib/content";
 import { t } from "@/utils";
@@ -15,7 +14,7 @@ export async function getStaticPaths({ paginate }: any) {
 
   return posts.flatMap(() => {
     return paginate(posts, {
-      pageSize: postsGridConfig.postsPerPage,
+      pageSize: configs.postsGrid.postsPerPage,
     });
   });
 }
@@ -23,8 +22,8 @@ export async function getStaticPaths({ paginate }: any) {
 
 <Common title={`${t("title.posts")}${t("title.page")} ${page.currentPage}`}>
   <h1 class="title">
-    {websiteConfig.title}
+    {configs.website.title}
   </h1>
   <Posts {posts} />
-  {posts.length + 1 > postsGridConfig.postsPerPage && <Pagination {page} />}
+  {posts.length + 1 > configs.postsGrid.postsPerPage && <Pagination {page} />}
 </Common>

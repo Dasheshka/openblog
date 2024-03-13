@@ -1,16 +1,16 @@
 ---
-import websiteConfig from "@/config/website.config.json";
+import { configs } from "@/configs";
 import "@/styles/global.css";
 import { ViewTransitions } from "astro:transitions";
 
 const {
   title,
-  description = websiteConfig.description,
-  ogImage = websiteConfig.ogImage,
+  description = configs.website.description,
+  ogImage = configs.website.ogImage,
   articleAuthor,
   articlePubDate,
 } = Astro.props;
-const pageTitle = `${title} • ${websiteConfig.title}`;
+const pageTitle = `${title} • ${configs.website.title}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(ogImage, Astro.url).href;
 ---
@@ -24,13 +24,13 @@ const ogImageURL = new URL(ogImage, Astro.url).href;
 
 <meta name="title" content={pageTitle} />
 <meta name="description" content={description} />
-<meta name="author" content={websiteConfig.author} />
+<meta name="author" content={configs.website.author} />
 
-<link href={websiteConfig.favicon} type="image/svg+xml" rel="icon" />
+<link href={configs.website.favicon} type="image/svg+xml" rel="icon" />
 <link href={canonicalURL} rel="canonical" />
 <link
   href="/rss.xml"
-  title={websiteConfig.title}
+  title={configs.website.title}
   type="application/rss+xml"
   rel="alternate"
 />
@@ -45,7 +45,7 @@ const ogImageURL = new URL(ogImage, Astro.url).href;
     <>
       <meta
         property="article:author"
-        content={articleAuthor || websiteConfig.author}
+        content={articleAuthor || configs.website.author}
       />
       <meta property="article:published_time" content={articlePubDate} />
     </>

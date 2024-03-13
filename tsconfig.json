@@ -4,7 +4,7 @@
     "baseUrl": "./",
     "paths": {
       "@/components/*": ["src/components/*"],
-      "@/config/*": ["src/configuration/*"],
+      "@/configs": ["src/configs/index.ts"],
       "@/data/*": ["src/data/*"],
       "@/layouts/*": ["src/layouts/*"],
       "@/lib/*": ["src/lib/*"],

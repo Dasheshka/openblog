@@ -1,23 +1,22 @@
 ---
 import Posts from "@/components/Posts.astro";
-import postsGridConfig from "@/config/postsGrid.config.json";
-import websiteConfig from "@/config/website.config.json";
+import { configs } from "@/configs";
 import Common from "@/layouts/Common.astro";
 import { getPosts } from "@/lib/content";
 import { t } from "@/utils";
 
-const posts = await getPosts(postsGridConfig.postsPerPage);
-const postsPlusOne = await getPosts(postsGridConfig.postsPerPage + 1);
+const posts = await getPosts(configs.postsGrid.postsPerPage);
+const postsPlusOne = await getPosts(configs.postsGrid.postsPerPage + 1);
 const { length } = postsPlusOne;
 ---
 
 <Common title={t("title.home")}>
   <h1 class="title">
-    {websiteConfig.title}
+    {configs.website.title}
   </h1>
   <Posts {posts} />
   {
-    length > postsGridConfig.postsPerPage && (
+    length > configs.postsGrid.postsPerPage && (
       <div class="mx-auto">
         <a class="button-state block px-4 py-2 text-lg" href="/page-2">
           {t("pagination.show-more")}

@@ -1,4 +1,4 @@
-import websiteConfig from "@/config/website.config.json";
+import { configs } from "@/configs";
 import { getCategories, getTags } from "@/lib/content";
 import { t } from "@/utils";
 import { collection, config, fields, singleton } from "@keystatic/core";
@@ -21,12 +21,12 @@ const TAGS = tags.length
 
 export default config({
   // @ts-ignore
-  locale: websiteConfig.lang,
+  locale: configs.website.lang,
   storage: {
     kind: "local",
   },
   ui: {
-    brand: { name: websiteConfig.title },
+    brand: { name: configs.website.title },
     navigation: {
       [t("admin.navigation.collections")]: ["posts", "categories", "tags"],
       [t("admin.navigation.configuration")]: [
