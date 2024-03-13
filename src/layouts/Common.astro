@@ -1,7 +1,7 @@
 ---
 import Footer from "@/components/Footer.astro";
 import Header from "@/components/Header.astro";
-import { siteConfig } from "@/site-config";
+import websiteConfig from "@/config/website.config.json";
 import Backgrounds from "./partials/Backgrounds.astro";
 import Head from "./partials/Head.astro";
 
@@ -9,7 +9,7 @@ const { title, description, coverImage, articleAuthor, articlePubDate } =
   Astro.props;
 ---
 
-<html lang={siteConfig.lang} class="scroll-smooth antialiased">
+<html lang={websiteConfig.lang} class="scroll-smooth antialiased">
   <head>
     <Head
       {title}

@@ -3,7 +3,7 @@ import Pagination from "@/components/Pagination.astro";
 import Posts from "@/components/Posts.astro";
 import Common from "@/layouts/Common.astro";
 import { getPosts, getTags } from "@/lib/content";
-import { siteConfig } from "@/site-config";
+import postsGridConfig from "@/config/postsGrid.config.json";
 import { t } from "@/utils";
 
 const { page, tag } = Astro.props;
@@ -22,7 +22,7 @@ export async function getStaticPaths({ paginate }: any) {
     return paginate(filteredPosts, {
       params: { tag: tag.id },
       props: { tag },
-      pageSize: siteConfig.postsPerPage,
+      pageSize: postsGridConfig.postsPerPage,
     });
   });
 }
@@ -33,5 +33,5 @@ export async function getStaticPaths({ paginate }: any) {
     {tag.data.title}
   </h1>
   <Posts {posts} />
-  {posts.length + 1 > siteConfig.postsPerPage && <Pagination {page} />}
+  {posts.length + 1 > postsGridConfig.postsPerPage && <Pagination {page} />}
 </Common>

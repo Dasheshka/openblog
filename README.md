@@ -61,9 +61,8 @@ pnpm dev
 
 ## TODO
 
-- Configure the look of the Keystatic Admin panel (names of the entries, etc.)
-- Translate admin UI
-- Put data/site.config.ts into CMS as a singleton Settings page
+- Update names of the new configs' values
+- Put translations into CMS
 - PhotoSwipe for RTE + check RTE for cloud images
 - Do something about articles preview
 - Add more SEO, especially for Post pages: schema.org

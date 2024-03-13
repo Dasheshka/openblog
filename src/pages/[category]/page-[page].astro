@@ -1,7 +1,7 @@
 ---
 import Pagination from "@/components/Pagination.astro";
 import Posts from "@/components/Posts.astro";
-import { siteConfig } from "@/data/site.config";
+import postsGridConfig from "@/config/postsGrid.config.json";
 import Common from "@/layouts/Common.astro";
 import { getCategories, getPosts } from "@/lib/content";
 import { t } from "@/utils";
@@ -21,7 +21,7 @@ export async function getStaticPaths({ paginate }: any) {
     return paginate(filteredPosts, {
       params: { category: category.id },
       props: { category },
-      pageSize: siteConfig.postsPerPage,
+      pageSize: postsGridConfig.postsPerPage,
     });
   });
 }
@@ -32,5 +32,5 @@ export async function getStaticPaths({ paginate }: any) {
     {category.data.title}
   </h1>
   <Posts {posts} />
-  {posts.length + 1 > siteConfig.postsPerPage && <Pagination {page} />}
+  {posts.length + 1 > postsGridConfig.postsPerPage && <Pagination {page} />}
 </Common>

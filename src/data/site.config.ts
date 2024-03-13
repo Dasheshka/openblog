@@ -1,12 +1,12 @@
 export const siteConfig = {
   // Essential
-  lang: "en",
   title: "Openblog",
+  lang: "en",
   description:
     "A blog template website, built with Astro, Keystatic and Tailwind CSS",
   author: "Blue Amber",
   favicon: "/favicon.svg", // Must be SVG!
-  ogImage: "/open-graph.png",
+  ogImage: "/ogImage.png",
 
   // Customization
   postsPerPage: 6,
@@ -14,6 +14,7 @@ export const siteConfig = {
   postsGridCoverImageWidth: 700,
   postsGridCoverImageHeight: 394,
   postsGridCoverImageQuality: 100,
+  relatedPosts: 3,
   postPageCoverImageAspectRatio: "aspect-[2/1]",
   postPageCoverImageWidth: 1000,
   postPageCoverImageHeight: 500,

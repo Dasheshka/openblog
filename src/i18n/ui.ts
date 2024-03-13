@@ -4,6 +4,7 @@ export const ui = {
 
   // Admin UI
   "admin.navigation.collections": "Content",
+  "admin.navigation.configuration": "Configuration",
   "admin.slug.label": "Slug",
   "admin.slug.description":
     "Defines the filename for the entry and may be reflected in the URL",
@@ -26,6 +27,30 @@ export const ui = {
   "admin.categories.title": "Title",
   "admin.tags.label": "Tags",
   "admin.tags.title": "Title",
+  "admin.settings.website.label": "Website",
+  "admin.settings.lang.label": "Language",
+  "admin.settings.lang.description":
+    "Use a short locale identificator, e.g.: en, es, fr, de, etc. You can only choose one at a time",
+  "admin.settings.title": "Title",
+  "admin.settings.description": "Description",
+  "admin.settings.author": "Author",
+  "admin.settings.favicon.label": "Favicon",
+  "admin.settings.favicon.description": "Must be SVG",
+  "admin.settings.og-image.label": "Open Graph Image",
+  "admin.settings.og-image.description":
+    "An image you see when you share a link, the default one",
+  "admin.settings.posts-grid.label": "Posts Grid",
+  "admin.settings.posts-grid.posts-per-page": "Number of posts per page",
+  "admin.settings.posts-grid.aspect-ratio": "Cover Image: Aspect Ratio",
+  "admin.settings.posts-grid.width": "Cover Image: Width",
+  "admin.settings.posts-grid.height": "Cover Image: Height",
+  "admin.settings.posts-grid.quality": "Cover Image: Quality",
+  "admin.settings.post-page.label": "Post Page",
+  "admin.settings.post-page.related-posts": "Number of related posts",
+  "admin.settings.post-page.aspect-ratio": "Cover Image: Aspect Ratio",
+  "admin.settings.post-page.width": "Cover Image: Width",
+  "admin.settings.post-page.height": "Cover Image: Height",
+  "admin.settings.post-page.quality": "Cover Image: Quality",
 
   // Website UI
   "header.home": "Go to the Home page",

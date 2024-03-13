@@ -1,5 +1,6 @@
 ---
-import { siteConfig } from "@/site-config";
+import websiteConfig from "@/config/website.config.json";
+import postsGridConfig from "@/config/postsGrid.config.json";
 import { cn, getReadingTime, t } from "@/utils";
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
@@ -21,7 +22,7 @@ const { posts } = Astro.props;
           slug,
         } = post;
         const articlePubDate = pubDate.toISOString();
-        const formattedDate = pubDate.toLocaleDateString(siteConfig.lang, {
+        const formattedDate = pubDate.toLocaleDateString(websiteConfig.lang, {
           day: "numeric",
           month: "short",
           year: "numeric",
@@ -33,14 +34,14 @@ const { posts } = Astro.props;
               <Image
                 class={cn(
                   "shadow-default mb-4 rounded-lg object-cover",
-                  siteConfig.postsGridCoverImageAspectRatio,
+                  postsGridConfig.postsGridCoverImageAspectRatio,
                 )}
                 src={coverImage}
                 alt=""
-                width={siteConfig.postsGridCoverImageWidth}
-                height={siteConfig.postsGridCoverImageHeight}
+                width={postsGridConfig.postsGridCoverImageWidth}
+                height={postsGridConfig.postsGridCoverImageHeight}
                 format="webp"
-                quality={siteConfig.postsGridCoverImageQuality}
+                quality={postsGridConfig.postsGridCoverImageQuality}
               />
               <div class="flex flex-col gap-1">
                 <div class="flex justify-between gap-2 text-sm">

@@ -4,11 +4,11 @@
     "baseUrl": "./",
     "paths": {
       "@/components/*": ["src/components/*"],
+      "@/config/*": ["src/configuration/*"],
       "@/data/*": ["src/data/*"],
       "@/layouts/*": ["src/layouts/*"],
       "@/lib/*": ["src/lib/*"],
       "@/styles/*": ["src/styles/*"],
-      "@/site-config": ["src/data/site.config.ts"],
       "@/t/*": ["src/i18n/*"],
       "@/utils": ["src/utils/index.ts"]
     }

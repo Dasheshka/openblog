@@ -1,0 +1,8 @@
+{
+  "lang": "en",
+  "title": "Openblog",
+  "description": "A blog template website, built with Astro, Keystatic and Tailwind CSS",
+  "author": "Blue Amber",
+  "favicon": "/favicon.svg",
+  "ogImage": "/ogImage.png"
+}
