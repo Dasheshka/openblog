@@ -61,7 +61,6 @@ pnpm dev
 
 ## TODO
 
-- Update names of the new configs' values
 - Put translations into CMS
 - PhotoSwipe for RTE + check RTE for cloud images
 - Do something about articles preview
