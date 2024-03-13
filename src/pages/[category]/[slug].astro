@@ -2,10 +2,10 @@
 import Posts from "@/components/Posts.astro";
 import TableOfContents from "@/components/TableOfContents.astro";
 import Tags from "@/components/Tags.astro";
-import Common from "@/layouts/Common.astro";
-import { getPosts, getRelatedPosts } from "@/lib/content";
 import postPageConfig from "@/config/postPage.config.json";
 import websiteConfig from "@/config/website.config.json";
+import Common from "@/layouts/Common.astro";
+import { getPosts, getRelatedPosts } from "@/lib/content";
 import { cn, getReadingTime, t } from "@/utils";
 import { Image } from "astro:assets";
 

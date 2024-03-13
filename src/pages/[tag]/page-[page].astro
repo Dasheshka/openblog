@@ -1,9 +1,9 @@
 ---
 import Pagination from "@/components/Pagination.astro";
 import Posts from "@/components/Posts.astro";
+import postsGridConfig from "@/config/postsGrid.config.json";
 import Common from "@/layouts/Common.astro";
 import { getPosts, getTags } from "@/lib/content";
-import postsGridConfig from "@/config/postsGrid.config.json";
 import { t } from "@/utils";
 
 const { page, tag } = Astro.props;
