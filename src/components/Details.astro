@@ -21,10 +21,10 @@ const { summary, icon, list } = Astro.props;
       <Icon name={icon} />
     </summary>
     <div
-      class="absolute left-0 top-full mt-4 w-[200px] overflow-hidden rounded-lg bg-slate-50/90 dark:bg-slate-950/90"
+      class="shadow-default absolute left-0 top-full mt-4 w-52 overflow-hidden rounded-lg bg-slate-50/90 dark:bg-slate-950/90"
     >
       <ul
-        class="max-h-32 overflow-auto [scrollbar-color:currentColor_transparent]"
+        class="max-h-52 overflow-auto [scrollbar-color:currentColor_transparent]"
       >
         {
           list.map((item) => (
