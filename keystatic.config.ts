@@ -1,4 +1,5 @@
 import { getCategories, getTags } from "@/lib/content";
+import { siteConfig } from "@/site-config";
 import { t } from "@/utils";
 import { collection, config, fields } from "@keystatic/core";
 
@@ -19,69 +20,54 @@ const TAGS = tags.length
   : null;
 
 export default config({
+  // @ts-ignore
+  locale: siteConfig.lang,
   storage: {
     kind: "local",
   },
+  ui: {
+    brand: { name: siteConfig.title },
+    navigation: {
+      [t("admin.navigation.collections")]: ["posts", "categories", "tags"],
+    },
+  },
   collections: {
-    categories: collection({
-      label: "Categories",
-      path: "src/content/categories/*",
-      slugField: "title",
-      schema: {
-        title: fields.slug({
-          name: {
-            label: "Title",
-            validation: { length: { min: 3, max: 255 } },
-          },
-          slug: {
-            label: "SEO-friendly slug",
-            description: "This will define the file/folder name for this entry",
-          },
-        }),
-      },
-    }),
     posts: collection({
-      label: "Posts",
+      label: t("admin.posts.label"),
       path: "src/content/posts/*",
       slugField: "title",
+      columns: ["title", "pubDate"],
       format: { contentField: "body" },
+      entryLayout: "content",
       schema: {
         title: fields.slug({
           name: {
-            label: "Title",
+            label: t("admin.posts.title"),
             validation: { length: { min: 3, max: 255 } },
           },
           slug: {
-            label: "SEO-friendly slug",
-            description: "This will define the file/folder name for this entry",
+            label: t("admin.slug.label"),
+            description: t("admin.slug.description"),
           },
         }),
+        draft: fields.checkbox({
+          label: t("admin.posts.draft.label"),
+          description: t("admin.posts.draft.description"),
+        }),
         description: fields.text({
-          label: "Description",
-          description: "A short description of the post or an excerpt",
+          label: t("admin.posts.description.label"),
+          description: t("admin.posts.description.description"),
           validation: { length: { min: 3, max: 255 } },
         }),
         coverImage: fields.url({
-          label: "Cover Image",
-          description:
-            "Use an image hosting service like ImgBB or Imgur and paste the URL here",
+          label: t("admin.posts.cover-image.label"),
+          description: t("admin.posts.cover-image.description"),
           validation: {
             isRequired: true,
           },
         }),
-        category: fields.select({
-          label: "Category",
-          options: [{ label: t("no-category"), value: "p" }, ...CATEGORIES],
-          defaultValue: "p",
-        }),
-        tags: TAGS
-          ? fields.multiselect({
-              label: "Tags",
-              options: TAGS,
-            })
-          : fields.empty(),
         pubDate: fields.date({
-          label: "Publication Date",
+          label: t("admin.posts.pub-date"),
           defaultValue: {
             kind: "today",
           },
@@ -89,13 +75,19 @@ export default config({
             isRequired: true,
           },
         }),
-        draft: fields.checkbox({
-          label: "Draft",
-          description:
-            "The post will not be published and will not be visible on the website, if this is checked",
+        category: fields.select({
+          label: t("admin.posts.category"),
+          options: [{ label: t("no-category"), value: "p" }, ...CATEGORIES],
+          defaultValue: "p",
         }),
+        tags: TAGS
+          ? fields.multiselect({
+              label: t("admin.posts.tags"),
+              options: TAGS,
+            })
+          : fields.empty(),
         body: fields.document({
-          label: "Body",
+          label: t("admin.posts.body"),
           dividers: true,
           formatting: {
             alignment: true,
@@ -111,19 +103,38 @@ export default config({
         }),
       },
     }),
-    tags: collection({
-      label: "Tags",
-      path: "src/content/tags/*",
+    categories: collection({
+      label: t("admin.categories.label"),
+      path: "src/content/categories/*",
       slugField: "title",
+      columns: ["title"],
       schema: {
         title: fields.slug({
           name: {
-            label: "Title",
+            label: t("admin.categories.title"),
             validation: { length: { min: 3, max: 255 } },
           },
           slug: {
-            label: "SEO-friendly slug",
-            description: "This will define the file/folder name for this entry",
+            label: t("admin.slug.label"),
+            description: t("admin.slug.description"),
+          },
+        }),
+      },
+    }),
+    tags: collection({
+      label: t("admin.tags.label"),
+      path: "src/content/tags/*",
+      slugField: "title",
+      columns: ["title"],
+      schema: {
+        title: fields.slug({
+          name: {
+            label: t("admin.tags.title"),
+            validation: { length: { min: 3, max: 255 } },
+          },
+          slug: {
+            label: t("admin.slug.label"),
+            description: t("admin.slug.description"),
           },
         }),
       },
