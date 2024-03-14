@@ -62,7 +62,7 @@ pnpm dev
 ## TODO
 
 - Put translations into CMS
-- Add more SEO, especially for Post pages: schema.org
 - Add Social links to the Footer, add Comment on Telegram to the bottom of the Post pages
+- Add more SEO, especially for Post pages: schema.org
 - PhotoSwipe for RTE + check RTE for cloud images
 - Do something about articles preview
