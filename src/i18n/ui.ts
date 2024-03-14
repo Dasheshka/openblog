@@ -1,10 +1,8 @@
 export const ui = {
-  // General
-  "no-category": "No category",
-
   // Admin UI
   "admin.navigation.collections": "Content",
   "admin.navigation.configuration": "Configuration",
+  "admin.navigation.translations": "Translations",
   "admin.slug.label": "Slug",
   "admin.slug.description":
     "Defines the filename for the entry and may be reflected in the URL",
@@ -51,20 +49,23 @@ export const ui = {
   "admin.settings.post-page.cover-image-width": "Cover Image: Width",
   "admin.settings.post-page.cover-image-height": "Cover Image: Height",
   "admin.settings.post-page.cover-image-quality": "Cover Image: Quality",
+  "admin.translations.ui-website.label": "UI: Website",
+  "admin.translations.ui-admin.label": "UI: Admin",
 
   // Website UI
-  "header.home": "Go to the Home page",
-  "header.categories": "Show Categories",
-  "header.tags": "Show Tags",
-  "search.trigger": "Show Search",
-  "theme.toggle": "Light / Dark theme",
   "title.home": "Home",
   "title.posts": "Posts",
   "title.categories": "Categories",
   "title.tags": "Tags",
   "title.page": ", page",
+  "header.home": "Go to the Home page",
+  "header.categories": "Show Categories",
+  "header.tags": "Show Tags",
+  "search.trigger": "Show Search",
+  "theme.toggle": "Light / Dark theme",
   "reading-time": "min read",
   "no-posts": "No posts found",
+  "no-category": "No category",
   "related-articles": "Related Articles",
   "pagination.show-more": "Show more",
   "pagination.first-page": "Go to the first page",

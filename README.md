@@ -62,6 +62,6 @@ pnpm dev
 ## TODO
 
 - Put translations into CMS
+- Add more SEO, especially for Post pages: schema.org
 - PhotoSwipe for RTE + check RTE for cloud images
 - Do something about articles preview
-- Add more SEO, especially for Post pages: schema.org

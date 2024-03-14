@@ -3,7 +3,16 @@ import { schemas } from "@/schemas";
 import { t } from "@/utils";
 import { config } from "@keystatic/core";
 
-const { categories, postPage, posts, postsGrid, tags, website } = schemas;
+const {
+  categories,
+  postPage,
+  posts,
+  postsGrid,
+  tags,
+  uiAdmin,
+  uiWebsite,
+  website,
+} = schemas;
 
 export default config({
   // @ts-ignore
@@ -20,6 +29,7 @@ export default config({
         "postsGrid",
         "postPage",
       ],
+      [t("admin.navigation.translations")]: ["uiWebsite", "uiAdmin"],
     },
   },
   collections: {
@@ -31,5 +41,7 @@ export default config({
     website,
     postsGrid,
     postPage,
+    uiWebsite,
+    uiAdmin,
   },
 });
