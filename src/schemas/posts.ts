@@ -19,7 +19,7 @@ const TAGS = tags.length
   : null;
 
 export const posts = collection({
-  label: t("admin.posts.label"),
+  label: t("ui-admin", "navigation.posts.label"),
   path: "src/content/posts/*",
   slugField: "title",
   columns: ["title", "pubDate"],
@@ -28,32 +28,32 @@ export const posts = collection({
   schema: {
     title: fields.slug({
       name: {
-        label: t("admin.posts.title"),
+        label: t("ui-admin", "posts.title.label"),
         validation: { length: { min: 1, max: 255 } },
       },
       slug: {
-        label: t("admin.slug.label"),
-        description: t("admin.slug.description"),
+        label: t("ui-admin", "slug.label"),
+        description: t("ui-admin", "slug.description"),
       },
     }),
     draft: fields.checkbox({
-      label: t("admin.posts.draft.label"),
-      description: t("admin.posts.draft.description"),
+      label: t("ui-admin", "posts.draft.label"),
+      description: t("ui-admin", "posts.draft.description"),
     }),
     description: fields.text({
-      label: t("admin.posts.description.label"),
-      description: t("admin.posts.description.description"),
+      label: t("ui-admin", "posts.description.label"),
+      description: t("ui-admin", "posts.description.description"),
       validation: { length: { min: 1, max: 255 } },
     }),
     coverImage: fields.url({
-      label: t("admin.posts.cover-image.label"),
-      description: t("admin.posts.cover-image.description"),
+      label: t("ui-admin", "posts.cover-image.label"),
+      description: t("ui-admin", "posts.cover-image.description"),
       validation: {
         isRequired: true,
       },
     }),
     pubDate: fields.date({
-      label: t("admin.posts.pub-date"),
+      label: t("ui-admin", "posts.pub-date.label"),
       defaultValue: {
         kind: "today",
       },
@@ -62,18 +62,21 @@ export const posts = collection({
       },
     }),
     category: fields.select({
-      label: t("admin.posts.category"),
-      options: [{ label: t("no-category"), value: "p" }, ...CATEGORIES],
+      label: t("ui-admin", "posts.category.label"),
+      options: [
+        { label: t("ui-admin", "categories.no-category.label"), value: "p" },
+        ...CATEGORIES,
+      ],
       defaultValue: "p",
     }),
     tags: TAGS
       ? fields.multiselect({
-          label: t("admin.posts.tags"),
+          label: t("ui-admin", "posts.tags.label"),
           options: TAGS,
         })
       : fields.empty(),
     body: fields.markdoc({
-      label: t("admin.posts.body"),
+      label: t("ui-admin", "posts.body.label"),
       options: {
         heading: [2, 3, 4, 5, 6],
       },

@@ -47,7 +47,7 @@ const { posts } = Astro.props;
                   <time datetime={articlePubDate}>{formattedDate}</time>
                   <span class="text-sm">
                     {getReadingTime(body)}
-                    {t("reading-time")}
+                    {t("ui-website", "text.after-reading-time-number")}
                   </span>
                 </div>
                 <div class="text-2xl font-bold">{title}</div>
@@ -59,6 +59,8 @@ const { posts } = Astro.props;
       })}
     </div>
   ) : (
-    <div class="text-center text-2xl font-bold">{t("no-posts")}</div>
+    <div class="text-center text-2xl font-bold">
+      {t("ui-website", "title.if-no-posts")}
+    </div>
   )
 }

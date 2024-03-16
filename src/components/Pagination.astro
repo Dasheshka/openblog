@@ -11,7 +11,7 @@ const buttonStyles =
   <a
     class={buttonStyles}
     href={url.current.replace(/.$/, 1)}
-    aria-label={t("pagination.first-page")}
+    aria-label={t("ui-website", "label.pagination.first-page")}
   >
     <Icon name="chevron-left-pipe" size="xs" />
   </a>
@@ -20,7 +20,7 @@ const buttonStyles =
       <a
         class={buttonStyles}
         href={url.prev}
-        aria-label={`${t("pagination.go-to-page")} ${currentPage - 1}`}
+        aria-label={`${t("ui-website", "label.pagination.go-to-page")} ${currentPage - 1}`}
       >
         {currentPage - 1}
       </a>
@@ -37,7 +37,7 @@ const buttonStyles =
       <a
         class={buttonStyles}
         href={url.next}
-        aria-label={`${t("pagination.go-to-page")} ${currentPage + 1}`}
+        aria-label={`${t("ui-website", "label.pagination.go-to-page")} ${currentPage + 1}`}
       >
         {currentPage + 1}
       </a>
@@ -46,7 +46,7 @@ const buttonStyles =
   <a
     class={buttonStyles}
     href={url.current.replace(/.$/, lastPage)}
-    aria-label={t("pagination.last-page")}
+    aria-label={t("ui-website", "label.pagination.last-page")}
   >
     <Icon name="chevron-right-pipe" size="xs" />
   </a>

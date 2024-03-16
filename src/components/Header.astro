@@ -18,8 +18,8 @@ const tags = await getTags();
     <a
       class="ghost-icon block hover:text-pink-500 focus:text-pink-500"
       href="/"
-      title={t("header.home")}
-      aria-label={t("header.home")}
+      title={t("ui-website", "label.header.home")}
+      aria-label={t("ui-website", "label.header.home")}
     >
       <Icon name="home" />
     </a>
@@ -29,7 +29,7 @@ const tags = await getTags();
           {!!categories.length && (
             <li>
               <Details
-                summary={t("header.categories")}
+                summary={t("ui-website", "label.header.categories")}
                 icon="category"
                 list={categories}
               />
@@ -37,7 +37,11 @@ const tags = await getTags();
           )}
           {tags && !!tags.length && (
             <li>
-              <Details summary={t("header.tags")} icon="tags" list={tags} />
+              <Details
+                summary={t("ui-website", "label.header.tags")}
+                icon="tags"
+                list={tags}
+              />
             </li>
           )}
         </ul>

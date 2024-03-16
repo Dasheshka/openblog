@@ -2,12 +2,12 @@ import { t } from "@/utils";
 import { fields, singleton } from "@keystatic/core";
 
 export const postPage = singleton({
-  label: t("admin.settings.post-page.label"),
+  label: t("ui-admin", "navigation.post-page.label"),
   path: "src/configs/postPage.config",
   format: { data: "json" },
   schema: {
     relatedPosts: fields.integer({
-      label: t("admin.settings.post-page.related-posts"),
+      label: t("ui-admin", "post-page.related-posts-number.label"),
       defaultValue: 3,
       validation: {
         min: 3,
@@ -15,7 +15,7 @@ export const postPage = singleton({
       },
     }),
     coverImageAspect: fields.select({
-      label: t("admin.settings.post-page.cover-image-aspect"),
+      label: t("ui-admin", "post-page.cover-image-aspect.label"),
       options: [
         { label: "16:9", value: "aspect-video" },
         { label: "4:3", value: "aspect-[4/3]" },
@@ -26,7 +26,7 @@ export const postPage = singleton({
       defaultValue: "aspect-[2/1]",
     }),
     coverImageWidth: fields.integer({
-      label: t("admin.settings.post-page.cover-image-width"),
+      label: t("ui-admin", "post-page.cover-image-width.label"),
       defaultValue: 1000,
       validation: {
         min: 150,
@@ -34,7 +34,7 @@ export const postPage = singleton({
       },
     }),
     coverImageHeight: fields.integer({
-      label: t("admin.settings.post-page.cover-image-height"),
+      label: t("ui-admin", "post-page.cover-image-height.label"),
       defaultValue: 500,
       validation: {
         min: 150,
@@ -42,7 +42,7 @@ export const postPage = singleton({
       },
     }),
     coverImageQuality: fields.integer({
-      label: t("admin.settings.post-page.cover-image-quality"),
+      label: t("ui-admin", "post-page.cover-image-quality.label"),
       defaultValue: 100,
       validation: {
         min: 10,

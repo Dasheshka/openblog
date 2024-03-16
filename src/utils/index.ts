@@ -1,6 +1,12 @@
-import { ui } from "@/t/ui";
+import uiAdmin from "@/i18n/ui-admin.json";
+import uiWebsite from "@/i18n/ui-website.json";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
+
+interface Vocabs {
+  "ui-admin": keyof typeof uiAdmin;
+  "ui-website": keyof typeof uiWebsite;
+}
 
 export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
 
@@ -8,8 +14,18 @@ export const sluglify = (text: string) => text.replace(/\s+/g, "-");
 
 export const unsluglify = (text: string) => text.replace(/-/g, " ");
 
-export const t = (key: keyof typeof ui) => {
-  return ui[key];
+export const t = <T extends keyof Vocabs>(vocab: T, key: Vocabs[T]) => {
+  if (vocab === "ui-admin") {
+    // @ts-ignore
+    return uiAdmin[key];
+  }
+
+  if (vocab === "ui-website") {
+    // @ts-ignore
+    return uiWebsite[key];
+  }
+
+  return null;
 };
 
 export const getReadingTime = (body: string) => {

@@ -6,7 +6,7 @@
       "@/components/*": ["src/components/*"],
       "@/configs": ["src/configs/index.ts"],
       "@/data/*": ["src/data/*"],
-      "@/i18n": ["src/i18n/index.ts"],
+      "@/i18n/*": ["src/i18n/*"],
       "@/layouts/*": ["src/layouts/*"],
       "@/lib/*": ["src/lib/*"],
       "@/schemas": ["src/schemas/index.ts"],

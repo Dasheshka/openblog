@@ -23,13 +23,20 @@ export default config({
   ui: {
     brand: { name: configs.website.title },
     navigation: {
-      [t("admin.navigation.collections")]: ["posts", "categories", "tags"],
-      [t("admin.navigation.configuration")]: [
+      [t("ui-admin", "navigation.collections.label")]: [
+        "posts",
+        "categories",
+        "tags",
+      ],
+      [t("ui-admin", "navigation.configuration.label")]: [
         "website",
         "postsGrid",
         "postPage",
       ],
-      [t("admin.navigation.translations")]: ["uiWebsite", "uiAdmin"],
+      [t("ui-admin", "navigation.translations.label")]: [
+        "uiWebsite",
+        "uiAdmin",
+      ],
     },
   },
   collections: {

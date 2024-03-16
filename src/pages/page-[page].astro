@@ -20,9 +20,11 @@ export async function getStaticPaths({ paginate }: any) {
 }
 ---
 
-<Common title={`${t("title.posts")}${t("title.page")} ${page.currentPage}`}>
+<Common
+  title={`${t("ui-website", "page-title.all-posts")}${t("ui-website", "page-title.before-page-number")} ${page.currentPage}`}
+>
   <h1 class="title">
-    {configs.website.title}
+    {t("ui-website", "page-title.all-posts")}
   </h1>
   <Posts {posts} />
   {posts.length + 1 > configs.postsGrid.postsPerPage && <Pagination {page} />}

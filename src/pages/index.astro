@@ -10,7 +10,7 @@ const postsPlusOne = await getPosts(configs.postsGrid.postsPerPage + 1);
 const { length } = postsPlusOne;
 ---
 
-<Common title={t("title.home")}>
+<Common title={t("ui-website", "page-title.home")}>
   <h1 class="title">
     {configs.website.title}
   </h1>
@@ -19,7 +19,7 @@ const { length } = postsPlusOne;
     length > configs.postsGrid.postsPerPage && (
       <div class="mx-auto">
         <a class="button-state block px-4 py-2 text-lg" href="/page-2">
-          {t("pagination.show-more")}
+          {t("ui-website", "text.show-more")}
         </a>
       </div>
     )

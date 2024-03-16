@@ -2,12 +2,12 @@ import { t } from "@/utils";
 import { fields, singleton } from "@keystatic/core";
 
 export const postsGrid = singleton({
-  label: t("admin.settings.posts-grid.label"),
+  label: t("ui-admin", "navigation.posts-grid.label"),
   path: "src/configs/postsGrid.config",
   format: { data: "json" },
   schema: {
     postsPerPage: fields.integer({
-      label: t("admin.settings.posts-grid.posts-per-page"),
+      label: t("ui-admin", "posts-grid.posts-per-page.label"),
       defaultValue: 6,
       validation: {
         min: 6,
@@ -15,7 +15,7 @@ export const postsGrid = singleton({
       },
     }),
     coverImageAspect: fields.select({
-      label: t("admin.settings.posts-grid.cover-image-aspect"),
+      label: t("ui-admin", "posts-grid.cover-image-aspect.label"),
       options: [
         { label: "16:9", value: "aspect-video" },
         { label: "4:3", value: "aspect-[4/3]" },
@@ -26,7 +26,7 @@ export const postsGrid = singleton({
       defaultValue: "aspect-video",
     }),
     coverImageWidth: fields.integer({
-      label: t("admin.settings.posts-grid.cover-image-width"),
+      label: t("ui-admin", "posts-grid.cover-image-width.label"),
       defaultValue: 700,
       validation: {
         min: 150,
@@ -34,7 +34,7 @@ export const postsGrid = singleton({
       },
     }),
     coverImageHeight: fields.integer({
-      label: t("admin.settings.posts-grid.cover-image-height"),
+      label: t("ui-admin", "posts-grid.cover-image-height.label"),
       defaultValue: 394,
       validation: {
         min: 150,
@@ -42,7 +42,7 @@ export const postsGrid = singleton({
       },
     }),
     coverImageQuality: fields.integer({
-      label: t("admin.settings.posts-grid.cover-image-quality"),
+      label: t("ui-admin", "posts-grid.cover-image-quality.label"),
       defaultValue: 100,
       validation: {
         min: 10,

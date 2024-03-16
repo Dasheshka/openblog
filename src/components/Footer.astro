@@ -1,5 +1,7 @@
 ---
-import { t } from "@/utils";
+import { configs } from "@/configs";
+
+const today = new Date();
 ---
 
 <footer
@@ -14,7 +16,8 @@ import { t } from "@/utils";
     <span
       class="bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text text-lg text-transparent"
     >
-      {t("footer")}
+      &copy; {today.getFullYear()}
+      {configs.website.author}
     </span>
   </div>
 </footer>

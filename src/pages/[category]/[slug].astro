@@ -48,7 +48,7 @@ export const getStaticPaths = async () => {
           </p>
           <p class="text-sm">
             {getReadingTime(body)}
-            {t("reading-time")}
+            {t("ui-website", "text.after-reading-time-number")}
           </p>
         </div>
         <h1 class="text-4xl font-bold lg:text-6xl">
@@ -87,7 +87,9 @@ export const getStaticPaths = async () => {
     {
       relatedPosts && (
         <div class="mt-12 lg:mx-auto lg:w-4/6 lg:pl-8">
-          <h2 class="mb-6 text-lg font-bold">{t("related-articles")}</h2>
+          <h2 class="mb-6 text-lg font-bold">
+            {t("ui-website", "title.related-articles")}
+          </h2>
           <Posts posts={relatedPosts} />
         </div>
       )

@@ -27,7 +27,9 @@ export async function getStaticPaths({ paginate }: any) {
 }
 ---
 
-<Common title={`${category.data.title}${t("title.page")} ${page.currentPage}`}>
+<Common
+  title={`${category.data.title}${t("ui-website", "page-title.before-page-number")} ${page.currentPage}`}
+>
   <h1 class="title">
     {category.data.title}
   </h1>
