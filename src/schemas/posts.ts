@@ -75,6 +75,10 @@ export const posts = collection({
           options: TAGS,
         })
       : fields.empty(),
+    comments: fields.url({
+      label: t("ui-admin", "posts.comments.label"),
+      description: t("ui-admin", "posts.comments.description"),
+    }),
     body: fields.markdoc({
       label: t("ui-admin", "posts.body.label"),
       options: {

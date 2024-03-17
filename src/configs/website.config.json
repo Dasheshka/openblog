@@ -5,6 +5,10 @@
   "author": "Blue Amber",
   "favicon": "/favicon.svg",
   "ogImage": "/ogImage.png",
+  "comments": {
+    "label": "Comments",
+    "icon": "telegram"
+  },
   "socials": [
     {
       "label": "Telegram",

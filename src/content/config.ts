@@ -11,15 +11,16 @@ const posts = defineCollection({
   type: "content",
   schema: z.object({
     title: z.string(),
+    draft: z.boolean().default(false),
     description: z.string(),
     coverImage: z.string(),
-    category: z.string(),
-    tags: z.array(z.string()).optional(),
     pubDate: z
       .string()
       .or(z.date())
       .transform((val) => new Date(val)),
-    draft: z.boolean().default(false),
+    category: z.string(),
+    tags: z.array(z.string()).optional(),
+    comments: z.string().optional(),
   }),
 });
 

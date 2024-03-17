@@ -61,7 +61,7 @@ pnpm dev
 
 ## TODO
 
-- Add Social links to the Footer, add Comment on Telegram to the bottom of the Post pages
+- Divide Configuration using fields.object()
 - Add more SEO, especially for Post pages: schema.org
 - PhotoSwipe for RTE + check RTE for cloud images
 - Do something about articles preview

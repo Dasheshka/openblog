@@ -37,6 +37,24 @@ export const website = singleton({
       publicPath: "/",
       validation: { isRequired: true },
     }),
+    comments: fields.object(
+      {
+        label: fields.text({
+          label: t("ui-admin", "website.comments.label.label"),
+          validation: {
+            length: { min: 1, max: 255 },
+          },
+        }),
+        icon: fields.text({
+          label: t("ui-admin", "website.comments.icon.label"),
+          description: t("ui-admin", "website.comments.icon.description"),
+        }),
+      },
+      {
+        label: t("ui-admin", "website.comments.label"),
+        description: t("ui-admin", "website.comments.description"),
+      },
+    ),
     socials: fields.array(
       fields.object({
         label: fields.text({
@@ -48,9 +66,11 @@ export const website = singleton({
           description: t("ui-admin", "website.socials.icon.description"),
           validation: { length: { min: 1, max: 255 } },
         }),
-        link: fields.text({
+        link: fields.url({
           label: t("ui-admin", "website.socials.link.label"),
-          validation: { length: { min: 1, max: 512 } },
+          validation: {
+            isRequired: true,
+          },
         }),
       }),
       {

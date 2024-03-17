@@ -98,6 +98,14 @@ export const uiAdmin = singleton({
       label: "Posts: Tags, label",
       validation: { length: { min: 1, max: 255 } },
     }),
+    "posts.comments.label": fields.text({
+      label: "Posts: Comments, label",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "posts.comments.description": fields.text({
+      label: "Posts: Comments, description",
+      validation: { length: { min: 1, max: 255 } },
+    }),
     "posts.body.label": fields.text({
       label: "Posts: Body, label",
       validation: { length: { min: 1, max: 255 } },
@@ -148,6 +156,26 @@ export const uiAdmin = singleton({
     }),
     "website.og-image.description": fields.text({
       label: "Website: OG Image, description",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "website.comments.label": fields.text({
+      label: "Website: Comments, label",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "website.comments.description": fields.text({
+      label: "Website: Comments, description",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "website.comments.label.label": fields.text({
+      label: "Website: Comments, Label, label",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "website.comments.icon.label": fields.text({
+      label: "Website: Comments, Icon, label",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "website.comments.icon.description": fields.text({
+      label: "Website: Comments, Icon, description",
       validation: { length: { min: 1, max: 255 } },
     }),
     "website.socials.label": fields.text({
