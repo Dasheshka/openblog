@@ -1,7 +1,9 @@
 {
   "relatedPosts": 3,
-  "coverImageAspect": "aspect-[2/1]",
-  "coverImageWidth": 1000,
-  "coverImageHeight": 500,
-  "coverImageQuality": 100
+  "coverImage": {
+    "aspect": "aspect-[2/1]",
+    "width": 1000,
+    "height": 500,
+    "quality": 100
+  }
 }

@@ -61,7 +61,6 @@ pnpm dev
 
 ## TODO
 
-- Divide Configuration using fields.object()
 - Add more SEO, especially for Post pages: schema.org
 - PhotoSwipe for RTE + check RTE for cloud images
 - Do something about articles preview

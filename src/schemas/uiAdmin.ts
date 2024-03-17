@@ -202,19 +202,23 @@ export const uiAdmin = singleton({
       label: "Posts Grid: Posts per page, label",
       validation: { length: { min: 1, max: 255 } },
     }),
-    "posts-grid.cover-image-aspect.label": fields.text({
+    "posts-grid.cover-image.label": fields.text({
+      label: "Posts Grid: Cover Image, label",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "posts-grid.cover-image.aspect.label": fields.text({
       label: "Posts Grid: Cover Image aspect, label",
       validation: { length: { min: 1, max: 255 } },
     }),
-    "posts-grid.cover-image-width.label": fields.text({
+    "posts-grid.cover-image.width.label": fields.text({
       label: "Posts Grid: Cover Image width, label",
       validation: { length: { min: 1, max: 255 } },
     }),
-    "posts-grid.cover-image-height.label": fields.text({
+    "posts-grid.cover-image.height.label": fields.text({
       label: "Posts Grid: Cover Image height, label",
       validation: { length: { min: 1, max: 255 } },
     }),
-    "posts-grid.cover-image-quality.label": fields.text({
+    "posts-grid.cover-image.quality.label": fields.text({
       label: "Posts Grid: Cover Image quality, label",
       validation: { length: { min: 1, max: 255 } },
     }),
@@ -222,19 +226,23 @@ export const uiAdmin = singleton({
       label: "Post Page: Related posts number, label",
       validation: { length: { min: 1, max: 255 } },
     }),
-    "post-page.cover-image-aspect.label": fields.text({
+    "post-page.cover-image.label": fields.text({
+      label: "Post Page: Cover Image, label",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "post-page.cover-image.aspect.label": fields.text({
       label: "Post Page: Cover Image aspect, label",
       validation: { length: { min: 1, max: 255 } },
     }),
-    "post-page.cover-image-width.label": fields.text({
+    "post-page.cover-image.width.label": fields.text({
       label: "Post Page: Cover Image width, label",
       validation: { length: { min: 1, max: 255 } },
     }),
-    "post-page.cover-image-height.label": fields.text({
+    "post-page.cover-image.height.label": fields.text({
       label: "Post Page: Cover Image height, label",
       validation: { length: { min: 1, max: 255 } },
     }),
-    "post-page.cover-image-quality.label": fields.text({
+    "post-page.cover-image.quality.label": fields.text({
       label: "Post Page: Cover Image quality, label",
       validation: { length: { min: 1, max: 255 } },
     }),

@@ -1,7 +1,9 @@
 {
   "postsPerPage": 6,
-  "coverImageAspect": "aspect-video",
-  "coverImageWidth": 700,
-  "coverImageHeight": 369,
-  "coverImageQuality": 100
+  "coverImage": {
+    "aspect": "aspect-video",
+    "width": 700,
+    "height": 369,
+    "quality": 100
+  }
 }

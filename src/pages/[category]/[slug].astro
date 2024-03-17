@@ -22,7 +22,7 @@ const formattedDate = pubDate.toLocaleDateString(configs.website.lang, {
   year: "numeric",
 });
 const relatedPosts =
-  tags && tags.length
+  !!configs.postPage.relatedPosts && tags && tags.length
     ? await getRelatedPosts(slug, tags, configs.postPage.relatedPosts)
     : null;
 const { Content, headings } = await post.render();
@@ -60,14 +60,14 @@ export const getStaticPaths = async () => {
       <Image
         class={cn(
           "mx-auto rounded-lg object-cover shadow-default",
-          configs.postPage.coverImageAspect,
+          configs.postPage.coverImage.aspect,
         )}
         src={coverImage}
         alt=""
-        width={configs.postPage.coverImageWidth}
-        height={configs.postPage.coverImageHeight}
+        width={configs.postPage.coverImage.width}
+        height={configs.postPage.coverImage.height}
         format="webp"
-        quality={configs.postPage.coverImageQuality}
+        quality={configs.postPage.coverImage.quality}
         loading="eager"
       />
     </div>

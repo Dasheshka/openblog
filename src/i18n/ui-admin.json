@@ -48,13 +48,15 @@
   "website.socials.icon.description": "Name of a file inside /src/assets/svg/",
   "website.socials.link.label": "Link",
   "posts-grid.posts-per-page.label": "Number of posts per page",
-  "posts-grid.cover-image-aspect.label": "Cover Image: Aspect Ratio",
-  "posts-grid.cover-image-width.label": "Cover Image: Width",
-  "posts-grid.cover-image-height.label": "Cover Image: Height",
-  "posts-grid.cover-image-quality.label": "Cover Image: Quality",
+  "posts-grid.cover-image.label": "Cover Image",
+  "posts-grid.cover-image.aspect.label": "Aspect Ratio",
+  "posts-grid.cover-image.width.label": "Width",
+  "posts-grid.cover-image.height.label": "Height",
+  "posts-grid.cover-image.quality.label": "Quality",
   "post-page.related-posts-number.label": "Number of related posts",
-  "post-page.cover-image-aspect.label": "Cover Image: Aspect Ratio",
-  "post-page.cover-image-width.label": "Cover Image: Width",
-  "post-page.cover-image-height.label": "Cover Image: Height",
-  "post-page.cover-image-quality.label": "Cover Image: Quality"
+  "post-page.cover-image.label": "Cover Image",
+  "post-page.cover-image.aspect.label": "Aspect Ratio",
+  "post-page.cover-image.width.label": "Width",
+  "post-page.cover-image.height.label": "Height",
+  "post-page.cover-image.quality.label": "Quality"
 }
