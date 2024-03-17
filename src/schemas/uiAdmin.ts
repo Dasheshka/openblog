@@ -150,6 +150,26 @@ export const uiAdmin = singleton({
       label: "Website: OG Image, description",
       validation: { length: { min: 1, max: 255 } },
     }),
+    "website.socials.label": fields.text({
+      label: "Website: Socials, label",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "website.socials.label.label": fields.text({
+      label: "Website: Socials, Label, label",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "website.socials.icon.label": fields.text({
+      label: "Website: Socials, Icon, label",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "website.socials.icon.description": fields.text({
+      label: "Website: Socials, Icon, description",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "website.socials.link.label": fields.text({
+      label: "Website: Socials, Link, label",
+      validation: { length: { min: 1, max: 255 } },
+    }),
     "posts-grid.posts-per-page.label": fields.text({
       label: "Posts Grid: Posts per page, label",
       validation: { length: { min: 1, max: 255 } },

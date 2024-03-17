@@ -37,5 +37,27 @@ export const website = singleton({
       publicPath: "/",
       validation: { isRequired: true },
     }),
+    socials: fields.array(
+      fields.object({
+        label: fields.text({
+          label: t("ui-admin", "website.socials.label.label"),
+          validation: { length: { min: 1, max: 255 } },
+        }),
+        icon: fields.text({
+          label: t("ui-admin", "website.socials.icon.label"),
+          description: t("ui-admin", "website.socials.icon.description"),
+          validation: { length: { min: 1, max: 255 } },
+        }),
+        link: fields.text({
+          label: t("ui-admin", "website.socials.link.label"),
+          validation: { length: { min: 1, max: 512 } },
+        }),
+      }),
+      {
+        label: t("ui-admin", "website.socials.label"),
+        slugField: "label",
+        itemLabel: (props) => props.fields.label.value,
+      },
+    ),
   },
 });
