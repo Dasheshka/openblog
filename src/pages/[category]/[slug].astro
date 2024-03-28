@@ -12,7 +12,7 @@ import { Image } from "astro:assets";
 const post = Astro.props;
 const {
   body,
-  data: { title, description, coverImage, pubDate, tags, comments },
+  data: { title, description, coverImage, pubDate, category, tags, comments },
   slug,
 } = post;
 const articlePubDate = pubDate.toISOString();
@@ -37,7 +37,14 @@ export const getStaticPaths = async () => {
 };
 ---
 
-<Common {title} {description} coverImage={coverImage} {articlePubDate}>
+<Common
+  {title}
+  {description}
+  coverImage={coverImage}
+  {articlePubDate}
+  articleCategory={category}
+  articleTags={tags}
+>
   <article data-pagefind-body>
     <div class="mb-12">
       <div class="mb-12 flex flex-col items-center text-center">
