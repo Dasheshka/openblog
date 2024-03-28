@@ -61,7 +61,6 @@ pnpm dev
 
 ## TODO
 
-- Add more SEO, especially for Post pages: schema.org
 - RSS
 - manifest.json, robots.txt: https://medium.com/swlh/are-you-using-svg-favicons-yet-a-guide-for-modern-browsers-836a6aace3df
 - PhotoSwipe for RTE + check RTE for cloud images

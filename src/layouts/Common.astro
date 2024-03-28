@@ -5,8 +5,15 @@ import { configs } from "@/configs";
 import Backgrounds from "./partials/Backgrounds.astro";
 import Head from "./partials/Head.astro";
 
-const { title, description, coverImage, articleAuthor, articlePubDate } =
-  Astro.props;
+const {
+  title,
+  description,
+  coverImage,
+  articleCategory,
+  articleTags,
+  articlePubDate,
+  articleAuthor,
+} = Astro.props;
 ---
 
 <html lang={configs.website.lang} class="scroll-smooth antialiased">
@@ -15,8 +22,10 @@ const { title, description, coverImage, articleAuthor, articlePubDate } =
       {title}
       {description}
       ogImage={coverImage}
-      {articleAuthor}
+      {articleCategory}
+      {articleTags}
       {articlePubDate}
+      {articleAuthor}
     />
   </head>
   <body
