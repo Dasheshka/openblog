@@ -6,7 +6,7 @@ import keystatic from "@keystatic/astro";
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://your.domain/",
+  site: "http://127.0.0.1:4321/",
   output: "hybrid",
   image: {
     remotePatterns: [{ protocol: "https" }],
