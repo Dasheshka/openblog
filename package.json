@@ -12,7 +12,7 @@
     "svg": "pnpm svg:optimize && pnpm svg:sprite",
     "dev": "pnpm svg && astro dev",
     "sync": "astro sync",
-    "build": "pnpm svg && astro build",
+    "build": "pnpm svg && astro build && pnpm postbuild",
     "postbuild": "pagefind --site dist",
     "preview": "pnpm svg && astro --config ./astro.config.preview.mjs build && pnpm postbuild && astro --config ./astro.config.preview.mjs preview",
     "format": "prettier --write ./**/*.{css,astro,js,jsx,ts,tsx,cjs,mjs,md,mdx,mdoc,json,yaml}",

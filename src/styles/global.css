@@ -2,19 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  * {
-    @apply transition;
-  }
-}
-
 @layer components {
   .shadow-default {
     @apply shadow-lg shadow-slate-950/30 dark:shadow-slate-950/60;
   }
 
   .gradient-state {
-    @apply relative z-[1] overflow-hidden before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:-z-[1] before:opacity-0 before:transition;
+    @apply relative z-[1] overflow-hidden before:absolute before:bottom-0 before:left-0 before:right-0 before:top-0 before:-z-[1] before:opacity-0;
   }
 
   .button-state {
