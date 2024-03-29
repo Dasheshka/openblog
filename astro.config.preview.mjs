@@ -5,6 +5,6 @@ import tailwind from "@astrojs/tailwind";
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://your.domain/",
+  site: "https://blueopenblog.vercel.app/",
   integrations: [markdoc(), react(), sitemap(), tailwind()],
 });
