@@ -5,6 +5,13 @@ import tailwind from "@astrojs/tailwind";
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "https://blueopenblog.vercel.app/",
+  site: "http://localhost:4321/",
+  image: {
+    remotePatterns: [
+      {
+        protocol: "https",
+      },
+    ],
+  },
   integrations: [markdoc(), react(), sitemap(), tailwind()],
 });

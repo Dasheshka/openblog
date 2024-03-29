@@ -61,6 +61,7 @@ pnpm dev
 
 ## TODO
 
+- Bugs in prod: details in Safari, Pagefind not working
 - PhotoSwipe for RTE + check RTE for cloud images
 - Do something about articles preview
 - Deploy to Vercel, test RSS, test everything

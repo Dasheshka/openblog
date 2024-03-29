@@ -7,7 +7,7 @@ import keystatic from "@keystatic/astro";
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
-  site: "http://127.0.0.1:4321/",
+  site: "https://blueopenblog.vercel.app/",
   output: "hybrid",
   adapter: vercel(),
   image: {
