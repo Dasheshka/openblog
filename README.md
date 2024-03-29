@@ -61,5 +61,7 @@ pnpm dev
 
 ## TODO
 
+- Favicons and manifest.json (will be handled by a user)
 - PhotoSwipe for RTE + check RTE for cloud images
 - Do something about articles preview
+- Move the repo into a new one, create a GitHub Wiki with all the usage instructions
