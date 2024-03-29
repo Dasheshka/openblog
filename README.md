@@ -61,6 +61,7 @@ pnpm dev
 
 ## TODO
 
+- Stop using astro:assets, they are included in the bundle. Use external-only images
 - Favicons and manifest.json (will be handled by a user)
 - PhotoSwipe for RTE + check RTE for cloud images
 - Do something about articles preview
