@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  summary::-webkit-details-marker {
+    @apply hidden;
+  }
+}
+
 @layer components {
   .shadow-default {
     @apply shadow-lg shadow-slate-950/30 dark:shadow-slate-950/60;
