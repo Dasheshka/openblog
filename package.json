@@ -37,7 +37,8 @@
     "@types/react-dom": "^18.2.19",
     "astro": "4.5.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "sharp": "^0.33.3"
   },
   "devDependencies": {
     "@astrojs/tailwind": "5.1.0",
