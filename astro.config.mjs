@@ -4,6 +4,7 @@ import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import vercel from "@astrojs/vercel/serverless";
 import keystatic from "@keystatic/astro";
+import pagefind from "astro-pagefind";
 import { defineConfig } from "astro/config";
 
 export default defineConfig({
@@ -17,5 +18,12 @@ export default defineConfig({
       },
     ],
   },
-  integrations: [keystatic(), markdoc(), react(), sitemap(), tailwind()],
+  integrations: [
+    keystatic(),
+    markdoc(),
+    pagefind(),
+    react(),
+    sitemap(),
+    tailwind(),
+  ],
 });

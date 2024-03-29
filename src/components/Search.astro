@@ -1,6 +1,6 @@
 ---
 import Icon from "@/components/Icon.astro";
-import "@pagefind/default-ui/css/ui.css";
+import Pagefind from "astro-pagefind/components/Search";
 import { t } from "@/utils";
 ---
 
@@ -15,18 +15,11 @@ import { t } from "@/utils";
   </button>
   <dialog id="searchDialog" class="dialog">
     <div class="dialog-bg"></div>
-    {
-      import.meta.env.DEV ? (
-        <div class="mx-auto text-center dark:text-slate-50">
-          <p>
-            Search is only available in production builds. <br />
-            Run `pnpm preview` to test it out locally.
-          </p>
-        </div>
-      ) : (
-        <div id="search" />
-      )
-    }
+    <Pagefind
+      id="search"
+      className="pagefind-ui"
+      uiOptions={{ showImages: false }}
+    />
   </dialog>
 </div>
 
@@ -41,20 +34,6 @@ import { t } from "@/utils";
       dialog.showModal();
     }
   });
-
-  const initPagefind = async () => {
-    if (import.meta.env.DEV) return;
-
-    // @ts-ignore
-    const { PagefindUI } = await import("@pagefind/default-ui");
-
-    new PagefindUI({
-      element: "#search",
-      showImages: false,
-    });
-  };
-
-  initPagefind();
 </script>
 
 <style is:global>

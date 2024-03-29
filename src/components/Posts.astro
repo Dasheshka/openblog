@@ -1,8 +1,9 @@
 ---
 import { configs } from "@/configs";
-import { cn, getReadingTime, t } from "@/utils";
+import { getReadingTime, t } from "@/utils";
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
+import { clsx } from "clsx";
 
 interface Props {
   posts: CollectionEntry<"posts">[];
@@ -31,7 +32,7 @@ const { posts } = Astro.props;
           <article>
             <a class="block" href={`/${category}/${slug}/`}>
               <Image
-                class={cn(
+                class={clsx(
                   "shadow-default mb-4 rounded-lg object-cover",
                   configs.postsGrid.coverImage.aspect,
                 )}

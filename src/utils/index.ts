@@ -1,14 +1,11 @@
 import uiAdmin from "@/i18n/ui-admin.json";
 import uiWebsite from "@/i18n/ui-website.json";
 import { clsx, type ClassValue } from "clsx";
-import { twMerge } from "tailwind-merge";
 
 interface Vocabs {
   "ui-admin": keyof typeof uiAdmin;
   "ui-website": keyof typeof uiWebsite;
 }
-
-export const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
 
 export const sluglify = (text: string) => text.replace(/\s+/g, "-");
 
