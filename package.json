@@ -14,7 +14,7 @@
     "sync": "astro sync",
     "build": "pnpm svg && astro build && pnpm postbuild:vercel",
     "postbuild": "pagefind --site dist",
-    "postbuild:vercel": "pagefind --site .vercel/output",
+    "postbuild:vercel": "pagefind --site .vercel/output --output-path ./pagefind",
     "preview": "pnpm svg && astro --config ./astro.config.preview.mjs build && pnpm postbuild && astro --config ./astro.config.preview.mjs preview",
     "format": "prettier --write ./**/*.{css,astro,js,jsx,ts,tsx,cjs,mjs,md,mdx,mdoc,json,yaml}",
     "lint": "eslint ./",
