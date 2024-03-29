@@ -22,7 +22,7 @@
   }
 
   .dialog {
-    @apply shadow-default max-h-[70vh] w-2/3 overflow-auto rounded-lg border-0 bg-slate-50 p-8 backdrop:bg-slate-950/75 dark:bg-slate-950;
+    @apply shadow-default max-h-[70vh] w-full overflow-auto rounded-lg border-0 bg-slate-50 p-8 backdrop:bg-slate-950/75 dark:bg-slate-950 md:w-2/3;
   }
 
   .dialog-bg {

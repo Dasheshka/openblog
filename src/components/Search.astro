@@ -15,11 +15,7 @@ import { t } from "@/utils";
   </button>
   <dialog id="searchDialog" class="dialog">
     <div class="dialog-bg"></div>
-    <Pagefind
-      id="search"
-      className="pagefind-ui"
-      uiOptions={{ showImages: false }}
-    />
+    <Pagefind uiOptions={{ showImages: false }} />
   </dialog>
 </div>
 
@@ -37,7 +33,7 @@ import { t } from "@/utils";
 </script>
 
 <style is:global>
-  :root {
+  html {
     --pagefind-ui-scale: 1;
     --pagefind-ui-font: "Manrope", sans-serif;
 

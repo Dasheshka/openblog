@@ -61,8 +61,5 @@ pnpm dev
 
 ## TODO
 
-- Make Pagefind work on Vercel
-- Remove unused dependencies from package.json
 - PhotoSwipe for RTE + check RTE for cloud images
 - Do something about articles preview
-- Deploy to Vercel, test RSS, test everything
