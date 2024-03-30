@@ -218,10 +218,6 @@ export const uiAdmin = singleton({
       label: "Posts Grid: Cover Image height, label",
       validation: { length: { min: 1, max: 255 } },
     }),
-    "posts-grid.cover-image.quality.label": fields.text({
-      label: "Posts Grid: Cover Image quality, label",
-      validation: { length: { min: 1, max: 255 } },
-    }),
     "post-page.related-posts-number.label": fields.text({
       label: "Post Page: Related posts number, label",
       validation: { length: { min: 1, max: 255 } },
@@ -240,10 +236,6 @@ export const uiAdmin = singleton({
     }),
     "post-page.cover-image.height.label": fields.text({
       label: "Post Page: Cover Image height, label",
-      validation: { length: { min: 1, max: 255 } },
-    }),
-    "post-page.cover-image.quality.label": fields.text({
-      label: "Post Page: Cover Image quality, label",
       validation: { length: { min: 1, max: 255 } },
     }),
   },

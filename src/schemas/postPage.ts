@@ -43,14 +43,6 @@ export const postPage = singleton({
             max: 7680,
           },
         }),
-        quality: fields.integer({
-          label: t("ui-admin", "post-page.cover-image.quality.label"),
-          defaultValue: 100,
-          validation: {
-            min: 10,
-            max: 100,
-          },
-        }),
       },
       { label: t("ui-admin", "post-page.cover-image.label") },
     ),

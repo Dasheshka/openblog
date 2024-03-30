@@ -1,7 +1,6 @@
 ---
 import { configs } from "@/configs";
 import { getReadingTime, t } from "@/utils";
-import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import { clsx } from "clsx";
 
@@ -31,7 +30,7 @@ const { posts } = Astro.props;
         return (
           <article>
             <a class="block" href={`/${category}/${slug}/`}>
-              <Image
+              <img
                 class={clsx(
                   "shadow-default mb-4 rounded-lg object-cover",
                   configs.postsGrid.coverImage.aspect,
@@ -40,8 +39,6 @@ const { posts } = Astro.props;
                 alt=""
                 width={configs.postsGrid.coverImage.width}
                 height={configs.postsGrid.coverImage.height}
-                format="webp"
-                quality={configs.postsGrid.coverImage.quality}
               />
               <div class="flex flex-col gap-1">
                 <div class="flex justify-between gap-2 text-sm">

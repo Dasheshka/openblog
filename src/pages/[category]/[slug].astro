@@ -7,7 +7,6 @@ import { configs } from "@/configs";
 import Common from "@/layouts/Common.astro";
 import { getPosts, getRelatedPosts } from "@/lib/content";
 import { getReadingTime, t } from "@/utils";
-import { Image } from "astro:assets";
 import { clsx } from "clsx";
 
 const post = Astro.props;
@@ -65,7 +64,7 @@ export const getStaticPaths = async () => {
         </h1>
         {tags && !!tags.length && <Tags values={tags} />}
       </div>
-      <Image
+      <img
         class={clsx(
           "mx-auto rounded-lg object-cover shadow-default",
           configs.postPage.coverImage.aspect,
@@ -74,8 +73,6 @@ export const getStaticPaths = async () => {
         alt=""
         width={configs.postPage.coverImage.width}
         height={configs.postPage.coverImage.height}
-        format="webp"
-        quality={configs.postPage.coverImage.quality}
         loading="eager"
       />
     </div>
