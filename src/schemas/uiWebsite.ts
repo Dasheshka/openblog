@@ -6,10 +6,6 @@ export const uiWebsite = singleton({
   path: "src/i18n/ui-website",
   format: { data: "json" },
   schema: {
-    "page-title.home": fields.text({
-      label: "Page title: Home",
-      validation: { length: { min: 1, max: 255 } },
-    }),
     "page-title.all-posts": fields.text({
       label: "Page title: All posts",
       validation: { length: { min: 1, max: 255 } },

@@ -13,7 +13,10 @@ const {
   articlePubDate,
   articleAuthor,
 } = Astro.props;
-const pageTitle = `${title} • ${configs.website.title}`;
+const pageTitle =
+  title === "root"
+    ? configs.website.title
+    : `${title} • ${configs.website.title}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(ogImage, Astro.url).href;
 
