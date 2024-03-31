@@ -1,5 +1,5 @@
 {
-  "name": "openblog",
+  "name": "writeup",
   "type": "module",
   "version": "1.1.0",
   "repository": {
@@ -10,7 +10,7 @@
     "svg:optimize": "svgo -f ./src/assets/svg -o ./src/assets/svg",
     "svg:sprite": "svg-sprite --config ./svg-sprite.config.json ./src/assets/svg/*.svg",
     "svg": "pnpm svg:optimize && pnpm svg:sprite",
-    "dev": "pnpm svg && astro dev",
+    "dev": "pnpm svg && astro dev --host",
     "sync": "astro sync",
     "build": "pnpm svg && astro build",
     "format": "prettier --write ./**/*.{css,astro,js,jsx,ts,tsx,cjs,mjs,md,mdx,mdoc,json,yaml}",
