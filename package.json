@@ -36,8 +36,7 @@
     "astro": "4.6.3",
     "astro-pagefind": "^1.5.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "sharp": "^0.33.3"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@astrojs/tailwind": "5.1.0",
