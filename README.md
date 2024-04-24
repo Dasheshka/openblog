@@ -9,6 +9,7 @@
 ## TODO
 
 - Favicons and manifest.json (will be handled by a user?)
+- Schema.json
 - Table of contents for Mobile (sticky button in the right top corner of the body content)
 - Check Vite warnings on build script
 - PhotoSwipe for RTE + check RTE for cloud images

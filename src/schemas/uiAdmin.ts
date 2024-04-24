@@ -150,6 +150,30 @@ export const uiAdmin = singleton({
       label: "Website: Favicon, description",
       validation: { length: { min: 1, max: 255 } },
     }),
+    "website.webmanifest.label": fields.text({
+      label: "Website: Webmanifest, label",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "website.webmanifest.description": fields.text({
+      label: "Website: Webmanifest, description",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "website.webmanifest.themeColor.label": fields.text({
+      label: "Website: Webmanifest, Theme color, label",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "website.webmanifest.themeColor.description": fields.text({
+      label: "Website: Webmanifest, Theme color, description",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "website.webmanifest.bgColor.label": fields.text({
+      label: "Website: Webmanifest, Background color, label",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "website.webmanifest.bgColor.description": fields.text({
+      label: "Website: Webmanifest, Background color, description",
+      validation: { length: { min: 1, max: 255 } },
+    }),
     "website.og-image.label": fields.text({
       label: "Website: OG Image, label",
       validation: { length: { min: 1, max: 255 } },

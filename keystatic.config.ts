@@ -18,6 +18,7 @@ export default config({
   // @ts-ignore
   locale: configs.website.lang,
   storage: {
+    // kind: "local",
     kind: "github",
     repo: "blueambr/openblog",
   },

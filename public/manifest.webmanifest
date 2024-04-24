@@ -3,7 +3,7 @@
   "short_name": "WriteUp",
   "display": "standalone",
   "theme_color": "#8b5cf6",
-  "background_color": "#8b5cf6",
+  "background_color": "#020617",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",

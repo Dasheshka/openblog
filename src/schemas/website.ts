@@ -23,6 +23,27 @@ export const website = singleton({
       label: t("ui-admin", "website.author.label"),
       validation: { length: { min: 1, max: 255 } },
     }),
+    webmanifest: fields.object(
+      {
+        themeColor: fields.text({
+          label: t("ui-admin", "website.webmanifest.themeColor.label"),
+          description: t(
+            "ui-admin",
+            "website.webmanifest.themeColor.description",
+          ),
+          validation: { length: { min: 1, max: 255 } },
+        }),
+        bgColor: fields.text({
+          label: t("ui-admin", "website.webmanifest.bgColor.label"),
+          description: t("ui-admin", "website.webmanifest.bgColor.description"),
+          validation: { length: { min: 1, max: 255 } },
+        }),
+      },
+      {
+        label: t("ui-admin", "website.webmanifest.label"),
+        description: t("ui-admin", "website.webmanifest.description"),
+      },
+    ),
     favicon: fields.image({
       label: t("ui-admin", "website.favicon.label"),
       description: t("ui-admin", "website.favicon.description"),
