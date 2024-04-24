@@ -1,10 +1,9 @@
 import { readFileSync, writeFile } from "fs";
 import { resolve } from "path";
+
 const websiteConfig = JSON.parse(
   readFileSync(resolve("./src/configs/website.config.json")),
 );
-
-const path = resolve("./public/manifest.webmanifest");
 
 const webmanifest = {
   name: websiteConfig.title,
@@ -25,13 +24,14 @@ const webmanifest = {
     },
   ],
 };
+const webmanifestPath = resolve("./public/manifest.webmanifest");
 
-writeFile(path, JSON.stringify(webmanifest, null, 2), (error) => {
+writeFile(webmanifestPath, JSON.stringify(webmanifest, null, 2), (error) => {
   if (error) {
     console.error("❌ Webmanifest creation failed:", error);
 
     return;
   }
 
-  console.info("✅ Webmanifest created successfully:", path);
+  console.info("✅ Webmanifest created successfully:", webmanifestPath);
 });
