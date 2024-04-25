@@ -36,7 +36,7 @@
   "website.favicon.label": "Favicon",
   "website.favicon.description": "Recommended format: SVG",
   "website.og-image.label": "Open Graph Image",
-  "website.og-image.description": "An image you see when you share a link, the default one",
+  "website.og-image.description": "Recommended format: 1200x600, PNG. The image you see when you share a link, the default one",
   "website.webmanifest.label": "Webmanifest",
   "website.webmanifest.description": "https://developer.mozilla.org/en-US/docs/Web/Manifest",
   "website.webmanifest.themeColor.label": "Theme color",

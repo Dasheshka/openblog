@@ -17,6 +17,7 @@ const pageTitle =
   title === "root"
     ? configs.website.title
     : `${title} • ${configs.website.title}`;
+const rootURL = new URL("/", Astro.site);
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const ogImageURL = new URL(ogImage, Astro.url).href;
 
@@ -30,6 +31,59 @@ const filteredTags =
   articleTags && tags && tags.length
     ? tags.filter((tag) => articleTags.includes(tag.id))
     : null;
+
+// https://schema.org/
+const schema = JSON.stringify(
+  articlePubDate
+    ? {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        publisher: {
+          "@type": "Person",
+          name: configs.website.author,
+          url: rootURL,
+        },
+        author: {
+          "@type": "Person",
+          name: configs.website.author,
+          url: rootURL,
+        },
+        url: canonicalURL,
+        headline: title,
+        description,
+        datePublished: articlePubDate,
+        dateModified: articlePubDate,
+        image: {
+          "@type": "ImageObject",
+          url: ogImageURL,
+          width: 1200,
+          height: 600,
+        },
+        keywords: filteredTags
+          ? `${filteredTags.map((tag) => tag.data.title)}`
+          : "",
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": rootURL,
+        },
+      }
+    : {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        publisher: {
+          "@type": "Person",
+          name: configs.website.author,
+          url: rootURL,
+        },
+        url: canonicalURL,
+        name: title,
+        description,
+        mainEntityOfPage: {
+          "@type": "WebPage",
+          "@id": rootURL,
+        },
+      },
+);
 ---
 
 <!-- Astro View Transitions: https://docs.astro.build/en/guides/view-transitions/ -->
@@ -103,3 +157,6 @@ const filteredTags =
 
 <!-- Extra -->
 <meta name="generator" content={Astro.generator} />
+
+<!-- https://schema.org/ -->
+<script is:inline type="application/ld+json" set:html={schema} />
