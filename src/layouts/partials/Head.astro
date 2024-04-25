@@ -47,7 +47,11 @@ const filteredTags =
 <link rel="sitemap" href="/sitemap-index.xml" />
 
 <!-- Favicon -->
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href={configs.website.webmanifest.appleTouchIcon}
+/>
 <link rel="icon" href={configs.website.favicon} />
 <link rel="manifest" href="/manifest.webmanifest" />
 <meta name="apple-mobile-web-app-title" content={configs.website.title} />

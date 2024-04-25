@@ -23,6 +23,20 @@ export const website = singleton({
       label: t("ui-admin", "website.author.label"),
       validation: { length: { min: 1, max: 255 } },
     }),
+    favicon: fields.image({
+      label: t("ui-admin", "website.favicon.label"),
+      description: t("ui-admin", "website.favicon.description"),
+      directory: "public",
+      publicPath: "/",
+      validation: { isRequired: true },
+    }),
+    ogImage: fields.image({
+      label: t("ui-admin", "website.og-image.label"),
+      description: t("ui-admin", "website.og-image.description"),
+      directory: "public",
+      publicPath: "/",
+      validation: { isRequired: true },
+    }),
     webmanifest: fields.object(
       {
         themeColor: fields.text({
@@ -38,26 +52,42 @@ export const website = singleton({
           description: t("ui-admin", "website.webmanifest.bgColor.description"),
           validation: { length: { min: 1, max: 255 } },
         }),
+        appleTouchIcon: fields.image({
+          label: t("ui-admin", "website.webmanifest.apple-touch-icon.label"),
+          description: t(
+            "ui-admin",
+            "website.webmanifest.apple-touch-icon.description",
+          ),
+          directory: "public",
+          publicPath: "/",
+          validation: { isRequired: true },
+        }),
+        androidTouchIcon: fields.image({
+          label: t("ui-admin", "website.webmanifest.android-touch-icon.label"),
+          description: t(
+            "ui-admin",
+            "website.webmanifest.android-touch-icon.description",
+          ),
+          directory: "public",
+          publicPath: "/",
+          validation: { isRequired: true },
+        }),
+        androidSplashIcon: fields.image({
+          label: t("ui-admin", "website.webmanifest.android-splash-icon.label"),
+          description: t(
+            "ui-admin",
+            "website.webmanifest.android-splash-icon.description",
+          ),
+          directory: "public",
+          publicPath: "/",
+          validation: { isRequired: true },
+        }),
       },
       {
         label: t("ui-admin", "website.webmanifest.label"),
         description: t("ui-admin", "website.webmanifest.description"),
       },
     ),
-    favicon: fields.image({
-      label: t("ui-admin", "website.favicon.label"),
-      description: t("ui-admin", "website.favicon.description"),
-      directory: "public",
-      publicPath: "/",
-      validation: { isRequired: true },
-    }),
-    ogImage: fields.image({
-      label: t("ui-admin", "website.og-image.label"),
-      description: t("ui-admin", "website.og-image.description"),
-      directory: "public",
-      publicPath: "/",
-      validation: { isRequired: true },
-    }),
     comments: fields.object(
       {
         label: fields.text({

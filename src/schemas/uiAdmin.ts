@@ -150,6 +150,14 @@ export const uiAdmin = singleton({
       label: "Website: Favicon, description",
       validation: { length: { min: 1, max: 255 } },
     }),
+    "website.og-image.label": fields.text({
+      label: "Website: OG Image, label",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "website.og-image.description": fields.text({
+      label: "Website: OG Image, description",
+      validation: { length: { min: 1, max: 255 } },
+    }),
     "website.webmanifest.label": fields.text({
       label: "Website: Webmanifest, label",
       validation: { length: { min: 1, max: 255 } },
@@ -174,12 +182,28 @@ export const uiAdmin = singleton({
       label: "Website: Webmanifest, Background color, description",
       validation: { length: { min: 1, max: 255 } },
     }),
-    "website.og-image.label": fields.text({
-      label: "Website: OG Image, label",
+    "website.webmanifest.apple-touch-icon.label": fields.text({
+      label: "Website: Webmanifest, Apple touch icon, label",
       validation: { length: { min: 1, max: 255 } },
     }),
-    "website.og-image.description": fields.text({
-      label: "Website: OG Image, description",
+    "website.webmanifest.apple-touch-icon.description": fields.text({
+      label: "Website: Webmanifest, Apple touch icon, description",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "website.webmanifest.android-touch-icon.label": fields.text({
+      label: "Website: Webmanifest, Android touch icon, label",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "website.webmanifest.android-touch-icon.description": fields.text({
+      label: "Website: Webmanifest, Android touch icon, description",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "website.webmanifest.android-splash-icon.label": fields.text({
+      label: "Website: Webmanifest, Android splash icon, label",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "website.webmanifest.android-splash-icon.description": fields.text({
+      label: "Website: Webmanifest, Android splash icon, description",
       validation: { length: { min: 1, max: 255 } },
     }),
     "website.comments.label": fields.text({

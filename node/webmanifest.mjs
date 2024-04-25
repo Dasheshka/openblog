@@ -13,12 +13,12 @@ const webmanifest = {
   background_color: websiteConfig.webmanifest.bgColor,
   icons: [
     {
-      src: "/android-chrome-192x192.png",
+      src: websiteConfig.webmanifest.androidTouchIcon,
       sizes: "192x192",
       type: "image/png",
     },
     {
-      src: "/android-chrome-512x512.png",
+      src: websiteConfig.webmanifest.androidSplashIcon,
       sizes: "512x512",
       type: "image/png",
     },
