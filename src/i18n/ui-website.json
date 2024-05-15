@@ -12,5 +12,6 @@
   "label.header.theme": "Light / Dark theme",
   "label.pagination.first-page": "Go to the first page",
   "label.pagination.go-to-page": "Go to the page",
-  "label.pagination.last-page": "Go to the last page"
+  "label.pagination.last-page": "Go to the last page",
+  "label.toc": "Show / Hide Table of contents"
 }

@@ -41,13 +41,21 @@ const headingStyles =
     {
       toc.map((heading) => (
         <li>
-          <a class={headingStyles} href={`#${heading.slug}`}>
+          <a
+            class={headingStyles}
+            href={`#${heading.slug}`}
+            x-on:click="isTocVisibleInMobile = false"
+          >
             {heading.text}
           </a>
           {heading.subheadings.length > 0 && (
             <ul class="border-l border-slate-950/10 pl-3 dark:border-slate-50/10">
               {heading.subheadings.map((subheading: typeof heading) => (
-                <a class={headingStyles} href={`#${subheading.slug}`}>
+                <a
+                  class={headingStyles}
+                  href={`#${subheading.slug}`}
+                  x-on:click="isTocVisibleInMobile = false"
+                >
                   {subheading.text}
                 </a>
               ))}

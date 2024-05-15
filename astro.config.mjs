@@ -1,3 +1,4 @@
+import alpinejs from "@astrojs/alpinejs";
 import markdoc from "@astrojs/markdoc";
 import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
@@ -7,6 +8,7 @@ import keystatic from "@keystatic/astro";
 import pagefind from "astro-pagefind";
 import { defineConfig } from "astro/config";
 
+// https://astro.build/config
 export default defineConfig({
   site: "https://blueopenblog.vercel.app/",
   output: "hybrid",
@@ -19,6 +21,7 @@ export default defineConfig({
     ],
   },
   integrations: [
+    alpinejs(),
     keystatic(),
     markdoc(),
     pagefind(),

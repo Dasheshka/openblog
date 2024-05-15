@@ -62,5 +62,9 @@ export const uiWebsite = singleton({
       label: "Label: Pagination, Last page",
       validation: { length: { min: 1, max: 255 } },
     }),
+    "label.toc": fields.text({
+      label: "Label: Table of contents",
+      validation: { length: { min: 1, max: 255 } },
+    }),
   },
 });
