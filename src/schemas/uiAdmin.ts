@@ -115,11 +115,43 @@ export const uiAdmin = singleton({
       validation: { length: { min: 1, max: 255 } },
     }),
     "posts.body.cloud-image.src.label": fields.text({
-      label: "Posts: Body, Cloud image, src, label",
+      label: "Posts: Body, Cloud image, Src, label",
       validation: { length: { min: 1, max: 255 } },
     }),
     "posts.body.cloud-image.src.description": fields.text({
-      label: "Posts: Body, Cloud image, src, description",
+      label: "Posts: Body, Cloud image, Src, description",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "posts.body.cloud-image.alt.label": fields.text({
+      label: "Posts: Body, Cloud image, Alt, label",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "posts.body.cloud-image.alt.description": fields.text({
+      label: "Posts: Body, Cloud image, Alt, description",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "posts.body.gallery.label": fields.text({
+      label: "Posts: Body, Gallery, label",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "posts.body.gallery.images.label": fields.text({
+      label: "Posts: Body, Gallery, Images, label",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "posts.body.gallery.images.width.label": fields.text({
+      label: "Posts: Body, Gallery, Images, Width, label",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "posts.body.gallery.images.width.description": fields.text({
+      label: "Posts: Body, Gallery, Images, Width, description",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "posts.body.gallery.images.height.label": fields.text({
+      label: "Posts: Body, Gallery, Images, Height, label",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "posts.body.gallery.images.height.description": fields.text({
+      label: "Posts: Body, Gallery, Images, Height, description",
       validation: { length: { min: 1, max: 255 } },
     }),
     "categories.title.label": fields.text({

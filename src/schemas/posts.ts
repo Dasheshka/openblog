@@ -95,7 +95,68 @@ export const posts = collection({
                 "ui-admin",
                 "posts.body.cloud-image.src.description",
               ),
+              validation: { length: { min: 1, max: 1275 } },
             }),
+            alt: fields.text({
+              label: t("ui-admin", "posts.body.cloud-image.alt.label"),
+              description: t(
+                "ui-admin",
+                "posts.body.cloud-image.alt.description",
+              ),
+            }),
+          },
+        }),
+        Gallery: block({
+          label: t("ui-admin", "posts.body.gallery.label"),
+          schema: {
+            images: fields.array(
+              fields.object({
+                src: fields.text({
+                  label: t("ui-admin", "posts.body.cloud-image.src.label"),
+                  description: t(
+                    "ui-admin",
+                    "posts.body.cloud-image.src.description",
+                  ),
+                  validation: { length: { min: 1, max: 1275 } },
+                }),
+                alt: fields.text({
+                  label: t("ui-admin", "posts.body.cloud-image.alt.label"),
+                  description: t(
+                    "ui-admin",
+                    "posts.body.cloud-image.alt.description",
+                  ),
+                }),
+                width: fields.integer({
+                  label: t("ui-admin", "posts.body.gallery.images.width.label"),
+                  description: t(
+                    "ui-admin",
+                    "posts.body.gallery.images.width.description",
+                  ),
+                  validation: {
+                    min: 150,
+                    max: 3000,
+                  },
+                }),
+                height: fields.integer({
+                  label: t(
+                    "ui-admin",
+                    "posts.body.gallery.images.height.label",
+                  ),
+                  description: t(
+                    "ui-admin",
+                    "posts.body.gallery.images.height.description",
+                  ),
+                  validation: {
+                    min: 150,
+                    max: 3000,
+                  },
+                }),
+              }),
+              {
+                label: t("ui-admin", "posts.body.gallery.images.label"),
+                itemLabel: (props) => props.fields.src.value,
+              },
+            ),
           },
         }),
       },

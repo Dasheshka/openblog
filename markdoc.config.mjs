@@ -16,9 +16,18 @@ export default defineMarkdocConfig({
   },
   tags: {
     CloudImage: {
-      render: component("./src/components/CloudImage.astro"),
+      render: component("./src/components/md/CloudImage.astro"),
       attributes: {
         src: { type: String },
+        alt: { type: String },
+      },
+    },
+    Gallery: {
+      render: component("./src/components/md/Gallery.astro"),
+      attributes: {
+        images: {
+          type: Array,
+        },
       },
     },
   },

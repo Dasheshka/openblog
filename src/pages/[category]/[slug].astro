@@ -76,32 +76,36 @@ export const getStaticPaths = async () => {
         loading="eager"
       />
     </div>
-    <div class="relative flex gap-8" x-data="{ isTocVisibleInMobile: false }">
+    <div class="relative flex" x-data="{ isTocVisibleInMobile: false }">
       <aside
-        class="absolute left-0 top-0 h-full w-full rounded-lg bg-slate-50/95 p-2 transition-transform dark:bg-slate-950/95 lg:static lg:w-1/6 lg:transform-none lg:rounded-none lg:bg-transparent lg:p-0"
+        class="absolute left-0 top-0 h-full w-full rounded-lg bg-slate-50/95 p-2 transition-transform dark:bg-slate-950/95 lg:static lg:w-1/6 lg:transform-none lg:rounded-none lg:bg-transparent lg:p-0 lg:dark:bg-transparent"
         x-bind:class="!isTocVisibleInMobile && '-translate-x-[calc(100%+1rem)]'"
       >
         <div class="sticky top-6 lg:top-8">
           {headings?.length > 0 && <TableOfContents {headings} />}
         </div>
       </aside>
-      <div class="lg:w-4/6">
+      <div class="w-full lg:w-4/6 lg:px-8">
         <div
           class="prose prose-lg prose-slate max-w-none dark:prose-invert lg:prose-xl prose-img:rounded-lg"
         >
           <Content />
         </div>
       </div>
-      <div class="absolute right-0 top-0 h-full p-2">
-        <button
-          class="ghost-icon !sticky top-6 hover:text-pink-500 focus:text-pink-500 lg:hidden"
-          title={t("ui-website", "label.toc")}
-          aria-label={t("ui-website", "label.toc")}
-          x-on:click="isTocVisibleInMobile = !isTocVisibleInMobile"
-        >
-          <Icon name="list-letters" />
-        </button>
-      </div>
+      {
+        headings?.length > 0 && (
+          <div class="absolute right-0 top-0 h-full p-2">
+            <button
+              class="ghost-icon !sticky top-6 hover:text-pink-500 focus:text-pink-500 lg:hidden"
+              title={t("ui-website", "label.toc")}
+              aria-label={t("ui-website", "label.toc")}
+              x-on:click="isTocVisibleInMobile = !isTocVisibleInMobile"
+            >
+              <Icon name="list-letters" />
+            </button>
+          </div>
+        )
+      }
     </div>
     {
       comments && (
