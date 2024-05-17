@@ -1,4 +1,4 @@
-import { defineMarkdocConfig, nodes } from "@astrojs/markdoc/config";
+import { component, defineMarkdocConfig, nodes } from "@astrojs/markdoc/config";
 import shiki from "@astrojs/markdoc/shiki";
 
 export default defineMarkdocConfig({
@@ -12,6 +12,14 @@ export default defineMarkdocConfig({
     document: {
       ...nodes.document,
       render: null,
+    },
+  },
+  tags: {
+    CloudImage: {
+      render: component("./src/components/CloudImage.astro"),
+      attributes: {
+        src: { type: String },
+      },
     },
   },
 });

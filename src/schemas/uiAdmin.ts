@@ -110,6 +110,18 @@ export const uiAdmin = singleton({
       label: "Posts: Body, label",
       validation: { length: { min: 1, max: 255 } },
     }),
+    "posts.body.cloud-image.label": fields.text({
+      label: "Posts: Body, Cloud image, label",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "posts.body.cloud-image.src.label": fields.text({
+      label: "Posts: Body, Cloud image, src, label",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "posts.body.cloud-image.src.description": fields.text({
+      label: "Posts: Body, Cloud image, src, description",
+      validation: { length: { min: 1, max: 255 } },
+    }),
     "categories.title.label": fields.text({
       label: "Categories: Title, label",
       validation: { length: { min: 1, max: 255 } },

@@ -1,6 +1,7 @@
 import { getCategories, getTags } from "@/lib/content";
 import { t } from "@/utils";
 import { collection, fields } from "@keystatic/core";
+import { block } from "@keystatic/core/content-components";
 
 const categories = await getCategories();
 const CATEGORIES = categories.length
@@ -83,6 +84,20 @@ export const posts = collection({
       label: t("ui-admin", "posts.body.label"),
       options: {
         heading: [2, 3, 4, 5, 6],
+      },
+      components: {
+        CloudImage: block({
+          label: t("ui-admin", "posts.body.cloud-image.label"),
+          schema: {
+            src: fields.text({
+              label: t("ui-admin", "posts.body.cloud-image.src.label"),
+              description: t(
+                "ui-admin",
+                "posts.body.cloud-image.src.description",
+              ),
+            }),
+          },
+        }),
       },
     }),
   },
