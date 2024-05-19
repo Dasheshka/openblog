@@ -13,7 +13,7 @@
     "dev": "npm run svg && astro dev --host",
     "sync": "astro sync",
     "build": "npm run svg && node ./node/webmanifest.mjs && astro build",
-    "format": "prettier --write ./**/*.{css,astro,js,jsx,ts,tsx,cjs,mjs,md,mdoc,mdx,json,yaml}",
+    "format": "prettier --write ./**/*.{css,astro,js,jsx,ts,tsx,cjs,mjs,md,json,yaml}",
     "lint": "eslint ./",
     "pre-commit": "lint-staged",
     "prepare": "husky install"
