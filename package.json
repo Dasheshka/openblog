@@ -19,7 +19,7 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*.{css,astro,js,jsx,ts,tsx,cjs,mjs,md,mdx,mdoc,json,yaml}": [
+    "*.{css,astro,js,jsx,ts,tsx,cjs,mjs,md,json,yaml}": [
       "prettier --write"
     ]
   },

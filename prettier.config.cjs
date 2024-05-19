@@ -8,11 +8,5 @@ module.exports = {
         parser: "astro",
       },
     },
-    {
-      files: "*.mdoc",
-      options: {
-        parser: "mdx",
-      },
-    },
   ],
 };
