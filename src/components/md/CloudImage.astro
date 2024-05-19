@@ -1,5 +1,8 @@
 ---
-const { src, alt } = Astro.props;
+const { src, alt, figcaption } = Astro.props;
 ---
 
-<img {src} alt={alt || ""} />
+<figure>
+  <img {src} alt={alt || ""} />
+  {figcaption && <figcaption>{figcaption}</figcaption>}
+</figure>

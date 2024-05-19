@@ -130,6 +130,14 @@ export const uiAdmin = singleton({
       label: "Posts: Body, Cloud image, Alt, description",
       validation: { length: { min: 1, max: 255 } },
     }),
+    "posts.body.cloud-image.figcaption.label": fields.text({
+      label: "Posts: Body, Cloud image, Figcaption, label",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "posts.body.cloud-image.figcaption.description": fields.text({
+      label: "Posts: Body, Cloud image, Figcaption, description",
+      validation: { length: { min: 1, max: 255 } },
+    }),
     "posts.body.gallery.label": fields.text({
       label: "Posts: Body, Gallery, label",
       validation: { length: { min: 1, max: 255 } },

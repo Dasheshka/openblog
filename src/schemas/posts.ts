@@ -104,6 +104,13 @@ export const posts = collection({
                 "posts.body.cloud-image.alt.description",
               ),
             }),
+            figcaption: fields.text({
+              label: t("ui-admin", "posts.body.cloud-image.figcaption.label"),
+              description: t(
+                "ui-admin",
+                "posts.body.cloud-image.figcaption.description",
+              ),
+            }),
           },
         }),
         Gallery: block({
@@ -124,6 +131,16 @@ export const posts = collection({
                   description: t(
                     "ui-admin",
                     "posts.body.cloud-image.alt.description",
+                  ),
+                }),
+                figcaption: fields.text({
+                  label: t(
+                    "ui-admin",
+                    "posts.body.cloud-image.figcaption.label",
+                  ),
+                  description: t(
+                    "ui-admin",
+                    "posts.body.cloud-image.figcaption.description",
                   ),
                 }),
                 width: fields.integer({

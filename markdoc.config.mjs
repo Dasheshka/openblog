@@ -20,6 +20,7 @@ export default defineMarkdocConfig({
       attributes: {
         src: { type: String },
         alt: { type: String },
+        figcaption: { type: String },
       },
     },
     Gallery: {

@@ -39,6 +39,7 @@
     "astro": "4.8.4",
     "astro-pagefind": "^1.5.0",
     "photoswipe": "^5.4.3",
+    "photoswipe-dynamic-caption-plugin": "^1.2.7",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

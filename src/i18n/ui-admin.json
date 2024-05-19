@@ -30,6 +30,8 @@
   "posts.body.cloud-image.src.description": "Use an image hosting service like ImgBB or Imgur and paste the URL here",
   "posts.body.cloud-image.alt.label": "Alternate text",
   "posts.body.cloud-image.alt.description": "https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/alt",
+  "posts.body.cloud-image.figcaption.label": "Figcaption",
+  "posts.body.cloud-image.figcaption.description": "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figcaption",
   "posts.body.gallery.label": "Gallery",
   "posts.body.gallery.images.label": "Cloud images",
   "posts.body.gallery.images.width.label": "Width",

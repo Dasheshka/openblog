@@ -66,5 +66,25 @@ export const uiWebsite = singleton({
       label: "Label: Table of contents",
       validation: { length: { min: 1, max: 255 } },
     }),
+    "gallery.close": fields.text({
+      label: "Gallery: Close",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "gallery.zoom": fields.text({
+      label: "Gallery: Zoom",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "gallery.previous": fields.text({
+      label: "Gallery: Previous",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "gallery.next": fields.text({
+      label: "Gallery: Next",
+      validation: { length: { min: 1, max: 255 } },
+    }),
+    "gallery.loading-error": fields.text({
+      label: "Gallery: Loading error",
+      validation: { length: { min: 1, max: 255 } },
+    }),
   },
 });
