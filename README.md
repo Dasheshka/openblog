@@ -8,6 +8,5 @@
 
 ## TODO
 
-- Add optional captions to PhotoSwipe
 - Do something about articles preview
 - Move the repo into a new one, create a GitHub Wiki with all the usage instructions
