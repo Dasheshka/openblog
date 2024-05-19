@@ -36,7 +36,7 @@
     "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
     "alpinejs": "^3.13.10",
-    "astro": "4.8.4",
+    "astro": "4.8.6",
     "astro-pagefind": "^1.5.0",
     "photoswipe": "^5.4.3",
     "photoswipe-dynamic-caption-plugin": "^1.2.7",
