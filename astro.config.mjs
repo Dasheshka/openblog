@@ -23,7 +23,7 @@ export default defineConfig({
   integrations: [
     alpinejs(),
     keystatic(),
-    markdoc(),
+    markdoc({ allowHTML: true }),
     pagefind(),
     react(),
     sitemap(),
